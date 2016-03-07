@@ -1,5 +1,7 @@
 # Web(/App) Dev Course
 
+http://www.teaching-materials.org/javascript/
+
 <!-- MarkdownTOC autolink=true autoanchor=true bracket=round-->
 
 - [Text Editing 1: using the text editor Sublime Text 3 (20 min)](#text-editing-1-using-the-text-editor-sublime-text-3-20-min)
@@ -187,6 +189,9 @@ Basic styling of the text adventure
   + Boolean
     * relation to other types
   + undefined/null
+- Assigning an expression to a variable
+- Variable names
+- Comments
 
 <a name="js-exercise-1-playing-with-variables"></a>
 ### JS Exercise 1: playing with variables
@@ -216,7 +221,11 @@ Interactive game in the browser in the debugger command line.
 <a name="js-lesson-2-programming-basics-functions"></a>
 ### JS Lesson 2: programming basics functions
 - definition
-- Scope: global vs local
+- arguments
+- return value
+- Variable scope: global vs local
+- Code style: brackets, spaces, names
+- jsFiddle examples to get help
 
 <a name="js-lesson-2-jquery-basics"></a>
 ### JS Lesson 2: jQuery basics
