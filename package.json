@@ -1,0 +1,28 @@
+{
+  "name": "learn-web-development",
+  "version": "0.0.1",
+  "description": "Teaching materials for learing web development",
+  "main": "index.js",
+  "scripts": {
+    "start": "cleaver watch src/01-text-editing-1.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/select/learn-web-development.git"
+  },
+  "keywords": [
+    "teaching",
+    "learing",
+    "howto"
+  ],
+  "author": "select @ github",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/select/learn-web-development/issues"
+  },
+  "homepage": "https://github.com/select/learn-web-development#readme",
+  "dependencies": {
+    "cleaver": "^0.8.2"
+  }
+}
