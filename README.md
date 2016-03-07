@@ -24,8 +24,9 @@ http://www.teaching-materials.org/javascript/
     - [JS Exercise 1: playing with variables](#js-exercise-1-playing-with-variables)
     - [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
     - [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
-    - [JS Lesson 2: programming basics functions](#js-lesson-2-programming-basics-functions)
-    - [JS Lesson 2: jQuery basics](#js-lesson-2-jquery-basics)
+    - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
+    - [JS Lesson 4: jQuery basics](#js-lesson-4-jquery-basics)
+    - [JS Lesson 5: ajax](#js-lesson-5-ajax)
 - [RegEx](#regex)
 - [JS (server)](#js-server)
 
@@ -33,7 +34,7 @@ http://www.teaching-materials.org/javascript/
 
 
 <a name="text-editing-1-using-the-text-editor-sublime-text-3-20-min"></a>
-## Text Editing 1: using the text editor Sublime Text 3 (20 min)
+## [Text Editing 1: using the text editor Sublime Text 3](https://rawgit.com/select/learn-web-development/master/dist/01-text-editing-1.html) (20 min)
 use dyslexic plugin
 - You will have to write a lot, write only what you really need.
 - Don't use your mouse, use your brain
@@ -218,8 +219,8 @@ Interactive game in the browser in the debugger command line.
 Interactive game in the browser in the debugger command line.
 - add array of numbers
 
-<a name="js-lesson-2-programming-basics-functions"></a>
-### JS Lesson 2: programming basics functions
+<a name="js-lesson-3-programming-basics-functions"></a>
+### JS Lesson 3: programming basics functions
 - definition
 - arguments
 - return value
@@ -227,8 +228,11 @@ Interactive game in the browser in the debugger command line.
 - Code style: brackets, spaces, names
 - jsFiddle examples to get help
 
-<a name="js-lesson-2-jquery-basics"></a>
-### JS Lesson 2: jQuery basics
+<a name="js-lesson-4-jquery-basics"></a>
+### JS Lesson 4: jQuery basics
+
+<a name="js-lesson-5-ajax"></a>
+### JS Lesson 5: ajax
 
 <a name="regex"></a>
 ## RegEx
