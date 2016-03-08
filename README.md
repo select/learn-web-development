@@ -37,8 +37,8 @@ http://www.teaching-materials.org/javascript/
 ## Text Editing 1: using the text editor Sublime Text 3 (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-1.html).
 - Write less, but lots of it
-- Don't use your mouse, use your brain
 - Learn the 10 finger system
+- Don't use your mouse, use your brain
 - Universal keyboard shortcuts that you must know
 - How to learn keyboard shortcuts: 2 every week
 

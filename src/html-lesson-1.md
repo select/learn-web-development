@@ -33,16 +33,16 @@ XML was created to organize any **text-based** information in a **machine-readab
 
 The format can be **user defined**.
 --
-### The element: tag, property="value", content
+### The element: tag, attribute="value", content
 This is an element.
 ```xml
-<mytagname myprop="some value">
+<mytagname myattr="some value">
   The element content
 </mytagname>
 ```
 This is an empty element.
 ```xml
-<othertag myprop="some value" />
+<othertag myattr="some value" />
 ```
 
 --

@@ -100,3 +100,45 @@ With a link you can refernece another document and <br>
 let your reader access it **INSTANTLY**
 
 Yaay no more going to the library.
+
+--
+### References: local, external
+The `href` attribute can take absolute paths
+```html
+<a href="/starts/with/slash.html">absulte root</a>
+```
+or relative paths, where you *can* leave away the `./`
+```html
+<a href="with/slash.html">I'm relative</a>
+```
+or URL that link to external files
+```html
+<a href="https://xkcd.com/1144/">Re: Re: fun</a>
+```
+
+--
+### The **U**niform **R**esource **L**ocator
+<span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span>
+
+<span style="color:#F6AE2D;">The Protocol</span> <br>
+Tells how the data will be transported.
+
+<span style="color:#66D9EF;">The Host</span> <br>
+Maps (with some detours) to a computer.
+
+<span style="color:#F26419;">The Path</span> <br>
+Is used to find the requested data on the host computer.
+
+--
+### The **U**niform **R**esource **L**ocator
+<span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span>
+
+<span style="color:#F6AE2D;">The Protocol</span> <br>
+Your browser knows `http`, `https`, `ftp`, `file`.
+
+<span style="color:#66D9EF;">The Host</span> <br>
+Is not case sensitve. `wWw.gOoGlE.CoM`
+
+<span style="color:#F26419;">The Path</span> <br>
+Is (almost always) case sensitve, just like the file system<br>
+... on GUN/Linux.

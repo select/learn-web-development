@@ -518,6 +518,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -597,7 +598,40 @@ let your reader access it <strong>INSTANTLY</strong></p>
 <p>Yaay no more going to the library.</p>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-9">
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h3 id="references-local-external">References: local, external</h3>
+<p>The <code>href</code> attribute can take absolute paths</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/starts/with/slash.html"</span>&gt;</span>absulte root<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>or relative paths, where you <em>can</em> leave away the <code>./</code></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"with/slash.html"</span>&gt;</span>I'm relative<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>or URL that link to external files</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-10">
+    <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
+<p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
+<p><span style="color:#F6AE2D;">The Protocol</span> <br>
+Tells how the data will be transported.</p>
+<p><span style="color:#66D9EF;">The Host</span> <br>
+Maps (with some detours) to a computer.</p>
+<p><span style="color:#F26419;">The Path</span> <br>
+Is used to find the requested data on the host computer.</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-11">
+    <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
+<p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
+<p><span style="color:#F6AE2D;">The Protocol</span> <br>
+Your browser knows <code>http</code>, <code>https</code>, <code>ftp</code>, <code>file</code>.</p>
+<p><span style="color:#66D9EF;">The Host</span> <br>
+Is not case sensitve. <code>wWw.gOoGlE.CoM</code></p>
+<p><span style="color:#F26419;">The Path</span> <br>
+Is (almost always) case sensitve, just like the file system<br>
+... on GUN/Linux.</p>
+</section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-12">
     <section class="slide-content"><div class="author">
   <h1 class="name">select @ github</h1>
     <h3 class="twitter">
