@@ -118,6 +118,7 @@ What needs to be done:
 ## CSS
 <a name="css-lesson-1-basics-20-min"></a>
 ### CSS Lesson 1: basics (20 min)
+Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/css-lesson-1.html).
 - Cascading Style Sheets: CSS is a stylesheet language that describes the presentation of an HTML (or XML)
 - Syntax: Selector - Declaration (property: value)
 - Selectors 1: tag selector
@@ -147,6 +148,7 @@ Basic styling of the text adventure
 
 <a name="css-lesson-2-more-selectors-15-min"></a>
 ### CSS Lesson 2: more selectors (15 min)
+Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/css-lesson-2.html).
 - Selectors 2: `nested tags`, `nested>tags`
 - Selectors 3: `.class`, `#id`
 - Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`

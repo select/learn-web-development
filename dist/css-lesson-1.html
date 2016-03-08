@@ -79,6 +79,7 @@ img.badge {
   left: 0;
   padding: 100px;
   z-index: 1;
+  overflow: hidden;
 }
 .slide::before {
   position: absolute;
@@ -518,6 +519,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -548,42 +550,91 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <section class="slide-content"><h3 id="selectors-1-tag-selector">Selectors 1: tag selector</h3>
 <p>If we want to e.g. change the color of a heading <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> we must first find it.</p>
 <pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
-    <span class="hljs-comment">/* comment: TODO change the color*/</span>
+    <span class="hljs-comment">/* comment, change the color*/</span>
 }</code></pre>
 <p>It&#39;s as easy as specifing the tag name.</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-5">
-    <section class="slide-content"><h3 id="text-properties-">Text properties:</h3>
+    <section class="slide-content"><h3 id="text-properties">Text properties</h3>
 <p><code>color</code>, <code>text-align</code>, <code>text-decoration</code>, <code>text-transformation</code></p>
-<p>Lety play with some text properties and see that they do</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">color</span>: red;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">text-decoration</span>: underline;
+}
+<span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#001122</span>;
+    <span class="hljs-attribute">text-transform</span>: uppercase;
+}</code></pre>
+<p>… one more thing about colors</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
     <section class="slide-content"><h3 id="color-values-in-r-g-b-a-">Color values in r g b (a)</h3>
+<p>The three basic colors
+<span style="color: red">red</span> <span style="color: rgb( 0, 255, 0)">green</span> <span style="color: blue">blue</span>
+combined, are used to define all web colors.
+Each with different intensity between 0 and 255.</p>
+<table>
+    <thead>
+        <tr>
+            <th>rgb</th>
+            <th>hex</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <span style="color: rgb( 255, 0, 0)">rgb( 255, 0, 0)</span><br>
+                <span style="color: rgb( 0, 255, 0)">rgb( 0, 255, 0)</span><br>
+                <span style="color: rgb( 0, 0, 255)">rgb( 0, 0, 255)</span><br>
+            </td>
+            <td>
+                <span style="color: #ff0000">#ff0000</span><br>
+                <span style="color: #00ff00">#00ff00</span><br>
+                <span style="color: #0000ff">#0000ff</span><br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>Do you know <a href="https://en.wikipedia.org/wiki/Additive_color">additative color mixing</a> <a href="https://goo.gl/pvhdpY">?</a></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="font-properties-font-family-font-size-font-weight-">Font properties: <code>font-family</code>, <code>font-size</code>, <code>font-weight</code></h3>
+    <section class="slide-content"><h3 id="color-values-in-r-g-b-a-">Color values in r g b (a)</h3>
+<p><a href="https://en.wikipedia.org/wiki/Web_colors#X11_color_names">Wikipedia web colors</a> or find matching <a href="https://coolors.co/app">Coolors</a>
+<img src="x11colors.jpg" alt="X11 colors"/></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="background-properties-background-color-url-">Background properties: <code>background</code> <code>-color</code> <code>-url</code></h3>
+    <section class="slide-content"><h3 id="text-properties-">Text properties:</h3>
+<p><a class="jsbin-embed" href="http://jsbin.com/woyabo/embed?css,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="other-properties-1-the-box-model-border-margin-padding-">Other properties 1: the box model <code>border</code>, <code>margin</code>, <code>padding</code></h3>
+    <section class="slide-content"><h3 id="font-properties-font-family-font-size-font-weight-">Font properties: <code>font-family</code>, <code>font-size</code>, <code>font-weight</code></h3>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h3 id="other-porperties-2-float-">Other porperties 2: <code>float</code></h3>
+    <section class="slide-content"><h3 id="background-properties-background-color-url-">Background properties: <code>background</code> <code>-color</code> <code>-url</code></h3>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
+    <section class="slide-content"><h3 id="other-properties-1-the-box-model-border-margin-padding-">Other properties 1: the box model <code>border</code>, <code>margin</code>, <code>padding</code></h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-12">
+    <section class="slide-content"><h3 id="other-porperties-2-float-">Other porperties 2: <code>float</code></h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h3 id="sources-inline-style-porperty-internal-lt-style-gt-tag-external-file">Sources: inline style porperty, internal &lt;style&gt; tag, external file</h3>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-12">
+  <div class="slide hidden author-slide" id="slide-14">
     <section class="slide-content"><div class="author">
   <h1 class="name">select @ github</h1>
     <h3 class="twitter">
