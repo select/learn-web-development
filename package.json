@@ -4,8 +4,9 @@
   "description": "Teaching materials for learing web development",
   "main": "index.js",
   "scripts": {
-    "start": "cleaver watch src/01-text-editing-1.md",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cleaver watch src/html-lesson-2.md",
+    "watch2": "cleaver watch src/html-lesson-1.md",
+    "watch1": "cleaver watch src/text-editing-1.md"
   },
   "repository": {
     "type": "git",
