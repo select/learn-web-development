@@ -593,22 +593,47 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"path/to/other-document.html"</span>&gt;</span>
   I'm a link. Nice to meet you.
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>With a link you can refernece another document and <br>
+<p>With a link you can reference another document and <br>
 let your reader access it <strong>INSTANTLY</strong></p>
 <p>Yaay no more going to the library.</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="references-local-external">References: local, external</h3>
-<p>The <code>href</code> attribute can take absolute paths</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/starts/with/slash.html"</span>&gt;</span>absulte root<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>or relative paths, where you <em>can</em> leave away the <code>./</code></p>
+    <section class="slide-content"><h3 id="references-within-local-external">References: within, local, external</h3>
+<p>The <code>href</code> attribute can reference within a file</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapert1"</span>&gt;</span>go to chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>or to another local file</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"with/slash.html"</span>&gt;</span>I'm relative<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>or URL that link to external files</p>
+<p>or to an external file.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">
+    <section class="slide-content"><h3 id="reference-within-anchor">Reference within: anchor</h3>
+<p>To reference a within a document use an anchor</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chapter4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-comment">&lt;!-- this is invisible --&gt;</span></code></pre>
+<p>then create a link that points to that anchor</p>
+<pre><code class="lang-html">Click <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapter4"</span>&gt;</span>here<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> to read chapter 4.</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-11">
+    <section class="slide-content"><h3 id="reference-local-absolute-relative">Reference local: absolute, relative</h3>
+<p>The <code>href</code> attribute can take absolute paths</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/starts/with/slash.html"</span>&gt;</span>absolute root<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>or relative paths, where you <em>can</em> leave away the <code>./</code>.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"with/slash.html"</span>&gt;</span>I'm relative<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>Do you remember moving one level up?</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../its/possible.html"</span>&gt;</span>sacré bleu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-12">
+    <section class="slide-content"><h3 id="reference-external">Reference external</h3>
+<p>To reference external files use a URL</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>Yeay computer gibberish, let&#39;s see what it means<a href="https://xkcd.com/1144/">.</a></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
 <p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
 <p><span style="color:#F6AE2D;">The Protocol</span> <br>
@@ -619,7 +644,7 @@ Maps (with some detours) to a computer.</p>
 Is used to find the requested data on the host computer.</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
 <p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
 <p><span style="color:#F6AE2D;">The Protocol</span> <br>
@@ -631,7 +656,7 @@ Is (almost always) case sensitve, just like the file system<br>
 ... on GUN/Linux.</p>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-12">
+  <div class="slide hidden author-slide" id="slide-15">
     <section class="slide-content"><div class="author">
   <h1 class="name">select @ github</h1>
     <h3 class="twitter">

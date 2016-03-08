@@ -96,25 +96,61 @@ The hyperlink is one of *the* inventions of the 20th centry
   I'm a link. Nice to meet you.
 </a>
 ```
-With a link you can refernece another document and <br>
+With a link you can reference another document and <br>
 let your reader access it **INSTANTLY**
 
 Yaay no more going to the library.
 
 --
-### References: local, external
-The `href` attribute can take absolute paths
+### References: within, local, external
+The `href` attribute can reference within a file
 ```html
-<a href="/starts/with/slash.html">absulte root</a>
+<a href="#chapert1">go to chapter 1</a>
 ```
-or relative paths, where you *can* leave away the `./`
+or to another local file
 ```html
 <a href="with/slash.html">I'm relative</a>
 ```
-or URL that link to external files
+or to an external file.
 ```html
 <a href="https://xkcd.com/1144/">Re: Re: fun</a>
 ```
+
+--
+### Reference within: anchor
+To reference a within a document use an anchor
+```html
+<a name="chapter4"></a> <!-- this is invisible -->
+```
+then create a link that points to that anchor
+```html
+Click <a href="#chapter4">here</a> to read chapter 4.
+```
+
+
+--
+### Reference local: absolute, relative
+The `href` attribute can take absolute paths
+```html
+<a href="/starts/with/slash.html">absolute root</a>
+```
+or relative paths, where you *can* leave away the `./`.
+```html
+<a href="with/slash.html">I'm relative</a>
+```
+Do you remember moving one level up?
+```html
+<a href="../its/possible.html">sacré bleu</a>
+```
+
+
+--
+### Reference external
+To reference external files use a URL
+```html
+<a href="https://xkcd.com/1144/">Re: Re: fun</a>
+```
+Yeay computer gibberish, let's see what it means<a href="https://xkcd.com/1144/">.</a>
 
 --
 ### The **U**niform **R**esource **L**ocator

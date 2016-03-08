@@ -1,7 +1,5 @@
 # Web(/App) Dev Course
 
-http://www.teaching-materials.org/javascript/
-
 <!-- MarkdownTOC autolink=true autoanchor=true bracket=round-->
 
 - [Text Editing 1: using the text editor Sublime Text 3 (20 min)](#text-editing-1-using-the-text-editor-sublime-text-3-20-min)
@@ -29,6 +27,7 @@ http://www.teaching-materials.org/javascript/
   - [JS Lesson 5: ajax](#js-lesson-5-ajax)
 - [RegEx](#regex)
 - [JS (server)](#js-server)
+- [Inspirations](#inspirations)
 
 <!-- /MarkdownTOC -->
 
@@ -41,28 +40,28 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Don't use your mouse, use your brain
 - Universal keyboard shortcuts that you must know
 - How to learn keyboard shortcuts: 2 every week
-
+<!-- 
 Survey: who knows keyboard shortcut a,b,c ... Introduction game, explain the keyshortcut
 
 or send each participant a keyboard shortcut beforehand that they must learn.
-
+ -->
 <a name="html"></a>
 ## HTML
 <a name="html-lesson-1-basics-20-min"></a>
 ### HTML Lesson 1: basics (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/html-lesson-1.html).
-  - HTML stands for Hyper Text Markup Language
-  - similar to XML
-  - What is XML
-  - What is a tag, property="value", content
-  - Tags create a tree structure
-  - Well formed / not well formed
-  - Escaping charcters, comments
-  - HTML - a language to strucure/layout text
-  - Tags: `html`, `head`, `body`
-  - Tags in head: `title`, `favicon`
-  - Tags in the body 1: `h1`, `p`, `i`, `b`, `hr`
-  - Tags in the body 2: `ul>li`, `table>th,tr>td`
+- HTML stands for Hyper Text Markup Language
+- HTML is similar to XML
+- What is XML
+- The element: tag, attribute="value", content
+- Tags create a tree structure
+- Well-formed / not well-formed
+- Escaping charcters, comments
+- HTML - a language to strucure and layout text and images
+- Tags: `html`, `head`, `body`
+- Tags in `head`: `title`, `favicon`
+- Tags in the `body` 1: `h1`, `p`, `i`, `b`, `br`, `hr`
+- Tags in the `body` 2: `table>tr>th,td`, `ul>li`
 
 <a name="text-editing-2-project-setup-10-min"></a>
 ### Text Editing 2: Project Setup (10 min)
@@ -72,7 +71,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 <a name="html-exercise-1-my-first-html-page-15-min"></a>
 ### HTML Exercise 1: My first HTML page (15 min)
 Create a website containing the elements: `h1`,`h2`,`h3`,`p`,`ul`,`li`,`table`,`th`,`tr`,`td`,`img`
-
+<!-- 
   - h1 - h6 Heading
   - p Paragraph
   - i,b Italic, Bold
@@ -82,7 +81,7 @@ Create a website containing the elements: `h1`,`h2`,`h3`,`p`,`ul`,`li`,`table`,`
   - hr  Horizontal Rule
   - img Image
   - div Division
-
+ -->
 <a name="html-lesson-2-image-and-hyperlink-20-min"></a>
 ### HTML Lesson 2: image and hyperlink (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/html-lesson-2.html).
@@ -93,12 +92,16 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Moving one level up
 - Did you get it already?
 - The hyperlink/anchor tag `a`
-- The hyperlink: url, path, anchor
+- References: within, local, external
+- References within: anchor
+- References local: absolute, relative
+- Reference external
+- The **U**niform **R**esource **L**ocator
 
 <a name="text-editing-3-working-with-many-files-better-html-editing-15-min"></a>
 ### Text Editing 3: Working with many files; better HTML editing (15 min)
 - Navigating in the project (<kbd>Ctrl</kbd><kbd>P</kbd>)
-- Plugins: installing Package Control
+- Installing plugins with Package Control
 - Plugins: Emmet, All Autocomplete
 - Finding commands and using commands without specific shortcut <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd>
 - multi selection <kbd>Ctrl</kbd><kbd>D</kbd>
@@ -235,3 +238,12 @@ Interactive game in the browser in the debugger command line.
 ## JS (server)
 
 Here is a link to a [test presentation](https://rawgit.com/select/learn-web-development/master/dist/test-presentation.html)
+
+<a name="inspirations"></a>
+## Inspirations
+
+https://docs.python.org/2/tutorial/index.html
+
+https://github.com/select/i-learn-python
+
+http://www.teaching-materials.org/javascript/
