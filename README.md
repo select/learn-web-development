@@ -122,6 +122,7 @@ What needs to be done:
 - Syntax: Selector - Declaration (property: value)
 - Selectors 1: tag selector
 - Text properties: `color`, `text-align`, `text-decoration`, `text-transformation`
+- Color values in r g b (a)
 - Font properties: `font-family`, `font-size`, `font-weight`
 - Background properties: `background` `-color` `-url`
 - Other properties 1: the box model `border`, `margin`, `padding`
@@ -131,37 +132,38 @@ What needs to be done:
 <a name="text-editing-4-new-source-code-types-5-min"></a>
 ### Text Editing 4: new source code types (5 min)
 - Switching the souce code highlighting, indentation control
-- Plugins: Hayaku
 - Find and replace in (all) files <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd>
+- Plugins: Trailing Spaces
 
 <a name="css-exercise-1-styling-the-text-adventure-20-min"></a>
 ### CSS Exercise 1: styling the text adventure (20 min)
 Basic styling of the text adventure
-  - External CSS file
-  - background black
-  - nice font from http://google.com/fonts
-  - line-height for better readability
-  - margin for `h1`
+- External CSS file
+- background black
+- nice font from http://google.com/fonts
+- line-height for better readability
+- margin for `h1`
 
 
 <a name="css-lesson-2-more-selectors-15-min"></a>
 ### CSS Lesson 2: more selectors (15 min)
-  - Selectors 2: `nested tags`, `nested>tags`
-  - Selectors 3: `.class`, `#id`
-  - Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`
-  - Positioning: `absolute`, `relative`, `fixed`
+- Selectors 2: `nested tags`, `nested>tags`
+- Selectors 3: `.class`, `#id`
+- Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`
+- Positioning: `absolute`, `relative`, `fixed`
 
 <a name="text-editing-5-type-less-css-litterally-5-min"></a>
 ### Text Editing 5: type less CSS (litterally) (5 min)
-- Plugins: CSScomb, Trailing Spaces
+- Plugins: Hayaku
+- Plugins: CSScomb
 
 <a name="css-exercise-2-building-a-reusable-menu-with-a-button-15-min"></a>
 ### CSS Exercise 2: building a reusable menu with a button (15 min)
-  - bg color
-  - text-shadow
-  - selector for links with .button and button and div
-  - insert a "home" button into the text adventure
-  - button ttu
+- bg color
+- text-shadow
+- selector for links with .button and button and div
+- insert a "home" button into the text adventure
+- button ttu
 
 ---
 
