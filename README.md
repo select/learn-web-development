@@ -23,7 +23,7 @@
   - [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
   - [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
   - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
-  - [JS Lesson 4: jQuery basics](#js-lesson-4-jquery-basics)
+  - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
   - [JS Lesson 5: ajax](#js-lesson-5-ajax)
 - [RegEx](#regex)
 - [JS (server)](#js-server)
@@ -167,9 +167,9 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 
 <a name="css-exercise-2-building-a-reusable-menu-with-a-button-15-min"></a>
 ### CSS Exercise 2: building a reusable menu with a button (15 min)
-- bg color
-- text-shadow
-- selector for links with .button and button and div
+- `background-color`
+- `text-shadow`
+- selector for links with `.button` and `button`
 - insert a "home" button into the text adventure
 - button ttu
 
@@ -235,11 +235,22 @@ Interactive game in the browser in the debugger command line.
 - Code style: brackets, spaces, names
 - jsFiddle examples to get help
 
-<a name="js-lesson-4-jquery-basics"></a>
-### JS Lesson 4: jQuery basics
+<a name="js-lesson-4-dom-manipulation-basics"></a>
+### JS Lesson 4: DOM manipulation basics
+- Finding one element with `queryselector`
+- Finding a list of elemets with `queryselectorAll`
+- `$` alias `queryselector`
+- showing/hiding elements
+- add/remove a class of and element
+- moving elements in the DOM
 
 <a name="js-lesson-5-ajax"></a>
 ### JS Lesson 5: ajax
+- Async Javascript ... XML
+- loading a text file
+- loading a partial HTML and replacing an element
+- loading JSON
+- sending data, GET/POST
 
 <a name="regex"></a>
 ## RegEx
