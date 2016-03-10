@@ -1,7 +1,7 @@
 title: Text Editing 1 - using the text editor Sublime Text 3
 author:
-  name: select @ github
-  twitter: rockdapus
+  name: Falko Krause
+  github: select
   url: https://github.com/select/learn-web-development
 output: dist/text-editing-1.html
 theme: ./custom-theme

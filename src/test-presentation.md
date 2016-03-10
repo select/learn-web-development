@@ -1,7 +1,7 @@
 title: Test presentation
 author:
-  name: select @ github
-  twitter: rockdapus
+  name: Falko Krause
+  github: select
   url: https://github.com/select/learn-web-development
 output: dist/test-presentation.html
 controls: true
