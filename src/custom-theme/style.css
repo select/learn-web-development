@@ -109,7 +109,7 @@ img.badge {
 .controls {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  right: 10px;
   z-index: 3;
 }
 
@@ -413,6 +413,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     font-size: 70%;
   }
 
+  .slide {
+    padding: 50px;
+  }
+
   .slide-content {
     width: auto;
   }
@@ -443,6 +447,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     font-size: 50%;
   }
 
+  .slide {
+    padding: 10px;
+  }
   .slide-content {
     height: 340px;
     padding: 10px;
