@@ -1,7 +1,7 @@
 title: HTML Lesson 2 - Image and hyperlink
 author:
-  name: select @ github
-  twitter: rockdapus
+  name: Falko Krause
+  github: select
   url: https://github.com/select/learn-web-development
 output: dist/html-lesson-2.html
 theme: ./custom-theme
@@ -38,11 +38,11 @@ Access all your files by adding `/` between folders
 
 --
 ### An example folder structure
-Lets say we have to following folder structure
+Lets say we have the following folder structure
 ```
 o
 ├─o home
-│ └─o Desktop
+│ ├─o Desktop
 │ └─o Documents
 │
 ├─o media
@@ -52,6 +52,21 @@ o
 
 --
 ### From the current directory
+<div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-current" hidden>
+```
+    o
+    ├─o home
+    │ ├─★ Desktop
+    │ │ └─o web-dev-course
+    │ │   └─o presentation.md
+    │ └─o Documents
+    │
+    ├─o media
+    │ └─o MyUSBstick
+    …
+    ```
+</div>
+<span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-current').hidden = !document.querySelector('#dirs-current').hidden;"> ? show tree </span>
 if you are in e.g. `/home/Desktop` you can start with
 ```
 .
@@ -65,8 +80,23 @@ which is the same as writing
 /home/Desktop/web-dev-course/presentation.md
 ```
 
+
 --
 ### Moving one level up
+<div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-up" hidden>
+```
+    o
+    ├─o home
+    │ ├─★ Desktop
+    │ └─o Documents
+    │   └─o my-poem-about-love.txt
+    │
+    ├─o media
+    │ └─o MyUSBstick
+    …
+    ```
+</div>
+<span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-up').hidden = !document.querySelector('#dirs-up').hidden;"> ? show tree </span>
 Go one level up from `/home/Desktop` with
 ```
 ..
