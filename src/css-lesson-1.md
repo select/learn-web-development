@@ -1,7 +1,7 @@
 title: CSS Lesson 1 - Cascading Style Sheets basics
 author:
-  name: select @ github
-  twitter: rockdapus
+  name: Falko Krause
+  github: select
   url: https://github.com/select/learn-web-development
 output: dist/css-lesson-1.html
 theme: ./custom-theme
@@ -95,11 +95,113 @@ Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_col
 
 --
 ###Font properties: `font-family`, `font-size`, `font-weight`
+JS Bin here
+
 --
 ###Background properties: `background` `-color` `-url`
+JS Bin here
+
 --
 ###Other properties 1: the box model `border`, `margin`, `padding`
+JS Bin here
+
 --
 ###Other porperties 2: `float`
+JS Bin here
+
 --
-###Sources: inline style porperty, internal &lt;style&gt; tag, external file
+### Sources: inline style attribute, internal `<style>` tag, external file
+There are 3 ways to add CSS styles to your HTML file.
+
+- inline style attribute
+- internal `<style>` tag
+- external `.css` file
+
+--
+### Inline style attribute
+Write CSS code in a style attribute of a HTML element.
+```html
+<h3 style="color: red; font-weight: normal;">
+    I'm a subheader
+</h3>
+```
+You don't even need a selector for this one.
+
+--
+### Reasoning against inline styles
+It is not reccomended to use inline CSS styling.
+
+You **mix languages**, HTML and CSS, this is confusing.
+
+Inline styles are **not reusable**.
+
+Your text editor might has trouble autocompleting.
+
+--
+### Internal `<style>` tag
+Write a style tag into the `head` of your HTML.
+```html
+<html>
+    <head>
+        <style type="text/css" media="screen">
+           p {
+            line-height: 20px;
+           }
+        </style>
+    </head>
+    <body>…</body>
+</html>
+```
+Or anywhere else, but the `head` is the best place.
+
+--
+### Reasoning for and against internal `<style>` tags
+It's is not reccomended but there is a case for internal styles.
+
+<span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Mixing HTML and CSS.<br>
+<span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Can't reuse in different HTML files.
+
+<span style="color:white; background: #35EE35; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬆</span> Distribute a single file HTML application.<br>
+
+… we will learn this much later. For now **don't use** internal CSS.
+
+--
+### External `.css` file
+Link an external CSS file in the `head` of your HTML.
+```html
+<html>
+    <head>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>…</body>
+</html>
+```
+Then write pure CSS in `styles.css`
+```css
+body {
+    font-size: 16px;
+}
+```
+
+--
+<table style="font-size: 0.6em;">
+    <tr>
+        <td>
+            <ul style="list-style: none; padding: 0">
+                <li>`font-family` C W M</li>
+                <li>`font-size` C W M</li>
+                <li>`font-weight` C W M</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>`background-color`</li>
+                <li>`background-url`</li>
+            </ul>
+        </td>
+        <td>`border`, `margin`, `padding` `float`</td>
+    </tr>
+</table>
+
+
+https://css-tricks.com/almanac/properties/t/text-transform/
