@@ -24,20 +24,12 @@ Relax HTML is "almost" XML but more relaxed, everybody forgot to close them anyw
 
 `dir/path/image.jpg` Is you Windows broken? Paths go like `C:\windowse\system32\virus.dll`
 
-
 --
-### Moving down
+### An example folder structure
 All paths in GNU/Linux (and OS X) start from one root
 ```
 /
 ```
-Access all your files by adding `/` between folders
-```
-/media/MyUSBstick/secret-stash/rainbow-dash.jpg
-```
-
---
-### An example folder structure
 Lets say we have the following folder structure
 ```
 o
@@ -51,20 +43,37 @@ o
 ```
 
 --
+### Moving down
+```
+o
+├ …
+├─o media
+… └─o MyUSBstick
+    └─o secret-stash
+      └─o rainbow-dash.jpg
+
+```
+
+Access all your files by adding `/` between folders
+```
+/media/MyUSBstick/secret-stash/rainbow-dash.jpg
+```
+
+--
 ### From the current directory
 <div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-current" hidden>
 ```
-    o
-    ├─o home
-    │ ├─★ Desktop
-    │ │ └─o web-dev-course
-    │ │   └─o presentation.md
-    │ └─o Documents
-    │
-    ├─o media
-    │ └─o MyUSBstick
+o
+├─o home
+│ ├─★ Desktop
+│ │ └─o web-dev-course
+│ │   └─o presentation.md
+│ └─o Documents
+│
+├─o media
+│ └─o MyUSBstick
     …
-    ```
+```
 </div>
 <span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-current').hidden = !document.querySelector('#dirs-current').hidden;"> ? show tree </span>
 if you are in e.g. `/home/Desktop` you can start with
@@ -76,6 +85,21 @@ from the **current location** and go to a subfolder
 ./web-dev-course/presentation.md
 ```
 which is the same as writing
+```
+/home/Desktop/web-dev-course/presentation.md
+```
+
+--
+### From the current directory
+But since this is so common we can just leave away the
+```
+.
+```
+and write
+```
+web-dev-course/presentation.md
+```
+which is still the same as writing
 ```
 /home/Desktop/web-dev-course/presentation.md
 ```
