@@ -128,7 +128,13 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Background properties: `background` `-color` `-url`
 - Other properties 1: the box model `border`, `margin`, `padding`
 - Other porperties 2: `float`
-- Sources: inline style porperty, internal &lt;style&gt; tag, external file
+- Sources: inline style attribute, internal `<style>` tag, external file
+- Inline style attribute
+- Reasoning against inline styles
+- Internal `<style>` tag
+- Reasoning for and against internal `<style>` tags
+- External `.css` file
+- Css property cheat sheet
 
 <a name="text-editing-4-new-source-code-types-5-min"></a>
 ### Text Editing 4: new source code types (5 min)
