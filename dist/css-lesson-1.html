@@ -30,7 +30,7 @@ body {
   font-weight: 300;
   font-size: 100%;
   color: #191919;
-  /*background-color: #fafafa;*/
+  background-color: #000;
 }
 
 /* Custom Slide Styles */
@@ -71,6 +71,15 @@ img.badge {
 
 
 /* Presentation Styles */
+.slides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.slide-wrapper {
+  margin: 7px;
+  transition: all 250ms;
+}
 .slide {
   position: absolute;
   top: 0;
@@ -80,6 +89,8 @@ img.badge {
   padding: 100px;
   z-index: 1;
   overflow: hidden;
+  box-sizing: border-box;
+  background-color: #FFF;
 }
 .slide::before {
   position: absolute;
@@ -99,7 +110,7 @@ img.badge {
   z-index: 2;
   opacity: 1;
   max-width: 800px;
-  height: 600px;
+  max-height: 600px;
   margin: 80px auto 0 auto;
   padding: 0;
   font-size: 200%;
@@ -526,43 +537,54 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
+  <script src="transform.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body>
     <div class="progress">
     <div class="progress-bar"></div>
   </div>
 
-  <div class="slide" id="slide-1">
-    <section class="slide-content"><h1 id="css-lesson-1">CSS Lesson 1</h1>
+<div class="slides">
+    <div class="slide-wrapper">
+      <div class="slide" id="slide-1">
+        <section class="slide-content"><h1 id="css-lesson-1">CSS Lesson 1</h1>
 <h2 id="-c-ascading-s-tyle-s-heets-basics"><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets basics</h2>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-2">
-    <section class="slide-content"><h3 id="cascading-style-sheets">Cascading Style Sheets</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-2">
+        <section class="slide-content"><h3 id="cascading-style-sheets">Cascading Style Sheets</h3>
 <p>CSS is a language that describes the presentation of an HTML (or XML).</p>
 <p>It allows you to manipulate shapes, colors, places and even some dynamic properites of elements.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-3">
-    <section class="slide-content"><h3 id="syntax-selector-declaration-br-property-value">Syntax: selector, declaration <br>property: value</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-3">
+        <section class="slide-content"><h3 id="syntax-selector-declaration-br-property-value">Syntax: selector, declaration <br>property: value</h3>
 <pre><code class="lang-css"><span class="hljs-selector-tag">selector</span> {
     <span class="hljs-attribute">property</span>: value
 }</code></pre>
 <p>The basic syntax is quite simple. The selector syntax however is more complicated.</p>
 <p>Don&#39;t worry we will learn it piece by piece.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-4">
-    <section class="slide-content"><h3 id="selectors-1-tag-selector">Selectors 1: tag selector</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-4">
+        <section class="slide-content"><h3 id="selectors-1-tag-selector">Selectors 1: tag selector</h3>
 <p>If we want to e.g. change the color of a heading <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> we must first find it.</p>
 <pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
     <span class="hljs-comment">/* comment, change the color*/</span>
 }</code></pre>
 <p>It&#39;s as easy as specifing the tag name.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-5">
-    <section class="slide-content"><h3 id="text-properties">Text properties</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-5">
+        <section class="slide-content"><h3 id="text-properties">Text properties</h3>
 <p><code>color</code>, <code>text-align</code>, <code>text-decoration</code>, <code>text-transformation</code></p>
 <pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
     <span class="hljs-attribute">color</span>: red;
@@ -575,9 +597,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }</code></pre>
 <p>… one more thing about colors</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h3 id="color-values-in-r-g-b-a-">Color values in r g b (a)</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-6">
+        <section class="slide-content"><h3 id="color-values-in-r-g-b-a-">Color values in r g b (a)</h3>
 <p>The three basic colors
 <span style="color: red">red</span> <span style="color: rgb( 0, 255, 0)">green</span> <span style="color: blue">blue</span>
 combined, are used to define all web colors.
@@ -606,42 +630,57 @@ Each with different intensity between 0 and 255.</p>
 </table>
 
 
+
 <p>Do you know <a href="https://en.wikipedia.org/wiki/Additive_color">additative color mixing</a> <a href="https://goo.gl/pvhdpY">?</a></p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="color-values-in-r-g-b-a-">Color values in r g b (a)</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-7">
+        <section class="slide-content"><h3 id="color-values-in-r-g-b-a-">Color values in r g b (a)</h3>
 <p><a href="https://en.wikipedia.org/wiki/Web_colors#X11_color_names">Wikipedia web colors</a> or find matching <a href="https://coolors.co/app">Coolors</a>
 <img src="x11colors.jpg" alt="X11 colors"/></p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="text-properties">Text properties</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-8">
+        <section class="slide-content"><h3 id="text-properties">Text properties</h3>
 <p><a class="jsbin-embed" href="http://jsbin.com/woyabo/embed?css,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script></p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="font-properties-font-family-font-size-font-weight-">Font properties: <code>font-family</code>, <code>font-size</code>, <code>font-weight</code></h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-9">
+        <section class="slide-content"><h3 id="font-properties-font-family-font-size-font-weight-">Font properties: <code>font-family</code>, <code>font-size</code>, <code>font-weight</code></h3>
 <p>JS Bin here</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h3 id="background-properties-background-color-url-">Background properties: <code>background</code> <code>-color</code> <code>-url</code></h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-10">
+        <section class="slide-content"><h3 id="background-properties-background-color-url-">Background properties: <code>background</code> <code>-color</code> <code>-url</code></h3>
 <p>JS Bin here</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h3 id="other-properties-1-the-box-model-border-margin-padding-">Other properties 1: the box model <code>border</code>, <code>margin</code>, <code>padding</code></h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-11">
+        <section class="slide-content"><h3 id="other-properties-1-the-box-model-border-margin-padding-">Other properties 1: the box model <code>border</code>, <code>margin</code>, <code>padding</code></h3>
 <p>JS Bin here</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-12">
-    <section class="slide-content"><h3 id="other-porperties-2-float-">Other porperties 2: <code>float</code></h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-12">
+        <section class="slide-content"><h3 id="other-porperties-2-float-">Other porperties 2: <code>float</code></h3>
 <p>JS Bin here</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-13">
-    <section class="slide-content"><h3 id="sources-inline-style-attribute-internal-style-tag-external-file">Sources: inline style attribute, internal <code>&lt;style&gt;</code> tag, external file</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-13">
+        <section class="slide-content"><h3 id="sources-inline-style-attribute-internal-style-tag-external-file">Sources: inline style attribute, internal <code>&lt;style&gt;</code> tag, external file</h3>
 <p>There are 3 ways to add CSS styles to your HTML file.</p>
 <ul>
 <li>inline style attribute</li>
@@ -649,26 +688,32 @@ Each with different intensity between 0 and 255.</p>
 <li>external <code>.css</code> file</li>
 </ul>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-14">
-    <section class="slide-content"><h3 id="inline-style-attribute">Inline style attribute</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-14">
+        <section class="slide-content"><h3 id="inline-style-attribute">Inline style attribute</h3>
 <p>Write CSS code in a style attribute of a HTML element.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: red; font-weight: normal;"</span>&gt;</span>
     I'm a subheader
 <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></code></pre>
 <p>You don&#39;t even need a selector for this one.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-15">
-    <section class="slide-content"><h3 id="reasoning-against-inline-styles">Reasoning against inline styles</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-15">
+        <section class="slide-content"><h3 id="reasoning-against-inline-styles">Reasoning against inline styles</h3>
 <p>It is not reccomended to use inline CSS styling.</p>
 <p>You <strong>mix languages</strong>, HTML and CSS, this is confusing.</p>
 <p>Inline styles are <strong>not reusable</strong>.</p>
 <p>Your text editor might has trouble autocompleting.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-16">
-    <section class="slide-content"><h3 id="internal-style-tag">Internal <code>&lt;style&gt;</code> tag</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-16">
+        <section class="slide-content"><h3 id="internal-style-tag">Internal <code>&lt;style&gt;</code> tag</h3>
 <p>Write a style tag into the <code>head</code> of your HTML.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -682,18 +727,22 @@ Each with different intensity between 0 and 255.</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 <p>Or anywhere else, but the <code>head</code> is the best place.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-17">
-    <section class="slide-content"><h3 id="reasoning-for-and-against-internal-style-tags">Reasoning for and against internal <code>&lt;style&gt;</code> tags</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-17">
+        <section class="slide-content"><h3 id="reasoning-for-and-against-internal-style-tags">Reasoning for and against internal <code>&lt;style&gt;</code> tags</h3>
 <p>It&#39;s is not reccomended but there is a case for internal styles.</p>
 <p><span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Mixing HTML and CSS.<br>
 <span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Can&#39;t reuse in different HTML files.</p>
 <p><span style="color:white; background: #35EE35; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬆</span> Distribute a single file HTML application.<br></p>
 <p>… we will learn this much later. For now <strong>don&#39;t use</strong> internal CSS.</p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-18">
-    <section class="slide-content"><h3 id="external-css-file">External <code>.css</code> file</h3>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-18">
+        <section class="slide-content"><h3 id="external-css-file">External <code>.css</code> file</h3>
 <p>Link an external CSS file in the <code>head</code> of your HTML.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -706,9 +755,11 @@ Each with different intensity between 0 and 255.</p>
     <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
 }</code></pre>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-19">
-    <section class="slide-content"><p><!-- Css property cheat sheet --></p>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-19">
+        <section class="slide-content"><p><!-- Css property cheat sheet --></p>
 <table style="font-size: 0.6em;">
     <tr>
         <td>
@@ -731,9 +782,11 @@ Each with different intensity between 0 and 255.</p>
 
 <p><a href="https://css-tricks.com/almanac/properties/t/text-transform/">https://css-tricks.com/almanac/properties/t/text-transform/</a></p>
 </section>
-  </div>
-  <div class="slide hidden author-slide" id="slide-20">
-    <section class="slide-content"><div class="author">
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden author-slide" id="slide-20">
+        <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
       <a href="https://github.com/select">select</a>
@@ -743,7 +796,9 @@ Each with different intensity between 0 and 255.</p>
     </h3>
 </div>
 </section>
-  </div>
+      </div>
+    </div>
+</div>
 
   <div class="controls">
     <div class="arrow prev"></div>
