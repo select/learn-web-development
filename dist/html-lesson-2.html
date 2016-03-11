@@ -519,7 +519,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
-    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -541,15 +540,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
-    <section class="slide-content"><h3 id="moving-down">Moving down</h3>
+    <section class="slide-content"><h3 id="an-example-folder-structure">An example folder structure</h3>
 <p>All paths in GNU/Linux (and OS X) start from one root</p>
 <pre><code>/</code></pre>
-<p>Access all your files by adding <code>/</code> between folders</p>
-<pre><code>/media/MyUSBstick/secret-stash/rainbow-dash.jpg</code></pre>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-4">
-    <section class="slide-content"><h3 id="an-example-folder-structure">An example folder structure</h3>
 <p>Lets say we have the following folder structure</p>
 <pre><code>o
 ├─o home
@@ -561,18 +554,30 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 …</code></pre>
 </section>
   </div>
+  <div class="slide hidden" id="slide-4">
+    <section class="slide-content"><h3 id="moving-down">Moving down</h3>
+<pre><code>o
+├ …
+├─o media
+… └─o MyUSBstick
+    └─o secret-stash
+      └─o rainbow-dash.jpg</code></pre>
+<p>Access all your files by adding <code>/</code> between folders</p>
+<pre><code>/media/MyUSBstick/secret-stash/rainbow-dash.jpg</code></pre>
+</section>
+  </div>
   <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h3 id="from-the-current-directory">From the current directory</h3>
 <p><div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-current" hidden></p>
-<pre><code>    o
-    ├─o home
-    │ ├─★ Desktop
-    │ │ └─o web-dev-course
-    │ │   └─o presentation.md
-    │ └─o Documents
-    │
-    ├─o media
-    │ └─o MyUSBstick
+<pre><code>o
+├─o home
+│ ├─★ Desktop
+│ │ └─o web-dev-course
+│ │   └─o presentation.md
+│ └─o Documents
+│
+├─o media
+│ └─o MyUSBstick
     …</code></pre>
 <p></div>
 <span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-current').hidden = !document.querySelector('#dirs-current').hidden;"> ? show tree </span>
@@ -585,6 +590,16 @@ if you are in e.g. <code>/home/Desktop</code> you can start with</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h3 id="from-the-current-directory">From the current directory</h3>
+<p>But since this is so common we can just leave away the</p>
+<pre><code>.</code></pre>
+<p>and write</p>
+<pre><code>web-dev-course/presentation.md</code></pre>
+<p>which is still the same as writing</p>
+<pre><code>/home/Desktop/web-dev-course/presentation.md</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-7">
     <section class="slide-content"><h3 id="moving-one-level-up">Moving one level up</h3>
 <p><div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-up" hidden></p>
 <pre><code>    o
@@ -606,14 +621,14 @@ Go one level up from <code>/home/Desktop</code> with</p>
 <pre><code>/home/Documents/my-love-poem.txt</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-7">
+  <div class="slide hidden" id="slide-8">
     <section class="slide-content"><h3 id="did-you-get-it-already-">Did you get it already?</h3>
 <p>How do I go two levels up?</p>
 <p>Don&#39;t worry we will partice it in the exercise.</p>
 <p>Now lets move to <strong>H</strong> in HTML.</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-8">
+  <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h3 id="the-hyperlink-anchor-tag-a-">The hyperlink/anchor tag <code>a</code></h3>
 <p>The hyperlink is one of <em>the</em> inventions of the 20th centry</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"path/to/other-document.html"</span>&gt;</span>
@@ -624,7 +639,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
 <p>Yaay no more going to the library.</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
+  <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h3 id="references-within-local-external">References: within, local, external</h3>
 <p>The <code>href</code> attribute can reference within a file</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapert1"</span>&gt;</span>go to chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
@@ -634,7 +649,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="reference-within-anchor">Reference within: anchor</h3>
 <p>To reference a within a document use an anchor</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chapter4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-comment">&lt;!-- this is invisible --&gt;</span></code></pre>
@@ -642,7 +657,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
 <pre><code class="lang-html">Click <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapter4"</span>&gt;</span>here<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> to read chapter 4.</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
+  <div class="slide hidden" id="slide-12">
     <section class="slide-content"><h3 id="reference-local-absolute-relative">Reference local: absolute, relative</h3>
 <p>The <code>href</code> attribute can take absolute paths</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/starts/with/slash.html"</span>&gt;</span>absolute root<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
@@ -652,14 +667,14 @@ let your reader access it <strong>INSTANTLY</strong></p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../its/possible.html"</span>&gt;</span>sacré bleu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h3 id="reference-external">Reference external</h3>
 <p>To reference external files use a URL</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Yeay computer gibberish, let&#39;s see what it means<a href="https://xkcd.com/1144/">.</a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
 <p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
 <p><span style="color:#F6AE2D;">The Protocol</span> <br>
@@ -670,7 +685,7 @@ Maps (with some detours) to a computer.</p>
 Is used to find the requested data on the host computer.</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-15">
     <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
 <p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
 <p><span style="color:#F6AE2D;">The Protocol</span> <br>
@@ -682,7 +697,7 @@ Is (almost always) case sensitve, just like the file system<br>
 ... on GUN/Linux.</p>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-15">
+  <div class="slide hidden author-slide" id="slide-16">
     <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">

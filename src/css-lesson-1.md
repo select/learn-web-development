@@ -4,12 +4,14 @@ author:
   github: select
   url: https://github.com/select/learn-web-development
 output: dist/css-lesson-1.html
+<!-- theme: ./revealjs-theme -->
 theme: ./custom-theme
 controls: true
 
 --
 # CSS Lesson 1
 ##**C**ascading **S**tyle **S**heets basics
+
 --
 ###Cascading Style Sheets
 CSS is a language that describes the presentation of an HTML (or XML).
@@ -90,7 +92,7 @@ Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_col
 <img src="x11colors.jpg" alt="X11 colors"/>
 
 --
-###Text properties:
+###Text properties
 <a class="jsbin-embed" href="http://jsbin.com/woyabo/embed?css,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script>
 
 --
@@ -184,6 +186,7 @@ body {
 ```
 
 --
+<!-- Css property cheat sheet -->
 <table style="font-size: 0.6em;">
     <tr>
         <td>

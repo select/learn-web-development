@@ -25,6 +25,7 @@
   - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
   - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
   - [JS Lesson 5: ajax](#js-lesson-5-ajax)
+  - [CSS Lesson 3: responsive design](#css-lesson-3-responsive-design)
 - [RegEx](#regex)
 - [JS (server)](#js-server)
 - [Inspirations](#inspirations)
@@ -251,6 +252,11 @@ Interactive game in the browser in the debugger command line.
 - loading a partial HTML and replacing an element
 - loading JSON
 - sending data, GET/POST
+
+<a name="css-lesson-3-responsive-design"></a>
+### CSS Lesson 3: responsive design
+- only some elements need changes
+- font sizes
 
 <a name="regex"></a>
 ## RegEx
