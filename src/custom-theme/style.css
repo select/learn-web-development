@@ -23,7 +23,7 @@ body {
   font-weight: 300;
   font-size: 100%;
   color: #191919;
-  /*background-color: #fafafa;*/
+  background-color: #000;
 }
 
 /* Custom Slide Styles */
@@ -64,6 +64,15 @@ img.badge {
 
 
 /* Presentation Styles */
+.slides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.slide-wrapper {
+  margin: 7px;
+  transition: all 250ms;
+}
 .slide {
   position: absolute;
   top: 0;
@@ -73,6 +82,8 @@ img.badge {
   padding: 100px;
   z-index: 1;
   overflow: hidden;
+  box-sizing: border-box;
+  background-color: #FFF;
 }
 .slide::before {
   position: absolute;
@@ -92,7 +103,7 @@ img.badge {
   z-index: 2;
   opacity: 1;
   max-width: 800px;
-  height: 600px;
+  max-height: 600px;
   margin: 80px auto 0 auto;
   padding: 0;
   font-size: 200%;

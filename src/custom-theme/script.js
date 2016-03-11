@@ -5,7 +5,6 @@ function currentPosition() {
   return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
 }
 
-
 /**
  * Navigates forward n pages
  * If n is negative, we will navigate in reverse
@@ -28,18 +27,16 @@ function navigate(n) {
   updateTabIndex();
 }
 
-
 /**
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
   try {
-    window.history.replaceState({} , null, '#' + currentPosition());
+    window.history.replaceState({}, null, '#' + currentPosition());
   } catch (e) {
     window.location.hash = currentPosition();
   }
 }
-
 
 /**
  * Sets the progress indicator.
@@ -54,7 +51,6 @@ function updateProgress() {
     progressBar.style.width = percent.toString() + '%';
   }
 }
-
 
 /**
  * Removes tabindex property from all links on the current slide, sets
@@ -81,9 +77,9 @@ function updateTabIndex() {
  */
 function isFullScreen() {
   return document.fullscreenElement ||
-         document.mozFullScreenElement ||
-         document.webkitFullscreenElement ||
-         document.msFullscreenElement;
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement;
 }
 
 /**
@@ -96,21 +92,21 @@ function toggleFullScreen() {
   var doc = document;
 
   docElem.requestFullscreen =
-      docElem.requestFullscreen ||
-      docElem.msRequestFullscreen ||
-      docElem.mozRequestFullScreen ||
-      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+    docElem.requestFullscreen ||
+    docElem.msRequestFullscreen ||
+    docElem.mozRequestFullScreen ||
+    docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
 
   doc.exitFullscreen =
-      doc.exitFullscreen ||
-      doc.msExitFullscreen ||
-      doc.mozCancelFullScreen ||
-      doc.webkitExitFullscreen;
+    doc.exitFullscreen ||
+    doc.msExitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen;
 
   isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Update the tabindex to prevent weird slide transitioning
   updateTabIndex();
 
@@ -120,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navigate(parseInt(page) - 1);
   }
 
-  document.onkeydown = function (e) {
+  document.onkeydown = function(e) {
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -132,18 +128,45 @@ document.addEventListener('DOMContentLoaded', function () {
       navigate(1);
     } else if (kc === 13) {
       toggleFullScreen();
+    } else if (kc === 27) {
+      overview();
     }
   };
 
   if (document.querySelector('.next') && document.querySelector('.prev')) {
-    document.querySelector('.next').onclick = function (e) {
+    document.querySelector('.next').onclick = function(e) {
       e.preventDefault();
       navigate(1);
     };
 
-    document.querySelector('.prev').onclick = function (e) {
+    document.querySelector('.prev').onclick = function(e) {
       e.preventDefault();
       navigate(-1);
     };
   }
 });
+
+function overview() {
+
+  console.log('ESC');
+  if (window.$style !== undefined) {
+    window.$style.remove();
+    delete window.$style;
+  } else {
+
+    var slidesList = document.querySelectorAll('.slide-wrapper');
+    var $slides = document.querySelector('.slides');
+    var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+    window.$style = document.createElement('style');
+
+    window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
+
+    document.getElementsByTagName('head')[0].appendChild(window.$style);
+  }
+}
