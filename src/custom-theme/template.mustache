@@ -4,11 +4,15 @@
   </div>
 {{/progress}}
 
-{{#slides}}
-  <div class="slide{{#hidden}} hidden{{/hidden}}{{#classList}} {{classList}}{{/classList}}" id="slide-{{id}}">
-    <section class="slide-content">{{{content}}}</section>
-  </div>
-{{/slides}}
+<div class="slides">
+  {{#slides}}
+    <div class="slide-wrapper">
+      <div class="slide{{#hidden}} hidden{{/hidden}}{{#classList}} {{classList}}{{/classList}}" id="slide-{{id}}">
+        <section class="slide-content">{{{content}}}</section>
+      </div>
+    </div>
+  {{/slides}}
+</div>
 
 {{#controls}}
   <div class="controls">
