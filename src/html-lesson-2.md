@@ -7,6 +7,7 @@ output: dist/html-lesson-2.html
 theme: ./custom-theme
 controls: true
 
+
 --
 #HTML Lesson 2
 
@@ -109,16 +110,16 @@ which is still the same as writing
 ### Moving one level up
 <div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-up" hidden>
 ```
-    o
-    ├─o home
-    │ ├─★ Desktop
-    │ └─o Documents
-    │   └─o my-poem-about-love.txt
-    │
-    ├─o media
-    │ └─o MyUSBstick
-    …
-    ```
+o
+├─o home
+│ ├─★ Desktop
+│ └─o Documents
+│   └─o my-love-poem.txt
+│
+├─o media
+│ └─o MyUSBstick
+…
+```
 </div>
 <span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-up').hidden = !document.querySelector('#dirs-up').hidden;"> ? show tree </span>
 Go one level up from `/home/Desktop` with
@@ -127,7 +128,7 @@ Go one level up from `/home/Desktop` with
 ```
 to access your documents you could write
 ```
-../Documents/my-poem-about-love.txt
+../Documents/my-love-poem.txt
 ```
 which is the same as writing
 ```
