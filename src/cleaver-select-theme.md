@@ -1,4 +1,4 @@
-title: CSS Lesson 1 - Cascading Style Sheets basics
+title: Cleaver Select Theme
 author:
   name: Falko Krause
   github: select
