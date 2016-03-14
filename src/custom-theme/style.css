@@ -15,7 +15,7 @@ light green : #a6e22e
 
 @import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 /* Theme Styles */
 body {
@@ -339,7 +339,7 @@ table th {
 /* Code Highlighting */
 code {
   padding: .1em .35em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata', ;
   background-color: #fafafa;
   border-radius: 3px;
 }
@@ -347,7 +347,7 @@ code {
 pre code {
   display: block;
   padding: .5em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata', ;
   font-weight: 400;
   overflow-y: hidden;
   background: rgba(255, 255, 255, 0.7);
