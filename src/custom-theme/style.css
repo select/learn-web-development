@@ -63,16 +63,50 @@ img.badge {
 }
 
 
-/* Presentation Styles */
+/* The following is needed for the ESC overview slide selection */
 .slides {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.slides.active .slide:not(.hidden) {
+  border: 22px solid red;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  cursor: pointer;
+  display: none;
+}
+
+.slides.active .slide:hover .slide-overlay::before {
+  content: '▶';
+  text-align: center;
+  line-height: 300px;
+  font-size: 200px;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slides.active .slide:hover .slide-overlay{
+  display: block;
+  background: rgba(0,0,0,0.5);
+}
 .slide-wrapper {
   margin: 7px;
   transition: all 250ms;
 }
+
+/* Presentation Styles */
 .slide {
   position: absolute;
   top: 0;
@@ -85,6 +119,7 @@ img.badge {
   box-sizing: border-box;
   background-color: #FFF;
 }
+
 .slide::before {
   position: absolute;
   top: 0;

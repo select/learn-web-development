@@ -8,6 +8,7 @@
   {{#slides}}
     <div class="slide-wrapper">
       <div class="slide{{#hidden}} hidden{{/hidden}}{{#classList}} {{classList}}{{/classList}}" id="slide-{{id}}">
+        <div data-id="{{id}}" class="slide-overlay"></div>
         <section class="slide-content">{{{content}}}</section>
       </div>
     </div>

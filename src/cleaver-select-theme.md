@@ -4,8 +4,10 @@ author:
   github: select
   url: https://github.com/select/cleaver-select-theme
 output: dist/cleaver-select-theme.html
-theme: select/cleaver-select-theme
+<!-- theme: select/cleaver-select-theme -->
+theme: ./custom-theme
 controls: true
+
 
 --
 # Cleaver <br> Select Theme
@@ -39,6 +41,22 @@ Click on a slide to select it.
 
 Press <kbd>ESC</kbd> again to exit the overview.
 
+--
+### Fragments
+This theme also supports fragments
+<div class="fragment">One</div>
+<div class="fragment">Two</div>
+<div class="fragment">Tree</div>
+
+--
+### Fragments markup
+Here is the markup of the last slide
+```
+This theme also supports fragments
+<div class="fragment">One</div>
+<div class="fragment">Two</div>
+<div class="fragment">Tree</div>
+```
 --
 ### Background image
 
