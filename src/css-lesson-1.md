@@ -97,18 +97,112 @@ Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_col
 
 --
 ###Font properties: `font-family`, `font-size`, `font-weight`
+```css
+h1 {
+    font-size: 21px;
+    font-weight: bold;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+```
+JS Bin
+--
+### Web save fonts
+
+<div style="font-size: .7em; margin-top: 40px">
+    <div class="left">
+        <span style="text-decoration: underline;">Serif Fonts</span>
+
+        <ul style="list-style: none; padding: 0; line-height: 40px">
+        <li>Georgia, serif</li>
+        <li>"Palatino Linotype", "Book Antiqua", Palatino, serif</li>
+        <li>"Times New Roman", Times, serif</li>
+        </ul>
+
+        <span style="text-decoration: underline;">Monospace Fonts</span>
+
+        <ul style="list-style: none; padding: 0; line-height: 40px">
+        <li>"Courier New", Courier, monospace</li>
+        <li>"Lucida Console", Monaco, monospace</li>
+        </ul>
+
+    </div>
+    <div class="right">
+
+        <span style="text-decoration: underline;">Sans-Serif Fonts</span>
+
+        <ul style="list-style: none; padding: 0; line-height: 40px">
+        <li>Arial, Helvetica, sans-serif    </li>
+        <li>"Arial Black", Gadget, sans-serif   </li>
+        <li>"Comic Sans MS", cursive, sans-serif    </li>
+        <li>Impact, Charcoal, sans-serif    </li>
+        <li>"Lucida Sans Unicode", "Lucida Grande", sans-serif  </li>
+        <li>Tahoma, Geneva, sans-serif  </li>
+        <li>"Trebuchet MS", Helvetica, sans-serif   </li>
+        <li>Verdana, Geneva, sans-serif</li>
+        </ul>
+    </div>
+</div>
+
+--
+### External resources for custom fonts
+
+Web save fonts are boring and overused, <br>
+use custom fonts.
+
+https://www.google.com/fonts (easiest, hosts for you)
+
+http://www.fontsquirrel.com/
+
+http://www.dafont.com/
+
+But which fonts go well toghether? http://fontpair.co/
+
+--
+### Using a custom font
+<img src="google-font-quick-use.png" alt="Google font quick use">
+Click on **quick use**. Extend your `styles.css`
+
+```css
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/* @import always at the beginning of the file! */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+```
+
+--
+### Background properties: `background-color` `background-image`
+
+```css
+body {
+    background-color: #fff;
+    background-image: url('img/wood.png');
+    background-position: 50% 20px;
+    background-repeat: no-repeat; /*repeat, repeat-x, repeat-y*/
+}
+```
 JS Bin here
 
 --
-###Background properties: `background` `-color` `-url`
+### The box model `margin`, `border`, `padding`
+
+<div style="background-color: #FFD800; padding: 50px; text-align: center; position: relative; margin-top: 40px">
+    <div style="position: absolute; margin: 0 auto; top: 0;  left: 50%; transform: translate(-50%, 0);">Margin</div>
+    <div style="background-color: #1DA5D0; padding: 40px; position: relative;">
+        <div style="position: absolute; margin: 0 auto; top: 0;  left: 50%; transform: translate(-50%, 0); color: white;">Border</div>
+        <div style="background-color: #FFD800; padding: 50px; position: relative;"><div style="position: absolute; margin: 0 auto; top: 0;  left: 50%; transform: translate(-50%, 0);">Padding</div>
+        <div style="background-color: white; padding: 30px">Your content here</div>
+        </div>
+    </div>
+</div>
 JS Bin here
 
 --
-###Other properties 1: the box model `border`, `margin`, `padding`
-JS Bin here
-
---
-###Other porperties 2: `float`
+### Other porperties 2: `float`
 JS Bin here
 
 --
@@ -133,11 +227,11 @@ You don't even need a selector for this one.
 ### Reasoning against inline styles
 It is not reccomended to use inline CSS styling.
 
-You **mix languages**, HTML and CSS, this is confusing.
+<span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>**Mixing languages**, HTML and CSS, is confusing.
 
-Inline styles are **not reusable**.
+<span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Inline styles are **not reusable**.
 
-Your text editor might has trouble autocompleting.
+<span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Your text editor might have trouble autocompleting.
 
 --
 ### Internal `<style>` tag
@@ -163,7 +257,7 @@ It's is not reccomended but there is a case for internal styles.
 <span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Mixing HTML and CSS.<br>
 <span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Can't reuse in different HTML files.
 
-<span style="color:white; background: #35EE35; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬆</span> Distribute a single file HTML application.<br>
+<span style="color:white; background: #35EE35; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬆</span>Distribute a single file HTML application.<br>
 
 … we will learn this much later. For now **don't use** internal CSS.
 
