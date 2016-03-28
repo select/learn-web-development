@@ -4,8 +4,8 @@ author:
   github: select
   url: https://github.com/select/cleaver-select-theme
 output: dist/cleaver-select-theme.html
-<!-- theme: select/cleaver-select-theme -->
-theme: ./custom-theme
+theme: select/cleaver-select-theme
+<!-- theme: ./custom-theme -->
 controls: true
 
 
