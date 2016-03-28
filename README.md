@@ -1,37 +1,43 @@
 # Web(/App) Dev Course
 
-<!-- MarkdownTOC autolink=true autoanchor=true bracket=round-->
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Text Editing 1: using the text editor Sublime Text 3 (20 min)](#text-editing-1-using-the-text-editor-sublime-text-3-20-min)
-- [HTML](#html)
-  - [HTML Lesson 1: basics (20 min)](#html-lesson-1-basics-20-min)
-  - [Text Editing 2: Project Setup (10 min)](#text-editing-2-project-setup-10-min)
-  - [HTML Exercise 1: My first HTML page (15 min)](#html-exercise-1-my-first-html-page-15-min)
-  - [HTML Lesson 2: image and hyperlink (20 min)](#html-lesson-2-image-and-hyperlink-20-min)
-  - [Text Editing 3: Working with many files; better HTML editing (15 min)](#text-editing-3-working-with-many-files-better-html-editing-15-min)
-  - [HTML Exercise 2: create a text adventure (20 min)](#html-exercise-2-create-a-text-adventure-20-min)
-- [CSS](#css)
-  - [CSS Lesson 1: basics (20 min)](#css-lesson-1-basics-20-min)
-  - [Text Editing 4: new source code types (5 min)](#text-editing-4-new-source-code-types-5-min)
-  - [CSS Exercise 1: styling the text adventure (20 min)](#css-exercise-1-styling-the-text-adventure-20-min)
-  - [CSS Lesson 2: more selectors (15 min)](#css-lesson-2-more-selectors-15-min)
-  - [Text Editing 5: type less CSS (litterally) (5 min)](#text-editing-5-type-less-css-litterally-5-min)
-  - [CSS Exercise 2: building a reusable menu with a button (15 min)](#css-exercise-2-building-a-reusable-menu-with-a-button-15-min)
-- [JS (client)](#js-client)
-  - [JS Lesson 1: programming basics datatypes](#js-lesson-1-programming-basics-datatypes)
-  - [JS Exercise 1: playing with variables](#js-exercise-1-playing-with-variables)
-  - [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
-  - [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
-  - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
-  - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
-  - [JS Lesson 5: ajax](#js-lesson-5-ajax)
-  - [CSS Lesson 3: responsive design](#css-lesson-3-responsive-design)
-- [RegEx](#regex)
-- [JS (server)](#js-server)
-- [Inspirations](#inspirations)
+- [Web(/App) Dev Course](#webapp-dev-course)
+	- [Text Editing 1: using the text editor Sublime Text 3 (20 min)](#text-editing-1-using-the-text-editor-sublime-text-3-20-min)
+	- [HTML](#html)
+		- [HTML Lesson 1: basics (20 min)](#html-lesson-1-basics-20-min)
+		- [Text Editing 2: Project Setup (10 min)](#text-editing-2-project-setup-10-min)
+		- [HTML Exercise 1: My first HTML page (15 min)](#html-exercise-1-my-first-html-page-15-min)
+		- [HTML Lesson 2: image and hyperlink (20 min)](#html-lesson-2-image-and-hyperlink-20-min)
+		- [Text Editing 3: Working with many files; better HTML editing (15 min)](#text-editing-3-working-with-many-files-better-html-editing-15-min)
+		- [HTML Exercise 2: create a text adventure (20 min)](#html-exercise-2-create-a-text-adventure-20-min)
+	- [CSS](#css)
+		- [CSS Lesson 1: basics (20 min)](#css-lesson-1-basics-20-min)
+		- [Text Editing 4: new source code types (5 min)](#text-editing-4-new-source-code-types-5-min)
+		- [CSS Exercise 1: styling the text adventure (20 min)](#css-exercise-1-styling-the-text-adventure-20-min)
+		- [CSS Lesson 2: more selectors (15 min)](#css-lesson-2-more-selectors-15-min)
+		- [Text Editing 5: type less CSS (litterally) (5 min)](#text-editing-5-type-less-css-litterally-5-min)
+		- [CSS Exercise 2: building a reusable menu with a button (15 min)](#css-exercise-2-building-a-reusable-menu-with-a-button-15-min)
+		- [Reading: HTML CSS](#reading-html-css)
+	- [JS (client)](#js-client)
+		- [JS Lesson 1: programming basics datatypes](#js-lesson-1-programming-basics-datatypes)
+		- [JS Exercise 1: playing with variables](#js-exercise-1-playing-with-variables)
+		- [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
+		- [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
+		- [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
+		- [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
+		- [JS Lesson 5: ajax](#js-lesson-5-ajax)
+		- [JS Lesson 6: Debugging](#js-lesson-6-debugging)
+		- [CSS Lesson 3: responsive design](#css-lesson-3-responsive-design)
+		- [Build Tools: webpack](#build-tools-webpack)
+		- [CSS Lesson 4: CSS preprocessors](#css-lesson-4-css-preprocessors)
+	- [RegEx](#regex)
+	- [JS (server)](#js-server)
+	- [JS (client framewoks/libs)](#js-client-framewokslibs)
+	- [Text Editing: VIM](#text-editing-vim)
+	- [Inspirations](#inspirations)
 
-<!-- /MarkdownTOC -->
-
+<!-- /TOC -->
 
 <a name="text-editing-1-using-the-text-editor-sublime-text-3-20-min"></a>
 ## Text Editing 1: using the text editor Sublime Text 3 (20 min)
@@ -41,7 +47,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Don't use your mouse, use your brain
 - Universal keyboard shortcuts that you must know
 - How to learn keyboard shortcuts: 2 every week
-<!-- 
+<!--
 Survey: who knows keyboard shortcut a,b,c ... Introduction game, explain the keyshortcut
 
 or send each participant a keyboard shortcut beforehand that they must learn.
@@ -72,7 +78,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 <a name="html-exercise-1-my-first-html-page-15-min"></a>
 ### HTML Exercise 1: My first HTML page (15 min)
 Create a website containing the elements: `h1`,`h2`,`h3`,`p`,`ul`,`li`,`table`,`th`,`tr`,`td`,`img`
-<!-- 
+<!--
   - h1 - h6 Heading
   - p Paragraph
   - i,b Italic, Bold
@@ -174,6 +180,11 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - insert a "home" button into the text adventure
 - button ttu
 
+<a name="reading-html-css"></a>
+### Reading: HTML CSS
+- Coding style: https://mdo.github.io/code-guide/
+- Semantic HTML: http://www.w3schools.com/html/html5_semantic_elements.asp
+
 ---
 
 **LUNCH BREAK**
@@ -253,16 +264,87 @@ Interactive game in the browser in the debugger command line.
 - loading JSON
 - sending data, GET/POST
 
+<a name="js-lesson-6-debugging"></a>
+### JS Lesson 6: Debugging
+- Developer Tools
+- Console
+- `console.log`, `console.warn`
+- Interactive Debugger
+- Beautify/Foramt: Libraries and Minified Code
+- AJAX Requests
+- Performance: Profiling function calls
+- Mobile
+<!--
+http://juliepagano.com/blog/2014/05/18/javascript-debugging-for-beginners/
+ -->
+
 <a name="css-lesson-3-responsive-design"></a>
 ### CSS Lesson 3: responsive design
 - only some elements need changes
 - font sizes
 
+<a name="build-tools-webpack"></a>
+### Build Tools: webpack
+- Comparision: Make, Grunt, Gulp, Webpack
+- minify, uglify
+- loading multiple files
+- compile to one file
+- watch jobs
+- CSS preprocessing
+- CSS autoprefix
+- JS transpiling: ES6, CoffeScript, TypeScript, React JSX
+- file syncronization (local/remote)
+- live reloading/hot swapping
+
+<a name="css-lesson-4-css-preprocessors"></a>
+### CSS Lesson 4: CSS preprocessors
+- Comparision: SASS / SCSS, Stylus, LESS
+- Installation SASS (webpack, grunt, gulp)
+- SASS syntax: nesting
+- SASS syntax: &
+- SASS syntax: variables
+- SASS syntax: partial files
+
 <a name="regex"></a>
 ## RegEx
+- Numbers `\d`, letters `\w`, space `\s` any `.`
+- Begining `^` and end `$` of line/text
+- Negaging: not Numbers `\D`
+- Escaping: `\`
+- Repitition: `0,∞`; `1,∞`, `n`, `a,n`, `n,∞`
+- Groups `(…)`
+- Alphabet `[ab]`, not in alphabete `[^ab]`
+- Flags multiple/global `/…/g`, ignore case `/…/i`
+- Exercise
+  + http://regex.alf.nu/
+  + https://regexcrossword.com/ ★★
+  + http://regexone.com/ ★★★ (maybe copy structure)
+  + http://regexr.com/ ★★★
+  + http://www.txt2re.com/ ★
 
 <a name="js-server"></a>
 ## JS (server)
+- Install nodejs
+- Create a new project `npm init`
+- Install packages `npm install` `npm i -S`
+- Use packages `require()`
+- Start server
+- MVC vs REST vs Websocket
+- Universal Code (client and server)
+
+<a name="js-client-framewokslibs"></a>
+## JS (client framewoks/libs)
+- Views: templating languages
+- Views: templating languages, mustache
+- Views: templating languages, meteor
+- Views: templating languages, Angular
+- Views: templating languages, Angular2
+- Views: templating languages, React
+
+<a name="text-editing-vim"></a>
+## Text Editing: VIM
+- Exercise: http://www.openvim.com/
+
 
 Here is a link to a [test presentation](https://rawgit.com/select/learn-web-development/master/dist/test-presentation.html)
 
@@ -274,3 +356,15 @@ https://docs.python.org/2/tutorial/index.html
 https://github.com/select/i-learn-python
 
 http://www.teaching-materials.org/javascript/
+
+http://htmldog.com/guides/
+
+https://www.freecodecamp.com/
+
+https://developer.mozilla.org/en-US/Learn
+
+http://learn.shayhowe.com/html-css/
+
+[JavaScript: The Good Parts](http://it-ebooks.info/book/274/#)
+
+https://learnxinyminutes.com/docs/javascript/
