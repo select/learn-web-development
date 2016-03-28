@@ -38,7 +38,7 @@ h1 {
 ```
 It's as easy as specifing the tag name.
 --
-###Text properties
+### Text properties
 `color`, `text-align`, `text-decoration`, `text-transformation`
 ```css
 h1 {
@@ -52,6 +52,26 @@ p {
 }
 ```
 … one more thing about colors
+
+--
+### The cascade
+```css
+p {
+  background: orange;
+  font-size: 24px;
+}
+p {
+  background: green;
+}
+```
+
+```css
+p {
+  background: orange;
+  background: green;
+}
+```
+
 
 --
 ###Color values in r g b (a)
@@ -83,6 +103,7 @@ Each with different intensity between 0 and 255.
     </tbody>
 </table>
 
+Hex: `0-9` `a-f` -> `16`; `2 * 16 = 256`
 
 Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_color) [?](https://goo.gl/pvhdpY)
 
