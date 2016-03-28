@@ -15,15 +15,54 @@ controls: true
 
 --
 ### Making websites load faster
+
+Let's go though the common toolset 
+--
+### Minification, Uglification
 common techniques
 - minify
 - uglify
 
+The clear winner ist google closure copiler:
+Best uglification rules, tree pruning.
+
+--
+### Uglification chaining
+
+Is this a good idea?
+
 --
 ### Zip and browser cache
-zip JS and CSS files
+zipping JS code and CSS files
 
 teach your server to offer ziped files
+
+Lossless compression
+<table border="1">
+  <tbody><tr>
+    <td width="50%" align="center">Before</td>
+    <td width="50%" align="center">After</td>
+  </tr>
+  <tr>
+    <td width="50%">aaaaabbbbbcccddddeeeeffffaaaaabb</td>
+    <td width="50%">a5b4c2d4e4f4a5bb</td>
+  </tr>
+</tbody></table>
+
+Lossy compression
+<table border="1">
+  <tbody><tr>
+    <td width="50%" align="center">Before</td>
+    <td width="50%" align="center">After</td>
+  </tr>
+  <tr>
+    <td width="50%">0.123, 1.2345, 21.2165, 21.999, 12.123</td>
+    <td width="50%">0,0,20,20,10</td>
+  </tr>
+</tbody></table>
+
+<!-- http://www.html5rocks.com/en/tutorials/speed/txt-compression/?redirect_from_locale=de
+ -->
 
 --
 ### Browser cache and CDN
