@@ -16,7 +16,15 @@ controls: true
 --
 ### Making websites load faster
 
-Let's go though the common toolset 
+Let's go though the common toolset
+
+--
+### Minimize number of HTTP requests
+
+Concat / bundle all of your CSS and JS into one file
+
+Think about a strategy when to load what
+
 --
 ### Minification, Uglification
 common techniques
@@ -27,7 +35,15 @@ The clear winner ist google closure copiler:
 Best uglification rules, tree pruning.
 
 --
+### Advanced minification: tree-shaking
+
+--
 ### Uglification chaining
+
+Webpack ist cool but \
+google closure creates smaller files.
+
+Why not use both in a chain.
 
 Is this a good idea?
 
@@ -86,6 +102,7 @@ If we have the right version no further request
 
 --
 ### _loadScript: requesting files with ajax
+
 ```js
 function _cacheScript(name, version, url) {
     var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -105,6 +122,7 @@ function _cacheScript(name, version, url) {
     xmlhttp.send();
   }
 ```
+
 --
 ### _injectScript: writing the script into the DOM
 ```js
@@ -174,6 +192,24 @@ My test showed
 </tbody></table>
 
 --
-### What's wrong why is this not popular?
+### Downsides
+Local storage only has 5 MB storage \
+(you can request more ... but don't)
 
-Please tell me why this is not a good idea.
+Service Worker ... we come to this later
+
+--
+### What's wrong why is/was this not popular?
+
+Please tell me why this was not a good idea.
+
+--
+### Next technology: service workers
+
+How to they work?
+
+How much overhead code to you have to load?
+
+Not ready yet, need to load polyfil overhead
+
+
