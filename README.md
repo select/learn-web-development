@@ -353,18 +353,20 @@ Here is a link to a [test presentation](https://rawgit.com/select/learn-web-deve
 
 https://docs.python.org/2/tutorial/index.html
 
-https://github.com/select/i-learn-python
+https://github.com/select/i-learn-python a python course that i taught for a copule of years
 
 http://www.teaching-materials.org/javascript/
 
 http://htmldog.com/guides/
 
-https://www.freecodecamp.com/
+https://www.freecodecamp.com/ ★★★ awesome interactive tutorial
+
+https://bento.io/ ★★ links to nice tutorials and videos
 
 https://developer.mozilla.org/en-US/Learn
 
-http://learn.shayhowe.com/html-css/
+http://learn.shayhowe.com/html-css/ ★★★ very well written with good examples
 
 [JavaScript: The Good Parts](http://it-ebooks.info/book/274/#)
 
-https://learnxinyminutes.com/docs/javascript/
+https://learnxinyminutes.com/docs/javascript/ very dense, compressed knowledge
