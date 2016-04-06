@@ -1,0 +1,1228 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Securing your SSH login</title>
+  <style type="text/css">
+    /* Color Palette Based on Monokai
+
+white       : #fafafa
+light grey  : #efefef
+grey        : #75715e
+dark grey   : #272822
+black       : #191919
+
+light blue  : #66d9ef
+blue        : #1db4d0
+lavender    : #bf79db
+magenta     : #f92672
+light green : #a6e22e
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+/* Theme Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+  color: #191919;
+  background-color: #000;
+}
+
+/* Custom Slide Styles */
+#slide-1 {
+  color: #fafafa;
+  background: #222;
+  background-size: cover;
+}
+#slide-1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: url('background-image.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+#slide-1 h1 {
+  text-shadow: 1px 2px 4px #191919;
+}
+
+#slide-1 p {
+  text-shadow: 1px 1px 1px #191919;
+}
+
+.center {
+  text-align: center;
+}
+
+img.badge {
+  height: 128px;
+  width: 128px !important;
+  border-radius: 50% !important;
+}
+
+
+/* The following is needed for the ESC overview slide selection */
+.slides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.slides.active .slide:not(.hidden) {
+  border: 22px solid red;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  cursor: pointer;
+  display: none;
+}
+
+.slides.active .slide:hover .slide-overlay::before {
+  content: '▶';
+  text-align: center;
+  line-height: 300px;
+  font-size: 200px;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slides.active .slide:hover .slide-overlay{
+  display: block;
+  background: rgba(0,0,0,0.5);
+}
+.slide-wrapper {
+  margin: 7px;
+  transition: all 250ms;
+}
+
+/* Presentation Styles */
+.slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 100px;
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #FFF;
+}
+
+.slide::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  max-width: 800px;
+  max-height: 600px;
+  margin: 80px auto 0 auto;
+  padding: 0;
+  font-size: 200%;
+  font-weight: 200;
+  line-height: 1.375;
+  overflow: hidden;
+}
+
+.slide-content img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
+}
+
+.arrow {
+  float: left;
+  height: 0;
+  width: 0;
+  margin-right: 15px;
+  border: 15px solid #C7C7C7;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.prev {
+  border-top-color: transparent;
+  border-right-width: 25px;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-left-width: 0;
+}
+
+.next {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-right-width: 0;
+  border-bottom-color: transparent;
+  border-left-width: 25px;
+}
+
+.prev:hover {
+  border-right-color: #1DB4D0;
+  cursor: pointer;
+}
+
+.next:hover {
+  border-left-color: #1DB4D0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Hind', sans-serif;
+  font-weight: 500;
+}
+
+h1 {
+  margin: 170px 0 0;
+  font-size: 300%;
+  text-align: center;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 5px 0;
+  font-size: 100%;
+  font-weight: 200;
+  text-align: center;
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 0;
+  padding-bottom: 15px;
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px ridge #191919;
+}
+
+ul {
+  font-weight: 200;
+  line-height: 1.375;
+  padding: 20px 0 0 60px;
+}
+
+blockquote {
+  padding-left: 20px;
+  margin-left: 0;
+  background: #efefef;
+  border-left: 5px solid #272822;
+  border-radius: 0 3px 3px 0;
+}
+
+blockquote p {
+  padding: .5em;
+  color: #272822;
+}
+
+.left {
+  float: left;
+  width: 48%;
+}
+
+.right {
+  float: right;
+  width: 48%;
+}
+
+.author h1 {
+  margin-bottom: 30px;
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+}
+
+.author h3 {
+  font-size: 95%;
+  font-weight: 100;
+  text-align: center;
+  border: none;
+}
+
+.author h3.twitter::before {
+  content: 'Twitter: ';
+}
+
+.author h3.github::before {
+  content: 'Github: ';
+}
+
+.author h3.email::before {
+  content: 'Email: ';
+}
+
+.author h3.url::before {
+  content: 'Web: ';
+}
+
+a {
+  text-decoration: none;
+  color: #1db4d0;
+}
+
+a:hover {
+  color: #1db4d0;
+  border-bottom: 1px solid #1db4d0;
+}
+
+hr {
+  border: 1px solid #272822;
+}
+
+pre {
+  font-size: 75%;
+  line-height: 1.3;
+}
+
+table td,
+table th {
+  padding-right: 3em;
+  text-align: left;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  z-index: 2;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 0;
+  background-color: #1DB4D0;
+  -webkit-transition: width .15s ease-out;
+     -moz-transition: width .15s ease-out;
+       -o-transition: width .15s ease-out;
+          transition: width .15s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Code Highlighting */
+code {
+  padding: .1em .35em;
+  font-family: 'Inconsolata';
+  background-color: #fafafa;
+  border-radius: 3px;
+}
+
+pre code {
+  display: block;
+  padding: .5em;
+  font-family: 'Inconsolata';
+  font-weight: 400;
+  overflow-y: hidden;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+code.lang-bash-blank{
+  background: #000;
+  color: #fff!important;
+}
+code.lang-bash-blank-small{
+  background: #000;
+  color: #fff!important;
+  font-size: 0.45em;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 #bbb;
+}
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Responsiveness */
+@media (max-width: 850px) {
+  body {
+    font-size: 70%;
+  }
+
+  .slide {
+    padding: 50px;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev,
+  .prev:hover {
+    border-right-color: rgba(135, 135, 135, .5);
+  }
+
+  .next,
+  .next:hover {
+    border-left-color: rgba(135, 135, 135, .5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow: hidden;
+    font-size: 50%;
+  }
+
+  .slide {
+    padding: 10px;
+  }
+  .slide-content {
+    height: 340px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+  }
+
+  body {
+    float: none !important;
+    padding: 0;
+    margin: 0 auto !important;
+    overflow: visible;
+    font-size: 52%;
+    background: none !important;
+    border: 0;
+  }
+
+  .progress,
+  .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+    border: 1px solid #222;
+
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+<div class="slides">
+    <div class="slide-wrapper">
+      <div class="slide" id="slide-1">
+        <div data-id="1" class="slide-overlay"></div>
+        <section class="slide-content"><h1 id="securing-your-login">Securing your login</h1>
+<h2 id="simpler-and-more-secure-ssh-logins">Simpler and more secure SSH logins</h2>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-2">
+        <div data-id="2" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="windows-users-cygwin-ubuntu-bash-blank-in-windows-10">Windows users: Cygwin, Ubuntu bash-blank in Windows 10</h3>
+<p>This tutorial requires you to have access to a proper <strong>command line</strong>.</p>
+<p>Get one on Windows with <a href="https://www.cygwin.com/">Cygwin</a><br>
+or the newly announce <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Ubuntu bash for Windows</a>.</p>
+<p><img src="commandline.jpg" alt="https://nubon.de/funktionen/einkaufslisten.html replace with similar image if no rights"></p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-3">
+        <div data-id="3" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="get-a-cheap-v-server">Get a cheap V-server</h3>
+<p>There are 3 kinds of servers you can rent (simplified)</p>
+<p><strong>Managed</strong>: $$$ &quot;all&quot; the software you need is already installed.</p>
+<p><strong>Virtual server</strong>: $ only a basic operating system installed in a <em>virtual machine</em>, you install the rest. CPU and RAM are shared with other users, you are guaranteed a certain capacity.</p>
+<p><strong>Dedicated server</strong>: $$$ you are the only user on the server you rent.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-4">
+        <div data-id="4" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="login-as-root">Login as root</h3>
+<p>Once you have rented the server you will get a root (admin) login.</p>
+<pre><code class="lang-bash-blank">$ ssh root@SERVER_IP_ADDRESS</code></pre>
+<p>On the server you can install software as you wish\
+using your root privileges</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-5">
+        <div data-id="5" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="simiplify-the-login">Simiplify the login</h3>
+<p><style type="text/css">
+.hint {
+    font-size: .6em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.7em;
+}
+.hint div {
+    display: none;
+    position: absolute;
+    background: #FFF;
+    padding: 15px;
+    width: 400px;
+    right: 0;
+    font-size: 2rem;
+}
+.hint:hover div {
+    display: block;
+}
+</style></p>
+<p><div class="hint">What does <code>~</code> mean?
+  <div>
+      <code>~</code> is the abbreviation for your home folder <code>/home/myname</code>
+  </div>
+</div>
+Create an alias for your server by ceating a SSH config <br>
+and entering an alias that you can remember.</p>
+<pre><code class="lang-bash-blank">local$ nano ~/ssh/config</code></pre>
+<pre><code>Host myserver
+    HostName 123.456.2.42
+    User root</code></pre>
+<p>now you can simply login with</p>
+<pre><code class="lang-bash-blank">local$ ssh myserver</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-6">
+        <div data-id="6" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="always-logging-in-as-root-is-a-bad-idea">Always logging in as root is a bad idea</h3>
+<p>As root you have rights to change everything <br>
+without having to use a password.</p>
+<p>We therefore want a user that needs to use a password when 
+doing something with the system.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-7">
+        <div data-id="7" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="set-up-a-new-user-that-can-sudo-">Set up a new user that can <code>sudo</code></h3>
+<p>While being logged in we create a new user</p>
+<pre><code class="lang-bash-blank">remote$ adduser webuser
+… # set password etc</code></pre>
+<p>Now we allow the user to administer a system by adding him to the <code>sudo</code>ers</p>
+<pre><code class="lang-bash-blank">remote$ gpasswd -a webuser sudo</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="disable-login-as-root-user">Disable login as <code>root</code> user</h3>
+<p>Now that we have a user that is more restricted <br> 
+we want to disable the login for the <code>root</code> user</p>
+<pre><code class="lang-bash-blank">remote$ nano /etc/ssh/sshd_config</code></pre>
+<p>and change the line with <code>PermitRootLogin</code> to:</p>
+<pre><code>PermitRootLogin no</code></pre>
+<p>Restart SSH to apply the changes!</p>
+<pre><code class="lang-bash-blank">remote$ service ssh restart</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="edit-the-ssh-config-to-use-your-new-user">Edit the SSH config to use your new user</h3>
+<p>Now that we have a more secure user,<br>
+exit from the remote server <br></p>
+<pre><code class="lang-bash-blank">remote$ exit</code></pre>
+<p>and change your SSH config.</p>
+<pre><code class="lang-bash-blank">local$ nano ~/ssh/config</code></pre>
+<pre><code>Host myserver
+    HostName 123.456.2.42
+    User webuser</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-10">
+        <div data-id="10" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="don-t-type-passwords-use-a-ssh-key">Don&#39;t type passwords - use a SSH key</h3>
+<p>Generate a key file that will be automatically used when you
+log in via SSH (it&#39;s safer)</p>
+<pre><code class="lang-bash-blank">local$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/myname/…
+  .ssh/id_rsa): /home/myname/.ssh/id_rsa.myserver
+…</code></pre>
+<p>You will have access to many servers, generate a keyfile <strong>for each
+server</strong>!</p>
+<p>… not done yet</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-11">
+        <div data-id="11" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="use-a-password-on-your-ssh-key-and-ssh-agent">Use a password on your SSH key and SSH agent</h3>
+<p>Use a password to protect your SSH key.</p>
+<pre><code class="lang-bash-blank">…
+Enter passphrase (empty for no passphrase): ***
+Enter same passphrase again: ***</code></pre>
+<p>But does this mean I have to type this password all the time?
+Not exactly you will see.</p>
+<p>First we will make it impossible to brute force the SSH access.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-12">
+        <div data-id="12" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="now-we-have-a-private-and-a-public-key">Now we have a private and a public key</h3>
+<pre><code class="lang-bash-blank">local$ ls -l ~/.ssh/</code></pre>
+<pre><code>-rw-r--r-- 1 me me 3,9K … config
+-rw------- 1 me me 1,7K … id_rsa
+-rw-r--r-- 1 me me  394 … id_rsa.pub
+-rw------- 1 me me 1,8K … id_rsa.myserver
+-rw-r--r-- 1 me me  395 … id_rsa.myserver.pub
+-rw------- 1 me me  71K … known_hosts</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-13">
+        <div data-id="13" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="upload-the-key-file">Upload the key file</h3>
+<div class="hint">What does <code>\</code> mean?
+  <div>
+      <code>\</code> means that the command continues on the next line
+  </div>
+</div>
+
+<pre><code>local$ ssh-copy-id \
+ -i ~/.ssh/id_rsa.myserver.pub myserver</code></pre>
+<div class="left">
+
+  Notice the <code>.pub</code> ending, this means that this is the <br>
+  <strong>public key file</strong>.
+  <br><br>
+  <a href="https://github.com/beautifulcode/ssh-copy-id-for-OSX"><code>ssh-copy-id</code> for OSX</a>
+</div>
+<div class="right">
+  <img src="Public_key_encryption.svg.png" alt="asynchronous encryption">
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-14">
+        <div data-id="14" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="what-happens-on-login">What happens on login</h3>
+<p><style type="text/css">
+.sshagent {
+  width: 380px!important;
+}
+</style></p>
+<div class="left">
+  <img src="sshagent1.gif" class="sshagent"><br>
+  <img src="sshagent2.gif" class="sshagent"><br>
+  <img src="sshagent3.gif" class="sshagent"><br>
+  Images from <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">Steve Friedl&#39;s Unixwiz.net</a>
+</div>
+<div class="right">
+  <br>
+  <img src="ssh-pagent-prompt.gif" class="sshagent"><br>
+  <img src="sshagent4.gif" class="sshagent"><br>
+  <img src="sshagent5.gif" class="sshagent"><br>
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-15">
+        <div data-id="15" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="disable-login-with-passwords">Disable login with passwords</h3>
+<p>Now that we have a secure key file we want to disable all
+logins with a password.</p>
+<pre><code class="lang-bash-blank">local$ ssh myserver
+… # enter your password for the ssh key
+… # don&#39;t allow your OS to unlock on boot-login
+remote$ sudo su
+… # enter your password for the webuser
+remote-root$ nano /etc/ssh/sshd_config</code></pre>
+<p>add the following line (look first if it is already present)</p>
+<pre><code>PasswordAuthentication no</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-16">
+        <div data-id="16" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="ssh-password-only-once-per-session">SSH password only once per session</h3>
+<p>Your OS will remember the password for the whole session (until you shut down your computer)</p>
+<pre><code class="lang-bash-blank">remote-root$ exit
+remote$ exit</code></pre>
+<p>Log out of the remote server.<br>
+You can also use <kbd>ctrl</kbd><kbd>D</kbd> instead of typing <code>exit</code></p>
+<p>Now log in again</p>
+<pre><code class="lang-bash-blank">local$ ssh myserver</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-17">
+        <div data-id="17" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="use-a-password-manager">Use a password manager</h3>
+<p>Now you have 2 new passwords that you would have to remember, but <strong>don&#39;t</strong> you will just <strong>use a weak passwords or forget your password</strong>.</p>
+<p>Instead use a password manager like <a href="https://www.keepassx.org/">KeePassX</a><br>
+and generate long passwords like</p>
+<pre><code>Fsow@/`MM#msVwk_vD~Vz_eH; M&gt;yPQ@&amp;3+:6Q*(&gt;e5#0T o(`xe5,aG?{s-{8~</code></pre>
+<p>Use one strong + long password that you will remember because you type it alot.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-18">
+        <div data-id="18" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="keepass-works-on-all-systems">KeePass works on all systems</h3>
+<p>On Windows / OS X / iOS <a href="https://keepass.info">KeePass</a></p>
+<p>On Android <a href="https://play.google.com/store/apps/details?id=com.android.keepass&amp;hl=en">KeePassDroid</a></p>
+<p>There are sever other variants that should work too</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-19">
+        <div data-id="19" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="sync-over-your-own-owncloud">Sync over your own OwnCloud</h3>
+<p>Now that you have come so far …</p>
+<p>Don&#39;t trust a company like LastPass
+to not &#39;hand out&#39; your passwords</p>
+<p>Set up <a href="https://owncloud.org/">OwnCloud</a> on your server and sync your password vault to all devices.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-20">
+        <div data-id="20" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="add-aditional-users">Add aditional users</h3>
+<p>To add access for additional users</p>
+<ul>
+<li>Let them create a new SSH key</li>
+<li>Make sure that they use a passphrase</li>
+<li>Upload their key file</li>
+<li>Add them to <code>sudo</code>ers if necessary</li>
+</ul>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-21">
+        <div data-id="21" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="advanced-topics-not-coverd-but-interesting">Advanced topics not coverd, but interesting</h3>
+<ul>
+<li>Agent Forwarding <br>
+keys from <code>local$</code> can be forwared when <pre><code class="lang-bash-blank">local$ ssh remote
+remote$ ssh remote2</code></pre>
+</li>
+<li>Hardware authentication devices like <a href="https://www.yubico.com/products/yubikey-hardware/">YubiKey</a></li>
+</ul>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-22">
+        <div data-id="22" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="things-to-avoid">Things to avoid</h3>
+<ul>
+<li>Not posting your password by accident into a chat window.</li>
+<li>Checking a key into a <a href="https://it.slashdot.org/story/13/01/25/132203/github-kills-search-after-hundreds-of-private-keys-exposed">github repository</a>.</li>
+<li>Not <a href="http://www.howtogeek.com/57552/the-10-most-ridiculously-awesome-geeky-computer-pranks/">locking your computer</a> when you get a coffee.</li>
+<li>Let somebody stand behing you <a href="https://goo.gl/spDbD9">shoulder picking</a> your password.</li>
+</ul>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-23">
+        <div data-id="23" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="all-commands">All commands</h3>
+<pre><code class="lang-bash-blank-small">$ ssh root@SERVER_IP_ADDRESS
+local$ nano ~/ssh/config
+… Host myserver
+…    HostName 123.456.2.42
+…    User root
+local$ ssh myserver
+remote$ adduser webuser
+… # set password etc
+remote$ gpasswd -a webuser sudo
+remote$ nano /etc/ssh/sshd_config
+… PermitRootLogin no
+remote$ service ssh restart
+remote$ exit
+local$ nano ~/ssh/config
+… Host myserver
+…    HostName 123.456.2.42
+…    User webuser
+local$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/myname/…
+  .ssh/id_rsa): /home/myname/.ssh/id_rsa.myserver
+Enter passphrase (empty for no passphrase): ***
+Enter same passphrase again: ***
+…
+local$ ssh-copy-id -i ~/.ssh/id_rsa.myserver.pub myserver
+local$ ssh myserver
+… # enter your password for the ssh key
+… # don&#39;t allow your OS to unlock on boot-login
+remote$ sudo su
+… # enter your password for the webuser
+remote-root$ nano /etc/ssh/sshd_config
+… PasswordAuthentication no
+remote-root$ exit
+remote$ exit
+… # or use use ctrl+D instead of typing exit
+local$ ssh myserver</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-24">
+        <div data-id="24" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="literature">Literature</h3>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04</a></li>
+<li><a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">http://www.unixwiz.net/techtips/ssh-agent-forwarding.html</a></li>
+<li><a href="https://github.com/beautifulcode/ssh-copy-id-for-OSX">https://github.com/beautifulcode/ssh-copy-id-for-OSX</a></li>
+<li><a href="https://owncloud.org/">https://owncloud.org/</a></li>
+<li><a href="https://www.cygwin.com/">https://www.cygwin.com/</a></li>
+<li><a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">https://msdn.microsoft.com/en-us/commandline/wsl/about</a></li>
+<li><a href="https://www.yubico.com/products/yubikey-hardware/">https://www.yubico.com/products/yubikey-hardware/</a><style type="text/css">
+#literature + ul {
+font-size: 0.7em;
+}
+</style></li>
+</ul>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden author-slide" id="slide-25">
+        <div data-id="25" class="slide-overlay"></div>
+        <section class="slide-content"><div class="author">
+  <h1 class="name">Falko Krause</h1>
+    <h3 class="twitter">
+      <a href="http://twitter.com/@rockdapus">@rockdapus</a>
+    </h3>
+    <h3 class="github">
+      <a href="https://github.com/select">select</a>
+    </h3>
+    <h3 class="url">
+      <a href="https://github.com/webpgr/cached-webpgr.js">https://github.com/webpgr/cached-webpgr.js</a>
+    </h3>
+</div>
+</section>
+      </div>
+    </div>
+</div>
+
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    /**
+ * Returns the current page number of the presentation.
+ */
+function currentPosition() {
+  return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
+}
+
+/**
+ * Navigates forward n pages
+ * If n is negative, we will navigate in reverse
+ */
+function navigate(n) {
+  var position = currentPosition();
+  var numSlides = document.getElementsByClassName('slide').length;
+
+  var $fragments = document.querySelectorAll('#slide-' + position + ' .fragment');
+  var fragmentsFinished = false;
+  if ($fragments.length) {
+    if (n > 0) {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment.hidden');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[0].classList.remove('hidden');
+    } else {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment:not(.hidden)');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[$f.length - 1].classList.add('hidden');
+    }
+  } else {
+    fragmentsFinished = true;
+  }
+
+  if (fragmentsFinished) {
+    /* Positions are 1-indexed, so we need to add and subtract 1 */
+    var nextPosition = (position - 1 + n) % numSlides + 1;
+
+    /* Normalize nextPosition in-case of a negative modulo result */
+    nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+
+    document.getElementById('slide-' + position).classList.add('hidden');
+    document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+    updateProgress();
+    updateURL();
+    updateTabIndex();
+  }
+
+}
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  try {
+    window.history.replaceState({}, null, '#' + currentPosition());
+  } catch (e) {
+    window.location.hash = currentPosition();
+  }
+}
+
+/**
+ * Sets the progress indicator.
+ */
+function updateProgress() {
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var numSlides = document.getElementsByClassName('slide').length;
+    var position = currentPosition() - 1;
+    var percent = (numSlides === 1) ? 100 : 100 * position / (numSlides - 1);
+    progressBar.style.width = percent.toString() + '%';
+  }
+}
+
+/**
+ * Removes tabindex property from all links on the current slide, sets
+ * tabindex = -1 for all links on other slides. Prevents slides from appearing
+ * out of control.
+ */
+function updateTabIndex() {
+  var allLinks = document.querySelectorAll('.slide a');
+  var position = currentPosition();
+  var currentPageLinks = document.getElementById('slide-' + position).querySelectorAll('a');
+  var i;
+
+  for (i = 0; i < allLinks.length; i++) {
+    allLinks[i].setAttribute('tabindex', -1);
+  }
+
+  for (i = 0; i < currentPageLinks.length; i++) {
+    currentPageLinks[i].removeAttribute('tabindex');
+  }
+}
+
+/**
+ * Determines whether or not we are currently in full screen mode
+ */
+function isFullScreen() {
+  return document.fullscreenElement ||
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement;
+}
+
+/**
+ * Toggle fullScreen mode on document element.
+ * Works on chrome (>= 15), firefox (>= 9), ie (>= 11), opera(>= 12.1), safari (>= 5).
+ */
+function toggleFullScreen() {
+  /* Convenient renames */
+  var docElem = document.documentElement;
+  var doc = document;
+
+  docElem.requestFullscreen =
+    docElem.requestFullscreen ||
+    docElem.msRequestFullscreen ||
+    docElem.mozRequestFullScreen ||
+    docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+
+  doc.exitFullscreen =
+    doc.exitFullscreen ||
+    doc.msExitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen;
+
+  isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Update the tabindex to prevent weird slide transitioning
+  updateTabIndex();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) {
+    navigate(parseInt(page) - 1);
+  }
+
+  document.onkeydown = function(e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace, PgUp - BACK
+    // up, right, K, L, space, PgDn - FORWARD
+    // enter - FULLSCREEN
+    if (kc === 37 || kc === 40 || kc === 8 || kc === 72 || kc === 74 || kc === 33) {
+      navigate(-1);
+    } else if (kc === 38 || kc === 39 || kc === 32 || kc === 75 || kc === 76 || kc === 34) {
+      navigate(1);
+    } else if (kc === 13) {
+      toggleFullScreen();
+    } else if (kc === 27) {
+      toggleOverview();
+    }
+  };
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function(e) {
+      e.preventDefault();
+      navigate(1);
+    };
+
+    document.querySelector('.prev').onclick = function(e) {
+      e.preventDefault();
+      navigate(-1);
+    };
+  }
+  var $overlays = document.querySelectorAll('.slide-overlay');
+  [].forEach.call($overlays, function($overlay) {
+    $overlay.onclick = function(event) {
+      navigate(parseInt(event.target.dataset.id) - currentPosition());
+      toggleOverview();
+    }
+  });
+
+  var $fragments = document.querySelectorAll('.fragment');
+  [].forEach.call($fragments, function($fragment) {
+    $fragment.classList.add('hidden');
+  });
+
+});
+
+function toggleOverview() {
+  if (window.$style !== undefined) {
+    window.$style.remove();
+    delete window.$style;
+    document.querySelector('.slides').classList.remove('active');
+  } else {
+    var $slides = document.querySelector('.slides');
+    $slides.classList.add('active');
+    var slidesList = document.querySelectorAll('.slide-wrapper');
+
+    var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+    window.$style = document.createElement('style');
+    window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
+
+    document.getElementsByTagName('head')[0].appendChild(window.$style);
+  }
+}
+  </script>
+</body>
+</html>
