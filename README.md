@@ -1,7 +1,6 @@
 # Web(/App) Dev Course
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
 - [Web(/App) Dev Course](#webapp-dev-course)
 	- [Text Editing 1: using the text editor Sublime Text 3 (20 min)](#text-editing-1-using-the-text-editor-sublime-text-3-20-min)
 	- [HTML](#html)
@@ -36,7 +35,6 @@
 	- [JS (client framewoks/libs)](#js-client-framewokslibs)
 	- [Text Editing: VIM](#text-editing-vim)
 	- [Inspirations](#inspirations)
-
 <!-- /TOC -->
 
 <a name="text-editing-1-using-the-text-editor-sublime-text-3-20-min"></a>
@@ -89,6 +87,7 @@ Create a website containing the elements: `h1`,`h2`,`h3`,`p`,`ul`,`li`,`table`,`
   - img Image
   - div Division
  -->
+
 <a name="html-lesson-2-image-and-hyperlink-20-min"></a>
 ### HTML Lesson 2: image and hyperlink (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/html-lesson-2.html).
@@ -174,6 +173,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 
 <a name="css-exercise-2-building-a-reusable-menu-with-a-button-15-min"></a>
 ### CSS Exercise 2: building a reusable menu with a button (15 min)
+- CSS selector game: https://flukeout.github.io/
 - `background-color`
 - `text-shadow`
 - selector for links with `.button` and `button`
@@ -348,8 +348,36 @@ http://juliepagano.com/blog/2014/05/18/javascript-debugging-for-beginners/
 
 Here is a link to a [test presentation](https://rawgit.com/select/learn-web-development/master/dist/test-presentation.html)
 
+## Advanced topics
+
+### Securing your SSH login
+- Command line required - <br>get one for Windows
+- Get a cheap V-server
+- Login as root
+- Simiplify the login with an alias
+- Always logging in as root is a bad idea
+- Set up a new user that can `sudo`
+- Disable login as `root` user
+- Edit the SSH config to use your new user
+- Don't type passwords - use a SSH key
+- Use a password on your SSH key
+- Now we have a private and a public key
+- Upload the key file
+- What happens on login
+- Disable login with passwords
+- SSH password only once per session
+- Use a password manager
+- KeePass works on all systems
+- Sync over your own OwnCloud
+- Add aditional users
+- Advanced topics not coverd, but interesting
+- (Not so) stupid things to avoid
+- All commands
+- Literature
+
+
 <a name="inspirations"></a>
-## Inspirations
+## Resources and inspirations
 
 https://docs.python.org/2/tutorial/index.html
 
@@ -370,3 +398,5 @@ http://learn.shayhowe.com/html-css/ ★★★ very well written with good exampl
 [JavaScript: The Good Parts](http://it-ebooks.info/book/274/#)
 
 https://learnxinyminutes.com/docs/javascript/ very dense, compressed knowledge
+
+https://www.flexboxgame.com/
