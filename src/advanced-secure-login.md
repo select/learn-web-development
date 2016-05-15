@@ -3,7 +3,7 @@ author:
   name: Falko Krause
   github: select
   twitter: rockdapus
-  url: https://github.com/webpgr/cached-webpgr.js
+  url: https://github.com/select/learn-web-development
 output: dist/advanced-secure-login.html
 theme: ../cleaver-select-theme
 <!-- theme: ./custom-theme -->
@@ -14,7 +14,7 @@ controls: true
 ## Simpler and more secure SSH logins
 
 --
-### Windows users: Cygwin, Ubuntu bash-blank in Windows 10
+### Command line required - <br>get one for Windows
 This tutorial requires you to have access to a proper **command line**.
 
 Get one on Windows with [Cygwin](https://www.cygwin.com/)<br>
@@ -43,7 +43,7 @@ On the server you can install software as you wish\
 using your root privileges
 
 --
-### Simiplify the login
+### Simiplify the login with an alias
 <style type="text/css">
 .hint {
     font-size: .6em;
@@ -91,8 +91,8 @@ local$ ssh myserver
 As root you have rights to change everything <br>
 without having to use a password.
 
-We therefore want a user that needs to use a password when 
-doing something with the system.
+Let's create a user that needs to a password when 
+accessing critial system features.
 
 --
 ### Set up a new user that can `sudo`
@@ -160,7 +160,7 @@ server**!
 … not done yet
 
 --
-### Use a password on your SSH key and SSH agent
+### Use a password on your SSH key
 Use a password to protect your SSH key.
 ```bash-blank
 …
@@ -177,9 +177,6 @@ First we will make it impossible to brute force the SSH access.
 
 ```bash-blank
 local$ ls -l ~/.ssh/
-```
-
-```
 -rw-r--r-- 1 me me 3,9K … config
 -rw------- 1 me me 1,7K … id_rsa
 -rw-r--r-- 1 me me  394 … id_rsa.pub
@@ -197,7 +194,7 @@ local$ ls -l ~/.ssh/
   </div>
 </div>
 
-```
+```bash-blank
 local$ ssh-copy-id \
  -i ~/.ssh/id_rsa.myserver.pub myserver
 ```
@@ -206,12 +203,16 @@ local$ ssh-copy-id \
   
   Notice the `.pub` ending, this means that this is the <br>
   **public key file**.
-  <br><br>
-  [`ssh-copy-id` for OSX](https://github.com/beautifulcode/ssh-copy-id-for-OSX)
+  
+  <div style="font-size: .7em; position: absolute; bottom: 0; ">
+    [ssh-copy-id](https://github.com/beautifulcode/ssh-copy-id-for-OSX) for OSX <br>
+    Image from [Wikipedia](https://en.wikipedia.org/wiki/Public-key_cryptography)
+  </div>
 </div>
 <div class="right">
   <img src="Public_key_encryption.svg.png" alt="asynchronous encryption">
 </div>
+
 
 --
 ### What happens on login
@@ -224,7 +225,9 @@ local$ ssh-copy-id \
   <img src="sshagent1.gif" class="sshagent"><br>
   <img src="sshagent2.gif" class="sshagent"><br>
   <img src="sshagent3.gif" class="sshagent"><br>
-  Images from [Steve Friedl's Unixwiz.net](http://www.unixwiz.net/techtips/ssh-agent-forwarding.html)
+  <div style="font-size: .7em; position: absolute; bottom: 0; ">
+    Images from [Steve Friedl's Unixwiz.net](http://www.unixwiz.net/techtips/ssh-agent-forwarding.html)
+  </div>
 </div>
 <div class="right">
   <br>
@@ -308,6 +311,15 @@ To add access for additional users
 - Add them to `sudo`ers if necessary
 
 --
+### When your SSH agent doesn't send the right key
+
+```
+Host github.com
+    IdentityFile ~/.ssh/id_rsa.github
+```
+You can tell your ssh agent to send the right keyfile
+
+--
 ### Advanced topics not coverd, but interesting
 - Agent Forwarding <br>
 keys from `local$` can be forwared when 
@@ -318,7 +330,7 @@ remote$ ssh remote2
 - Hardware authentication devices like [YubiKey](https://www.yubico.com/products/yubikey-hardware/)
 
 --
-### Things to avoid
+### (Not so) stupid things to avoid
 
 - Not posting your password by accident into a chat window.
 - Checking a key into a [github repository](https://it.slashdot.org/story/13/01/25/132203/github-kills-search-after-hundreds-of-private-keys-exposed).
