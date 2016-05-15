@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
+    if(e.target.classList.contains('ace_text-input')) return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
