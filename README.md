@@ -85,25 +85,10 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - Tags in the `body` 1: `h1`, `p`, `i`, `b`, `br`, `hr`
 - Tags in the `body` 2: `table>tr>th,td`, `ul>li`
 
-<a name="text-editing-2-project-setup-10-min"></a>
-### Text Editing 2: Project Setup (10 min)
-- Creating a project
-
 
 <a name="html-exercise-1-my-first-html-page-15-min"></a>
 ### HTML Exercise 1: My first HTML page (15 min)
-Create a website containing the elements: `h1`,`h2`,`h3`,`p`,`ul`,`li`,`table`,`th`,`tr`,`td`,`img`
-<!--
-  - h1 - h6 Heading
-  - p Paragraph
-  - i,b Italic, Bold
-  - a Anchor (Hypertext refernece)
-  - ul & li Unordered List & List Item
-  - blockquote  Blockquote
-  - hr  Horizontal Rule
-  - img Image
-  - div Division
- -->
+Create your first website
 
 <a name="html-lesson-2-image-and-hyperlink-20-min"></a>
 ### HTML Lesson 2: image and hyperlink (20 min)
