@@ -10,7 +10,7 @@ controls: true
 --
 #Text Editing 1
 
-##Using the text editor
+##Using a text editor
 
 <!-- use dyslexic plugin -->
 
@@ -20,7 +20,7 @@ Download and install it from here:
 
 https://www.sublimetext.com/3
 
-**Why?** Fast, plugin ecosystem, I know it.
+**Why?** Fast, plugin ecosystem … I know it.
 
 **Alternatives?** [Atom](https://atom.io/) (beginner), [Vim](http://www.vim.org/) (pro)
 --
