@@ -22,7 +22,7 @@ light green : #a6e22e
 
 @import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 /* Theme Styles */
 body {
@@ -36,7 +36,7 @@ body {
 /* Custom Slide Styles */
 #slide-1 {
   color: #fafafa;
-  background: #222 url('fade.jpg') center center no-repeat;
+  background: #222;
   background-size: cover;
 }
 #slide-1::after {
@@ -47,7 +47,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background: url('background-image.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -70,16 +70,50 @@ img.badge {
 }
 
 
-/* Presentation Styles */
+/* The following is needed for the ESC overview slide selection */
 .slides {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.slides.active .slide:not(.hidden) {
+  border: 22px solid red;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  cursor: pointer;
+  display: none;
+}
+
+.slides.active .slide:hover .slide-overlay::before {
+  content: '▶';
+  text-align: center;
+  line-height: 300px;
+  font-size: 200px;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slides.active .slide:hover .slide-overlay{
+  display: block;
+  background: rgba(0,0,0,0.5);
+}
 .slide-wrapper {
   margin: 7px;
   transition: all 250ms;
 }
+
+/* Presentation Styles */
 .slide {
   position: absolute;
   top: 0;
@@ -92,6 +126,7 @@ img.badge {
   box-sizing: border-box;
   background-color: #FFF;
 }
+
 .slide::before {
   position: absolute;
   top: 0;
@@ -131,6 +166,19 @@ img.badge {
   z-index: 3;
 }
 
+.overview {
+  display: inline-block;
+  float: left;
+  color: #C7C7C7;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.overview:hover {
+  color: #1DB4D0;
+}
 .arrow {
   float: left;
   height: 0;
@@ -311,7 +359,7 @@ table th {
 /* Code Highlighting */
 code {
   padding: .1em .35em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
@@ -319,7 +367,7 @@ code {
 pre code {
   display: block;
   padding: .5em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata';
   font-weight: 400;
   overflow-y: hidden;
   background: rgba(255, 255, 255, 0.7);
@@ -330,7 +378,27 @@ pre code {
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
+code.lang-bash-blank{
+  background: #000;
+  color: #fff!important;
+}
+code.lang-bash-blank-small{
+  background: #000;
+  color: #fff!important;
+  font-size: 0.45em;
+}
 
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 #bbb;
+}
 .hljs {
   display: block;
   overflow-x: auto;
@@ -546,6 +614,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <div class="slides">
     <div class="slide-wrapper">
       <div class="slide" id="slide-1">
+        <div data-id="1" class="slide-overlay"></div>
         <section class="slide-content"><h1 id="html-lesson-2">HTML Lesson 2</h1>
 <h2 id="image-and-hyperlink">Image and Hyperlink</h2>
 </section>
@@ -553,6 +622,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-2">
+        <div data-id="2" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-img-tag">The <code>img</code> tag</h3>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dir/path/hot-chicks.jpg"</span>
   <span class="hljs-attr">alt</span>=<span class="hljs-string">"Natures beauty captured in an image."</span>&gt;</span></code></pre>
@@ -564,6 +634,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-3">
+        <div data-id="3" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="an-example-folder-structure">An example folder structure</h3>
 <p>All paths in GNU/Linux (and OS X) start from one root</p>
 <pre><code>/</code></pre>
@@ -581,6 +652,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-4">
+        <div data-id="4" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="moving-down">Moving down</h3>
 <pre><code>o
 ├ …
@@ -595,6 +667,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-5">
+        <div data-id="5" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="from-the-current-directory">From the current directory</h3>
 <p><div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-current" hidden></p>
 <pre><code>o
@@ -620,6 +693,7 @@ if you are in e.g. <code>/home/Desktop</code> you can start with</p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-6">
+        <div data-id="6" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="from-the-current-directory">From the current directory</h3>
 <p>But since this is so common we can just leave away the</p>
 <pre><code>.</code></pre>
@@ -632,6 +706,7 @@ if you are in e.g. <code>/home/Desktop</code> you can start with</p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
+        <div data-id="7" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="moving-one-level-up">Moving one level up</h3>
 <p><div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-up" hidden></p>
 <pre><code>o
@@ -656,6 +731,7 @@ Go one level up from <code>/home/Desktop</code> with</p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="did-you-get-it-already-">Did you get it already?</h3>
 <p>How do I go two levels up?</p>
 <p>Don&#39;t worry we will partice it in the exercise.</p>
@@ -665,6 +741,7 @@ Go one level up from <code>/home/Desktop</code> with</p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-hyperlink-anchor-tag-a-">The hyperlink/anchor tag <code>a</code></h3>
 <p>The hyperlink is one of <em>the</em> inventions of the 20th centry</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"path/to/other-document.html"</span>&gt;</span>
@@ -678,6 +755,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-10">
+        <div data-id="10" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="references-within-local-external">References: within, local, external</h3>
 <p>The <code>href</code> attribute can reference within a file</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapert1"</span>&gt;</span>go to chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
@@ -690,6 +768,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-11">
+        <div data-id="11" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="reference-within-anchor">Reference within: anchor</h3>
 <p>To reference a within a document use an anchor</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chapter4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-comment">&lt;!-- this is invisible --&gt;</span></code></pre>
@@ -700,6 +779,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-12">
+        <div data-id="12" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="reference-local-absolute-relative">Reference local: absolute, relative</h3>
 <p>The <code>href</code> attribute can take absolute paths</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/starts/with/slash.html"</span>&gt;</span>absolute root<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
@@ -712,6 +792,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-13">
+        <div data-id="13" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="reference-external">Reference external</h3>
 <p>To reference external files use a URL</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
@@ -721,6 +802,7 @@ let your reader access it <strong>INSTANTLY</strong></p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-14">
+        <div data-id="14" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
 <p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
 <p><span style="color:#F6AE2D;">The Protocol</span> <br>
@@ -734,6 +816,7 @@ Is used to find the requested data on the host computer.</p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-15">
+        <div data-id="15" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
 <p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
 <p><span style="color:#F6AE2D;">The Protocol</span> <br>
@@ -748,6 +831,7 @@ Is (almost always) case sensitve, just like the file system<br>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden author-slide" id="slide-16">
+        <div data-id="16" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -764,6 +848,7 @@ Is (almost always) case sensitve, just like the file system<br>
 
   <div class="controls">
     <div class="arrow prev"></div>
+    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -784,18 +869,37 @@ function navigate(n) {
   var position = currentPosition();
   var numSlides = document.getElementsByClassName('slide').length;
 
-  /* Positions are 1-indexed, so we need to add and subtract 1 */
-  var nextPosition = (position - 1 + n) % numSlides + 1;
+  var $fragments = document.querySelectorAll('#slide-' + position + ' .fragment');
+  var fragmentsFinished = false;
+  if ($fragments.length) {
+    if (n > 0) {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment.hidden');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[0].classList.remove('hidden');
+    } else {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment:not(.hidden)');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[$f.length - 1].classList.add('hidden');
+    }
+  } else {
+    fragmentsFinished = true;
+  }
 
-  /* Normalize nextPosition in-case of a negative modulo result */
-  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+  if (fragmentsFinished) {
+    /* Positions are 1-indexed, so we need to add and subtract 1 */
+    var nextPosition = (position - 1 + n) % numSlides + 1;
 
-  document.getElementById('slide-' + position).classList.add('hidden');
-  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+    /* Normalize nextPosition in-case of a negative modulo result */
+    nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
 
-  updateProgress();
-  updateURL();
-  updateTabIndex();
+    document.getElementById('slide-' + position).classList.add('hidden');
+    document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+    updateProgress();
+    updateURL();
+    updateTabIndex();
+  }
+
 }
 
 /**
@@ -888,6 +992,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
+    if(e.target.tagName.toLowerCase() === 'textarea') return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -900,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (kc === 13) {
       toggleFullScreen();
     } else if (kc === 27) {
-      overview();
+      toggleOverview();
     }
   };
 
@@ -915,18 +1020,36 @@ document.addEventListener('DOMContentLoaded', function() {
       navigate(-1);
     };
   }
+  if (document.querySelector('.overview')) {
+    document.querySelector('.overview').onclick = function(e) {
+      toggleOverview();
+    }
+  }
+  var $overlays = document.querySelectorAll('.slide-overlay');
+  [].forEach.call($overlays, function($overlay) {
+    $overlay.onclick = function(event) {
+      navigate(parseInt(event.target.dataset.id) - currentPosition());
+      toggleOverview();
+    }
+  });
+
+  var $fragments = document.querySelectorAll('.fragment');
+  [].forEach.call($fragments, function($fragment) {
+    $fragment.classList.add('hidden');
+  });
+
 });
 
-function overview() {
-
-  console.log('ESC');
+function toggleOverview() {
   if (window.$style !== undefined) {
     window.$style.remove();
     delete window.$style;
+    document.querySelector('.slides').classList.remove('active');
   } else {
-
-    var slidesList = document.querySelectorAll('.slide-wrapper');
     var $slides = document.querySelector('.slides');
+    $slides.classList.add('active');
+    var slidesList = document.querySelectorAll('.slide-wrapper');
+
     var w = window,
       d = document,
       e = d.documentElement,
@@ -935,13 +1058,11 @@ function overview() {
       y = w.innerHeight || e.clientHeight || g.clientHeight;
 
     window.$style = document.createElement('style');
-
     window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
 
     document.getElementsByTagName('head')[0].appendChild(window.$style);
   }
 }
-
   </script>
 </body>
 </html>

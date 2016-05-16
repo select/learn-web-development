@@ -22,7 +22,7 @@ light green : #a6e22e
 
 @import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 /* Theme Styles */
 body {
@@ -36,7 +36,7 @@ body {
 /* Custom Slide Styles */
 #slide-1 {
   color: #fafafa;
-  background: #222 url('fade.jpg') center center no-repeat;
+  background: #222;
   background-size: cover;
 }
 #slide-1::after {
@@ -47,7 +47,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background: url('background-image.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -70,16 +70,50 @@ img.badge {
 }
 
 
-/* Presentation Styles */
+/* The following is needed for the ESC overview slide selection */
 .slides {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.slides.active .slide:not(.hidden) {
+  border: 22px solid red;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  cursor: pointer;
+  display: none;
+}
+
+.slides.active .slide:hover .slide-overlay::before {
+  content: '▶';
+  text-align: center;
+  line-height: 300px;
+  font-size: 200px;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slides.active .slide:hover .slide-overlay{
+  display: block;
+  background: rgba(0,0,0,0.5);
+}
 .slide-wrapper {
   margin: 7px;
   transition: all 250ms;
 }
+
+/* Presentation Styles */
 .slide {
   position: absolute;
   top: 0;
@@ -92,6 +126,7 @@ img.badge {
   box-sizing: border-box;
   background-color: #FFF;
 }
+
 .slide::before {
   position: absolute;
   top: 0;
@@ -131,6 +166,19 @@ img.badge {
   z-index: 3;
 }
 
+.overview {
+  display: inline-block;
+  float: left;
+  color: #C7C7C7;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.overview:hover {
+  color: #1DB4D0;
+}
 .arrow {
   float: left;
   height: 0;
@@ -311,7 +359,7 @@ table th {
 /* Code Highlighting */
 code {
   padding: .1em .35em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
@@ -319,7 +367,7 @@ code {
 pre code {
   display: block;
   padding: .5em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata';
   font-weight: 400;
   overflow-y: hidden;
   background: rgba(255, 255, 255, 0.7);
@@ -330,7 +378,27 @@ pre code {
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
+code.lang-bash-blank{
+  background: #000;
+  color: #fff!important;
+}
+code.lang-bash-blank-small{
+  background: #000;
+  color: #fff!important;
+  font-size: 0.45em;
+}
 
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 #bbb;
+}
 .hljs {
   display: block;
   overflow-x: auto;
@@ -537,7 +605,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
-  <script src="transform.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -547,20 +615,34 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <div class="slides">
     <div class="slide-wrapper">
       <div class="slide" id="slide-1">
+        <div data-id="1" class="slide-overlay"></div>
         <section class="slide-content"><h1 id="text-editing-1">Text Editing 1</h1>
-<h2 id="using-the-text-editor-sublime-text-3-https-www-sublimetext-com-3-">Using the text editor <a href="https://www.sublimetext.com/3">Sublime Text 3</a></h2>
+<h2 id="using-the-text-editor">Using the text editor</h2>
 <!-- use dyslexic plugin --></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-2">
+        <div data-id="2" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="text-editor-for-these-lessons-br-sublime-text-3">Text editor for these lessons: <br>Sublime Text 3</h3>
+<p>Download and install it from here:</p>
+<p><a href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a></p>
+<p><strong>Why?</strong> Fast, plugin ecosystem, I know it.</p>
+<p><strong>Alternatives?</strong> <a href="https://atom.io/">Atom</a> (beginner), <a href="http://www.vim.org/">Vim</a> (pro)</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-3">
+        <div data-id="3" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="write-less-but-lots-of-it">Write less, but lots of it</h3>
 <p>Write only what you really need, but learn through repetition.</p>
 <div></div></section>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-3">
+      <div class="slide hidden" id="slide-4">
+        <div data-id="4" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="learn-the-10-finger-system">Learn the 10 finger system</h3>
 <ul>
 <li><a href="https://www.typing.com/student/start">https://www.typing.com/student/start</a> ★★★</li>
@@ -571,7 +653,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-4">
+      <div class="slide hidden" id="slide-5">
+        <div data-id="5" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="don-t-use-your-mouse-use-your-brain">Don&#39;t use your mouse, use your brain</h3>
 <p>The keyboard is much faster than the mouse.</p>
 <!-- 
@@ -581,19 +664,20 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-5">
+      <div class="slide hidden" id="slide-6">
+        <div data-id="6" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="universal-keyboard-shortcuts-that-you-must-know">Universal keyboard shortcuts that you must know</h3>
 <table>
     <tr>
         <td>copy/cut and paste</td><td><kbd>Ctrl</kbd><kbd>C</kbd>, <kbd>Ctrl</kbd><kbd>X</kbd>, <kbd>Ctrl</kbd><kbd>V</kbd></td>
     </tr><tr>
-        <td>new tab</td><td><kbd>Ctrl</kbd><kbd>T</kbd></td>
-    </tr><tr>
-        <td>close tab</td><td><kbd>Ctrl</kbd><kbd>F4</kbd></td>
-    </tr><tr>
         <td>close window</td><td><kbd>Alt</kbd><kbd>F4</kbd></td>
     </tr><tr>
         <td>new file</td><td><kbd>Ctrl</kbd><kbd>N</kbd></td>
+    </tr><tr>
+        <td>new tab</td><td><kbd>Ctrl</kbd><kbd>T</kbd></td>
+    </tr><tr>
+        <td>close tab</td><td><kbd>Ctrl</kbd><kbd>F4</kbd> / <kbd>Ctrl</kbd><kbd>W</kbd></td>
     </tr><tr>
         <td>save</td><td><kbd>Ctrl</kbd><kbd>S</kbd></td>
     </tr><tr>
@@ -607,13 +691,26 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-6">
-        <section class="slide-content"><h3 id="learn-keyboard-shortcuts-2-every-week">Learn keyboard shortcuts: 2 every week</h3>
+      <div class="slide hidden" id="slide-7">
+        <div data-id="7" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="pro-tip-">Pro-Tip™</h3>
+<p>Learn 2 new keyboard shortcuts every week</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-7">
+      <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="the-end">The End</h3>
+<p>Continue with the </p>
+<p><a href="html-lesson-1.html">HTML Lesson 1: basics (20 min)</a></p>
+<p>or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden author-slide" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -630,6 +727,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <div class="controls">
     <div class="arrow prev"></div>
+    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -642,7 +740,6 @@ function currentPosition() {
   return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
 }
 
-
 /**
  * Navigates forward n pages
  * If n is negative, we will navigate in reverse
@@ -651,32 +748,49 @@ function navigate(n) {
   var position = currentPosition();
   var numSlides = document.getElementsByClassName('slide').length;
 
-  /* Positions are 1-indexed, so we need to add and subtract 1 */
-  var nextPosition = (position - 1 + n) % numSlides + 1;
+  var $fragments = document.querySelectorAll('#slide-' + position + ' .fragment');
+  var fragmentsFinished = false;
+  if ($fragments.length) {
+    if (n > 0) {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment.hidden');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[0].classList.remove('hidden');
+    } else {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment:not(.hidden)');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[$f.length - 1].classList.add('hidden');
+    }
+  } else {
+    fragmentsFinished = true;
+  }
 
-  /* Normalize nextPosition in-case of a negative modulo result */
-  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+  if (fragmentsFinished) {
+    /* Positions are 1-indexed, so we need to add and subtract 1 */
+    var nextPosition = (position - 1 + n) % numSlides + 1;
 
-  document.getElementById('slide-' + position).classList.add('hidden');
-  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+    /* Normalize nextPosition in-case of a negative modulo result */
+    nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
 
-  updateProgress();
-  updateURL();
-  updateTabIndex();
+    document.getElementById('slide-' + position).classList.add('hidden');
+    document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+    updateProgress();
+    updateURL();
+    updateTabIndex();
+  }
+
 }
-
 
 /**
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
   try {
-    window.history.replaceState({} , null, '#' + currentPosition());
+    window.history.replaceState({}, null, '#' + currentPosition());
   } catch (e) {
     window.location.hash = currentPosition();
   }
 }
-
 
 /**
  * Sets the progress indicator.
@@ -691,7 +805,6 @@ function updateProgress() {
     progressBar.style.width = percent.toString() + '%';
   }
 }
-
 
 /**
  * Removes tabindex property from all links on the current slide, sets
@@ -718,9 +831,9 @@ function updateTabIndex() {
  */
 function isFullScreen() {
   return document.fullscreenElement ||
-         document.mozFullScreenElement ||
-         document.webkitFullscreenElement ||
-         document.msFullscreenElement;
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement;
 }
 
 /**
@@ -733,21 +846,21 @@ function toggleFullScreen() {
   var doc = document;
 
   docElem.requestFullscreen =
-      docElem.requestFullscreen ||
-      docElem.msRequestFullscreen ||
-      docElem.mozRequestFullScreen ||
-      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+    docElem.requestFullscreen ||
+    docElem.msRequestFullscreen ||
+    docElem.mozRequestFullScreen ||
+    docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
 
   doc.exitFullscreen =
-      doc.exitFullscreen ||
-      doc.msExitFullscreen ||
-      doc.mozCancelFullScreen ||
-      doc.webkitExitFullscreen;
+    doc.exitFullscreen ||
+    doc.msExitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen;
 
   isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Update the tabindex to prevent weird slide transitioning
   updateTabIndex();
 
@@ -757,7 +870,8 @@ document.addEventListener('DOMContentLoaded', function () {
     navigate(parseInt(page) - 1);
   }
 
-  document.onkeydown = function (e) {
+  document.onkeydown = function(e) {
+    if(e.target.tagName.toLowerCase() === 'textarea') return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -769,21 +883,65 @@ document.addEventListener('DOMContentLoaded', function () {
       navigate(1);
     } else if (kc === 13) {
       toggleFullScreen();
+    } else if (kc === 27) {
+      toggleOverview();
     }
   };
 
   if (document.querySelector('.next') && document.querySelector('.prev')) {
-    document.querySelector('.next').onclick = function (e) {
+    document.querySelector('.next').onclick = function(e) {
       e.preventDefault();
       navigate(1);
     };
 
-    document.querySelector('.prev').onclick = function (e) {
+    document.querySelector('.prev').onclick = function(e) {
       e.preventDefault();
       navigate(-1);
     };
   }
+  if (document.querySelector('.overview')) {
+    document.querySelector('.overview').onclick = function(e) {
+      toggleOverview();
+    }
+  }
+  var $overlays = document.querySelectorAll('.slide-overlay');
+  [].forEach.call($overlays, function($overlay) {
+    $overlay.onclick = function(event) {
+      navigate(parseInt(event.target.dataset.id) - currentPosition());
+      toggleOverview();
+    }
+  });
+
+  var $fragments = document.querySelectorAll('.fragment');
+  [].forEach.call($fragments, function($fragment) {
+    $fragment.classList.add('hidden');
+  });
+
 });
+
+function toggleOverview() {
+  if (window.$style !== undefined) {
+    window.$style.remove();
+    delete window.$style;
+    document.querySelector('.slides').classList.remove('active');
+  } else {
+    var $slides = document.querySelector('.slides');
+    $slides.classList.add('active');
+    var slidesList = document.querySelectorAll('.slide-wrapper');
+
+    var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+    window.$style = document.createElement('style');
+    window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
+
+    document.getElementsByTagName('head')[0].appendChild(window.$style);
+  }
+}
   </script>
 </body>
 </html>

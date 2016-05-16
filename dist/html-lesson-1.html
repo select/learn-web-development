@@ -22,7 +22,7 @@ light green : #a6e22e
 
 @import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 /* Theme Styles */
 body {
@@ -36,7 +36,7 @@ body {
 /* Custom Slide Styles */
 #slide-1 {
   color: #fafafa;
-  background: #222 url('fade.jpg') center center no-repeat;
+  background: #222;
   background-size: cover;
 }
 #slide-1::after {
@@ -47,7 +47,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background: url('background-image.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -70,16 +70,50 @@ img.badge {
 }
 
 
-/* Presentation Styles */
+/* The following is needed for the ESC overview slide selection */
 .slides {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.slides.active .slide:not(.hidden) {
+  border: 22px solid red;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  cursor: pointer;
+  display: none;
+}
+
+.slides.active .slide:hover .slide-overlay::before {
+  content: '▶';
+  text-align: center;
+  line-height: 300px;
+  font-size: 200px;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slides.active .slide:hover .slide-overlay{
+  display: block;
+  background: rgba(0,0,0,0.5);
+}
 .slide-wrapper {
   margin: 7px;
   transition: all 250ms;
 }
+
+/* Presentation Styles */
 .slide {
   position: absolute;
   top: 0;
@@ -92,6 +126,7 @@ img.badge {
   box-sizing: border-box;
   background-color: #FFF;
 }
+
 .slide::before {
   position: absolute;
   top: 0;
@@ -131,6 +166,19 @@ img.badge {
   z-index: 3;
 }
 
+.overview {
+  display: inline-block;
+  float: left;
+  color: #C7C7C7;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.overview:hover {
+  color: #1DB4D0;
+}
 .arrow {
   float: left;
   height: 0;
@@ -311,7 +359,7 @@ table th {
 /* Code Highlighting */
 code {
   padding: .1em .35em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
@@ -319,7 +367,7 @@ code {
 pre code {
   display: block;
   padding: .5em;
-  font-family: 'Fira Mono';
+  font-family: 'Inconsolata';
   font-weight: 400;
   overflow-y: hidden;
   background: rgba(255, 255, 255, 0.7);
@@ -330,7 +378,27 @@ pre code {
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
+code.lang-bash-blank{
+  background: #000;
+  color: #fff!important;
+}
+code.lang-bash-blank-small{
+  background: #000;
+  color: #fff!important;
+  font-size: 0.45em;
+}
 
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 #bbb;
+}
 .hljs {
   display: block;
   overflow-x: auto;
@@ -537,7 +605,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
-  <script src="transform.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body>
     <div class="progress">
@@ -547,13 +614,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <div class="slides">
     <div class="slide-wrapper">
       <div class="slide" id="slide-1">
-        <section class="slide-content"><h1 id="html-lesson-1">HTML Lesson 1</h1>
+        <div data-id="1" class="slide-overlay"></div>
+        <section class="slide-content"><p><script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script></p>
+<h1 id="html-lesson-1">HTML Lesson 1</h1>
 <h2 id="the-basiscs-of-they-h-yper-t-ext-m-arkup-l-anguage">The basiscs of they <strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</h2>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-2">
+        <div data-id="2" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="html-stands-for-br-h-yper-t-ext-m-arkup-l-anguage">HTML stands for <br><strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</h3>
 <p>HTML helps to render and layout text and images.</p>
 <p>Writing HTML is not programming.</p>
@@ -562,6 +632,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-3">
+        <div data-id="3" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="html-is-similar-to-xml">HTML is similar to XML</h3>
 <p>The E<strong>x</strong>tensible <strong>M</strong>arkup <strong>L</strong>anguage<br>
 is a flexible, machine-readable data representation format.</p>
@@ -571,6 +642,7 @@ is a flexible, machine-readable data representation format.</p>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-4">
+        <div data-id="4" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="what-is-xml">What is XML</h3>
 <p><img src="einkaufsliste-digital-schreiben.jpg" alt="https://nubon.de/funktionen/einkaufslisten.html replace with similar image if no rights">
 XML was created to organize any <strong>text-based</strong> information in a <strong>machine-readable</strong> way.</p>
@@ -580,6 +652,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-5">
+        <div data-id="5" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-element-tag-attribute-value-content">The element: tag, attribute=&quot;value&quot;, content</h3>
 <p>This is an element.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">mytagname</span> <span class="hljs-attr">myattr</span>=<span class="hljs-string">"some value"</span>&gt;</span>
@@ -592,6 +665,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-6">
+        <div data-id="6" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-create-a-tree-structure">Tags create a tree structure</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">bookshelf</span> <span class="hljs-attr">location</span>=<span class="hljs-string">"hallway"</span> &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">material</span>&gt;</span>wood<span class="hljs-tag">&lt;/<span class="hljs-name">material</span>&gt;</span>
@@ -607,6 +681,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
+        <div data-id="7" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-create-a-tree-structure">Tags create a tree structure</h3>
 <pre><code class="lang-xml">o     <span class="hljs-tag">&lt;<span class="hljs-name">bookshelf</span> <span class="hljs-attr">location</span>=<span class="hljs-string">"hallway"</span> &gt;</span>
 ├─o     <span class="hljs-tag">&lt;<span class="hljs-name">material</span>&gt;</span>wood<span class="hljs-tag">&lt;/<span class="hljs-name">material</span>&gt;</span>
@@ -622,6 +697,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="well-formed-not-well-formed">Well-formed / not well-formed</h3>
 <p>Well-formed</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">bookshelf</span>&gt;</span>
@@ -637,6 +713,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="escaping-charcters-comments">Escaping charcters, comments</h3>
 <p>Some character have special meanings, use them by escaping them.</p>
 <table style="background-color: rgba(255, 255, 255, 0.7); width: 100%; border-radius: 3px">
@@ -663,6 +740,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-10">
+        <div data-id="10" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="html-a-language-to-strucure-and-layout-text-and-images">HTML - a language to strucure and layout text and images</h3>
 <p>No more bookshelf examples. On the basis of what you just seen we will now learn to speak HTML.</p>
 <p>We want to organise text and image, but first we need some strucure.</p>
@@ -671,6 +749,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-11">
+        <div data-id="11" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-html-head-body-">Tags: <code>html</code>, <code>head</code>, <code>body</code></h3>
 <pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span> <span class="hljs-comment">&lt;!-- this is what we speak --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>          <span class="hljs-comment">&lt;!-- the root element --&gt;</span>
@@ -687,6 +766,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-12">
+        <div data-id="12" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-in-head-title-favicon-">Tags in <code>head</code>: <code>title</code>, <code>favicon</code></h3>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
 
@@ -707,20 +787,100 @@ XML was created to organize any <strong>text-based</strong> information in a <st
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-13">
+        <div data-id="13" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-in-the-body-1-h1-p-i-b-br-hr-">Tags in the <code>body</code> 1: <code>h1</code>, <code>p</code>, <code>i</code>, <code>b</code>, <code>br</code>, <code>hr</code></h3>
-<p><a class="jsbin-embed" href="http://jsbin.com/habama/embed?html,output&height=250px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script></p>
-</section>
+<div class="editor-wrapper" id="code-example-1">
+
+<div class="editor-container">
+<script type="text/plain" class="editor-html" ><h1>Heading 1</h1>
+
+<p>
+  I am a paragraph. 
+  Here are <i>some</i> text 
+  <b>formatting</b> tags.
+
+  <br>
+
+  There was a line break and a 
+  horzontal ruler is below.
+
+  <hr>
+
+  You can play with the code 
+  yourself now.
+
+</p></script>
+</div>
+<div class="rendered-html"></div>
+<style type="text/css" class="rendered-css"></style>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-1',{height: 400});
+})();
+</script></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-14">
+        <div data-id="14" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-in-the-body-2-table-tr-th-td-ul-li-">Tags in the <code>body</code> 2: <code>table&gt;tr&gt;th,td</code>, <code>ul&gt;li</code></h3>
-<p><a class="jsbin-embed" href="http://jsbin.com/didepij/embed?html,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script></p>
+<div class="editor-wrapper" id="code-example-2">
+
+<div class="editor-container">
+<script type="text/plain" class="editor-html" ><h1>Table</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Desciption</th>
+  </tr>
+  <tr>
+    <td>tr</td>
+    <td>a table row</td>
+  </tr>
+  <tr>
+    <td>td</td>
+    <td>a table column</td>
+  </tr>
+</table>
+
+<h1>List</h1>
+<ul>
+  <li>this</li>
+  <li>is</li>
+  <li>a list</li>
+</ul>
+</script>
+</div>
+<div class="rendered-html"></div>
+<style type="text/css" class="rendered-css">
+  .rendered-html table td, .rendered-html table th{
+    border: 1px solid;
+  }
+  </style>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-2',{height: 400});
+})();
+</script></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-15">
+        <div data-id="15" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="the-end">The End</h3>
+<p>Continue with the </p>
+<p><a href="html-lesson-2.html">HTML Lesson 2: image and hyperlink (20 min)</a></p>
+<p>or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-15">
+      <div class="slide hidden author-slide" id="slide-16">
+        <div data-id="16" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -737,6 +897,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
 
   <div class="controls">
     <div class="arrow prev"></div>
+    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -749,7 +910,6 @@ function currentPosition() {
   return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
 }
 
-
 /**
  * Navigates forward n pages
  * If n is negative, we will navigate in reverse
@@ -758,32 +918,49 @@ function navigate(n) {
   var position = currentPosition();
   var numSlides = document.getElementsByClassName('slide').length;
 
-  /* Positions are 1-indexed, so we need to add and subtract 1 */
-  var nextPosition = (position - 1 + n) % numSlides + 1;
+  var $fragments = document.querySelectorAll('#slide-' + position + ' .fragment');
+  var fragmentsFinished = false;
+  if ($fragments.length) {
+    if (n > 0) {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment.hidden');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[0].classList.remove('hidden');
+    } else {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment:not(.hidden)');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[$f.length - 1].classList.add('hidden');
+    }
+  } else {
+    fragmentsFinished = true;
+  }
 
-  /* Normalize nextPosition in-case of a negative modulo result */
-  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+  if (fragmentsFinished) {
+    /* Positions are 1-indexed, so we need to add and subtract 1 */
+    var nextPosition = (position - 1 + n) % numSlides + 1;
 
-  document.getElementById('slide-' + position).classList.add('hidden');
-  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+    /* Normalize nextPosition in-case of a negative modulo result */
+    nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
 
-  updateProgress();
-  updateURL();
-  updateTabIndex();
+    document.getElementById('slide-' + position).classList.add('hidden');
+    document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+    updateProgress();
+    updateURL();
+    updateTabIndex();
+  }
+
 }
-
 
 /**
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
   try {
-    window.history.replaceState({} , null, '#' + currentPosition());
+    window.history.replaceState({}, null, '#' + currentPosition());
   } catch (e) {
     window.location.hash = currentPosition();
   }
 }
-
 
 /**
  * Sets the progress indicator.
@@ -798,7 +975,6 @@ function updateProgress() {
     progressBar.style.width = percent.toString() + '%';
   }
 }
-
 
 /**
  * Removes tabindex property from all links on the current slide, sets
@@ -825,9 +1001,9 @@ function updateTabIndex() {
  */
 function isFullScreen() {
   return document.fullscreenElement ||
-         document.mozFullScreenElement ||
-         document.webkitFullscreenElement ||
-         document.msFullscreenElement;
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement;
 }
 
 /**
@@ -840,21 +1016,21 @@ function toggleFullScreen() {
   var doc = document;
 
   docElem.requestFullscreen =
-      docElem.requestFullscreen ||
-      docElem.msRequestFullscreen ||
-      docElem.mozRequestFullScreen ||
-      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+    docElem.requestFullscreen ||
+    docElem.msRequestFullscreen ||
+    docElem.mozRequestFullScreen ||
+    docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
 
   doc.exitFullscreen =
-      doc.exitFullscreen ||
-      doc.msExitFullscreen ||
-      doc.mozCancelFullScreen ||
-      doc.webkitExitFullscreen;
+    doc.exitFullscreen ||
+    doc.msExitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen;
 
   isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Update the tabindex to prevent weird slide transitioning
   updateTabIndex();
 
@@ -864,7 +1040,8 @@ document.addEventListener('DOMContentLoaded', function () {
     navigate(parseInt(page) - 1);
   }
 
-  document.onkeydown = function (e) {
+  document.onkeydown = function(e) {
+    if(e.target.tagName.toLowerCase() === 'textarea') return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -876,21 +1053,65 @@ document.addEventListener('DOMContentLoaded', function () {
       navigate(1);
     } else if (kc === 13) {
       toggleFullScreen();
+    } else if (kc === 27) {
+      toggleOverview();
     }
   };
 
   if (document.querySelector('.next') && document.querySelector('.prev')) {
-    document.querySelector('.next').onclick = function (e) {
+    document.querySelector('.next').onclick = function(e) {
       e.preventDefault();
       navigate(1);
     };
 
-    document.querySelector('.prev').onclick = function (e) {
+    document.querySelector('.prev').onclick = function(e) {
       e.preventDefault();
       navigate(-1);
     };
   }
+  if (document.querySelector('.overview')) {
+    document.querySelector('.overview').onclick = function(e) {
+      toggleOverview();
+    }
+  }
+  var $overlays = document.querySelectorAll('.slide-overlay');
+  [].forEach.call($overlays, function($overlay) {
+    $overlay.onclick = function(event) {
+      navigate(parseInt(event.target.dataset.id) - currentPosition());
+      toggleOverview();
+    }
+  });
+
+  var $fragments = document.querySelectorAll('.fragment');
+  [].forEach.call($fragments, function($fragment) {
+    $fragment.classList.add('hidden');
+  });
+
 });
+
+function toggleOverview() {
+  if (window.$style !== undefined) {
+    window.$style.remove();
+    delete window.$style;
+    document.querySelector('.slides').classList.remove('active');
+  } else {
+    var $slides = document.querySelector('.slides');
+    $slides.classList.add('active');
+    var slidesList = document.querySelectorAll('.slide-wrapper');
+
+    var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+    window.$style = document.createElement('style');
+    window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
+
+    document.getElementsByTagName('head')[0].appendChild(window.$style);
+  }
+}
   </script>
 </body>
 </html>

@@ -36,7 +36,7 @@ body {
 /* Custom Slide Styles */
 #slide-1 {
   color: #fafafa;
-  background: #222 url('fade.jpg') center center no-repeat;
+  background: #222;
   background-size: cover;
 }
 #slide-1::after {
@@ -47,7 +47,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background: url('background-image.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -166,6 +166,19 @@ img.badge {
   z-index: 3;
 }
 
+.overview {
+  display: inline-block;
+  float: left;
+  color: #C7C7C7;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.overview:hover {
+  color: #1DB4D0;
+}
 .arrow {
   float: left;
   height: 0;
@@ -346,7 +359,7 @@ table th {
 /* Code Highlighting */
 code {
   padding: .1em .35em;
-  font-family: 'Inconsolata', ;
+  font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
@@ -354,7 +367,7 @@ code {
 pre code {
   display: block;
   padding: .5em;
-  font-family: 'Inconsolata', ;
+  font-family: 'Inconsolata';
   font-weight: 400;
   overflow-y: hidden;
   background: rgba(255, 255, 255, 0.7);
@@ -365,7 +378,27 @@ pre code {
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
+code.lang-bash-blank{
+  background: #000;
+  color: #fff!important;
+}
+code.lang-bash-blank-small{
+  background: #000;
+  color: #fff!important;
+  font-size: 0.45em;
+}
 
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 #bbb;
+}
 .hljs {
   display: block;
   overflow-x: auto;
@@ -572,7 +605,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
-    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -587,41 +619,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 body {
     overflow: hidden;
 }
-.editor-wrapper{
-    position: relative;
-}
-.editor-container,
-.preview-container {
-    position: relative;
-    height: 200px;
-    width: 50%;
-    display: inline-block;
-}
-.preview-container {
-    background-color: #FFF;
-    font-size: 1em;
-    position: absolute;
-    top: 0;
-    border-left: 1px solid #666;
-    padding: 0 10px;
-    box-sizing: border-box;
-    overflow: auto;
-}
-.editor,
-.preview-container {
-    font-size: .6em;
-}
-.editor {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
 </style></p>
-<p><script src="ace-editor/ace.js" type="text/javascript" charset="utf-8"></script></p>
-<p><script src="ace-editor/ext-language_tools.js"></script></p>
+<script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script>
+
 <h1 id="header-1">Header 1</h1>
 <h2 id="header-2-sublime-text-3-https-www-sublimetext-com-3-">Header 2 <a href="https://www.sublimetext.com/3">Sublime Text 3</a></h2>
 <p>Normal text
@@ -675,65 +675,26 @@ body {
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
         <div data-id="7" class="slide-overlay"></div>
-        <section class="slide-content"><h2 id="ace-editor-test">Ace editor test</h2>
-<p><div class="editor-wrapper"></p>
-<p><div class="editor-container"></p>
-<p><pre class="editor" id="ace-1">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++) {
-        alert(&quot;Ace Rocks &quot; + items[i]);
-    }
-}</pre>
-</div>
-</div></p>
-<script>
-    var editor = ace.edit(document.querySelector('#ace-1'));
-    editor.setTheme("ace/theme/sqlserver");
-    editor.session.setMode("ace/mode/javascript");
-    editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true,
-        tabSize: 2,
-    });
-</script></section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-8">
-        <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h2 id="ace-html-test">Ace HTML test</h2>
-<div class="editor-wrapper">
+<div class="editor-wrapper" id="ace-2">
 
+<div class="editor-css">a { color: red;}</div>
 <div class="editor-container">
-<script type="text/plain" style="display: block;" class="editor" id="ace-2"><a href="test.html"> hello world </a>
+<script type="text/plain" style="display: block;" class="editor-html"><a href="test.html"> hello world </a>
 <ul>
     <li>bla</li>
     <li>bla</li>
     <li>bla</li>
 </ul></script>
 </div>
+<div class="rendered-html"></div>
+<style type="text/css" class="rendered-css"></style>
+</div>
 
-<div class="preview-container" id="ace-2-preview"></div>
-
-
-<p></div></p>
 <script>
-    var el = document.querySelector('#ace-2');
-    var pr = document.querySelector('#ace-2-preview');
-    pr.innerHTML = el.innerHTML
-    var editor2 = ace.edit(el);
-    editor2.setTheme("ace/theme/sqlserver");
-    editor2.session.setMode("ace/mode/html");
-    editor2.on("input", function() {
-        pr.innerHTML = editor2.getValue();
-    });
-    editor2.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: false,
-        tabSize: 2,
-    });
+(function() {
+    sandbox('#ace-2');
+})();
 </script>
 
 <p>some text below</p>
@@ -741,8 +702,8 @@ body {
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-9">
-        <div data-id="9" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
 <ul>
 <li>copy/cut and paste <kbd>Ctrl</kbd><kbd>C</kbd>, <kbd>Ctrl</kbd><kbd>X</kbd>, <kbd>Ctrl</kbd><kbd>V</kbd>
@@ -752,8 +713,8 @@ must fix the styling here!</li>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-10">
-        <div data-id="10" class="slide-overlay"></div>
+      <div class="slide hidden author-slide" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -770,6 +731,7 @@ must fix the styling here!</li>
 
   <div class="controls">
     <div class="arrow prev"></div>
+    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -913,7 +875,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
-    console.log('heeere')
     if(e.target.tagName.toLowerCase() === 'textarea') return;
     var kc = e.keyCode;
 
@@ -942,6 +903,11 @@ document.addEventListener('DOMContentLoaded', function() {
       navigate(-1);
     };
   }
+  if (document.querySelector('.overview')) {
+    document.querySelector('.overview').onclick = function(e) {
+      toggleOverview();
+    }
+  }
   var $overlays = document.querySelectorAll('.slide-overlay');
   [].forEach.call($overlays, function($overlay) {
     $overlay.onclick = function(event) {
@@ -963,7 +929,6 @@ function toggleOverview() {
     delete window.$style;
     document.querySelector('.slides').classList.remove('active');
   } else {
-
     var $slides = document.querySelector('.slides');
     $slides.classList.add('active');
     var slidesList = document.querySelectorAll('.slide-wrapper');
