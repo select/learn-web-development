@@ -39,7 +39,7 @@
 
 <a name="text-editing-1-using-the-text-editor-sublime-text-3-20-min"></a>
 ## Text Editing 1: using a text editor (20 min)
-Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-1.html).
+Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/text-editing-1.html).
 - Text editor for these lessons: Sublime Text 3
 - Write less, but lots of it
 - Learn the 10 finger system
@@ -71,7 +71,7 @@ On intro round everybody must say: Name, Native Languge, explain keyshort
 ## HTML
 <a name="html-lesson-1-basics-20-min"></a>
 ### HTML Lesson 1: basics (20 min)
-Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/html-lesson-1.html).
+Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/html-lesson-1.html).
 - HTML stands for Hyper Text Markup Language
 - HTML is similar to XML
 - What is XML
@@ -107,7 +107,7 @@ Create a website containing the elements: `h1`,`h2`,`h3`,`p`,`ul`,`li`,`table`,`
 
 <a name="html-lesson-2-image-and-hyperlink-20-min"></a>
 ### HTML Lesson 2: image and hyperlink (20 min)
-Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/html-lesson-2.html).
+Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/html-lesson-2.html).
 - The `img` tag
 - Moving down
 - An example folder structure
@@ -141,7 +141,7 @@ What needs to be done:
 ## CSS
 <a name="css-lesson-1-basics-20-min"></a>
 ### CSS Lesson 1: basics (20 min)
-Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/css-lesson-1.html).
+Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-1.html).
 - Cascading Style Sheets: CSS is a stylesheet language that describes the presentation of an HTML (or XML)
 - Syntax: Selector - Declaration (property: value)
 - Selectors 1: tag selector
@@ -177,7 +177,7 @@ Basic styling of the text adventure
 
 <a name="css-lesson-2-more-selectors-15-min"></a>
 ### CSS Lesson 2: more selectors (15 min)
-Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/css-lesson-2.html).
+Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-2.html).
 - Selectors 2: `nested tags`, `nested>tags`
 - Selectors 3: `.class`, `#id`
 - Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`
@@ -363,11 +363,13 @@ http://juliepagano.com/blog/2014/05/18/javascript-debugging-for-beginners/
 - Exercise: http://www.openvim.com/
 
 
-Here is a link to a [test presentation](https://rawgit.com/select/learn-web-development/master/dist/test-presentation.html)
+Here is a link to a [test presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/test-presentation.html)
 
 ## Advanced topics
 
 ### Securing your SSH login
+Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/advanced-secure-login.html).
+
 - Command line required - <br>get one for Windows
 - Get a cheap V-server
 - Login as root
