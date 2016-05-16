@@ -1,0 +1,45 @@
+.editor-wrapper{
+    position: relative;
+    margin-top: 20px;
+}
+.editor-wrapper ul,
+.editor-wrapper h1 {
+    margin: 5px;
+    padding-top: 0;
+}
+.editor-css,
+.editor-html,
+.rendered-html {
+    position: relative;
+    height: 200px;
+    width: 50%;
+    display: inline-block;
+}
+.rendered-html {
+    background-color: #FFF;
+    font-size: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #666;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.editor-css.editor-css,
+.editor-html.editor-html,
+.rendered-html {
+    font-size: .6em;
+}
+.editor-css {
+    position: relative;
+    background-color: #FFF;
+}
+.editor-html {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
