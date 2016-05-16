@@ -166,6 +166,19 @@ img.badge {
   z-index: 3;
 }
 
+.overview {
+  display: inline-block;
+  float: left;
+  color: #C7C7C7;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.overview:hover {
+  color: #1DB4D0;
+}
 .arrow {
   float: left;
   height: 0;
@@ -610,7 +623,7 @@ kbd {
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-2">
         <div data-id="2" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="windows-users-cygwin-ubuntu-bash-blank-in-windows-10">Windows users: Cygwin, Ubuntu bash-blank in Windows 10</h3>
+        <section class="slide-content"><h3 id="command-line-required-br-get-one-for-windows">Command line required - <br>get one for Windows</h3>
 <p>This tutorial requires you to have access to a proper <strong>command line</strong>.</p>
 <p>Get one on Windows with <a href="https://www.cygwin.com/">Cygwin</a><br>
 or the newly announce <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Ubuntu bash for Windows</a>.</p>
@@ -643,7 +656,7 @@ using your root privileges</p>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-5">
         <div data-id="5" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="simiplify-the-login">Simiplify the login</h3>
+        <section class="slide-content"><h3 id="simiplify-the-login-with-an-alias">Simiplify the login with an alias</h3>
 <p><style type="text/css">
 .hint {
     font-size: .6em;
@@ -687,8 +700,8 @@ and entering an alias that you can remember.</p>
         <section class="slide-content"><h3 id="always-logging-in-as-root-is-a-bad-idea">Always logging in as root is a bad idea</h3>
 <p>As root you have rights to change everything <br>
 without having to use a password.</p>
-<p>We therefore want a user that needs to use a password when 
-doing something with the system.</p>
+<p>Let&#39;s create a user that needs to a password when 
+accessing critial system features.</p>
 </section>
       </div>
     </div>
@@ -753,7 +766,7 @@ server</strong>!</p>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-11">
         <div data-id="11" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="use-a-password-on-your-ssh-key-and-ssh-agent">Use a password on your SSH key and SSH agent</h3>
+        <section class="slide-content"><h3 id="use-a-password-on-your-ssh-key">Use a password on your SSH key</h3>
 <p>Use a password to protect your SSH key.</p>
 <pre><code class="lang-bash-blank">…
 Enter passphrase (empty for no passphrase): ***
@@ -794,8 +807,11 @@ Not exactly you will see.</p>
 
   Notice the <code>.pub</code> ending, this means that this is the <br>
   <strong>public key file</strong>.
-  <br><br>
-  <a href="https://github.com/beautifulcode/ssh-copy-id-for-OSX"><code>ssh-copy-id</code> for OSX</a>
+
+  <div style="font-size: .7em; position: absolute; bottom: 0; ">
+    <a href="https://github.com/beautifulcode/ssh-copy-id-for-OSX">ssh-copy-id</a> for OSX <br>
+    Image from <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">Wikipedia</a>
+  </div>
 </div>
 <div class="right">
   <img src="Public_key_encryption.svg.png" alt="asynchronous encryption">
@@ -815,7 +831,9 @@ Not exactly you will see.</p>
   <img src="sshagent1.gif" class="sshagent"><br>
   <img src="sshagent2.gif" class="sshagent"><br>
   <img src="sshagent3.gif" class="sshagent"><br>
-  Images from <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">Steve Friedl&#39;s Unixwiz.net</a>
+  <div style="font-size: .7em; position: absolute; bottom: 0; ">
+    Images from <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">Steve Friedl&#39;s Unixwiz.net</a>
+  </div>
 </div>
 <div class="right">
   <br>
@@ -920,7 +938,7 @@ remote$ ssh remote2</code></pre>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-22">
         <div data-id="22" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="things-to-avoid">Things to avoid</h3>
+        <section class="slide-content"><h3 id="-not-so-stupid-things-to-avoid">(Not so) stupid things to avoid</h3>
 <ul>
 <li>Not posting your password by accident into a chat window.</li>
 <li>Checking a key into a <a href="https://it.slashdot.org/story/13/01/25/132203/github-kills-search-after-hundreds-of-private-keys-exposed">github repository</a>.</li>
@@ -1005,7 +1023,7 @@ font-size: 0.7em;
       <a href="https://github.com/select">select</a>
     </h3>
     <h3 class="url">
-      <a href="https://github.com/webpgr/cached-webpgr.js">https://github.com/webpgr/cached-webpgr.js</a>
+      <a href="https://github.com/select/learn-web-development">https://github.com/select/learn-web-development</a>
     </h3>
 </div>
 </section>
@@ -1015,6 +1033,7 @@ font-size: 0.7em;
 
   <div class="controls">
     <div class="arrow prev"></div>
+    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -1184,6 +1203,11 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       navigate(-1);
     };
+  }
+  if (document.querySelector('.overview')) {
+    document.querySelector('.overview').onclick = function(e) {
+      toggleOverview();
+    }
   }
   var $overlays = document.querySelectorAll('.slide-overlay');
   [].forEach.call($overlays, function($overlay) {

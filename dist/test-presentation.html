@@ -5,254 +5,359 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>Test presentation</title>
   <style type="text/css">
-    body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #222;
+    /* Color Palette Based on Monokai
+
+white       : #fafafa
+light grey  : #efefef
+grey        : #75715e
+dark grey   : #272822
+black       : #191919
+
+light blue  : #66d9ef
+blue        : #1db4d0
+lavender    : #bf79db
+magenta     : #f92672
+light green : #a6e22e
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+/* Theme Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 100%;
+  color: #191919;
+  background-color: #000;
 }
 
+/* Custom Slide Styles */
+#slide-1 {
+  color: #fafafa;
+  background: #222 url('fade.jpg') center center no-repeat;
+  background-size: cover;
+}
+#slide-1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+#slide-1 h1 {
+  text-shadow: 1px 2px 4px #191919;
+}
+
+#slide-1 p {
+  text-shadow: 1px 1px 1px #191919;
+}
+
+.center {
+  text-align: center;
+}
+
+img.badge {
+  height: 128px;
+  width: 128px !important;
+  border-radius: 50% !important;
+}
+
+
+/* The following is needed for the ESC overview slide selection */
+.slides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.slides.active .slide:not(.hidden) {
+  border: 22px solid red;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  cursor: pointer;
+  display: none;
+}
+
+.slides.active .slide:hover .slide-overlay::before {
+  content: '▶';
+  text-align: center;
+  line-height: 300px;
+  font-size: 200px;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slides.active .slide:hover .slide-overlay{
+  display: block;
+  background: rgba(0,0,0,0.5);
+}
+.slide-wrapper {
+  margin: 7px;
+  transition: all 250ms;
+}
+
+/* Presentation Styles */
 .slide {
   position: absolute;
-  top: 0; bottom: 0;
-  left: 0; right: 0;
-  background-color: #f7f7f7;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 100px;
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #FFF;
+}
+
+.slide::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background-size: cover;
+  z-index: 1;
 }
 
 .slide-content {
-  width: 800px;
-  height: 600px;
-  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  max-width: 800px;
+  max-height: 600px;
   margin: 80px auto 0 auto;
-  padding: 30px;
-
-  font-weight: 200;
+  padding: 0;
   font-size: 200%;
+  font-weight: 200;
   line-height: 1.375;
+  overflow: hidden;
+}
+
+.slide-content img {
+  width: 100%;
+  border-radius: 3px;
 }
 
 .controls {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
 }
 
 .arrow {
-  width: 0; height: 0;
-  border: 30px solid #333;
   float: left;
-  margin-right: 30px;
-
+  height: 0;
+  width: 0;
+  margin-right: 15px;
+  border: 15px solid #C7C7C7;
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .prev {
   border-top-color: transparent;
+  border-right-width: 25px;
   border-bottom-color: transparent;
   border-left-color: transparent;
-
   border-left-width: 0;
-  border-right-width: 50px;
 }
 
 .next {
   border-top-color: transparent;
-  border-bottom-color: transparent;
   border-right-color: transparent;
-
-  border-left-width: 50px;
   border-right-width: 0;
+  border-bottom-color: transparent;
+  border-left-width: 25px;
 }
 
 .prev:hover {
-  border-right-color: #888;
+  border-right-color: #1DB4D0;
   cursor: pointer;
 }
 
 .next:hover {
-  border-left-color: #888;
+  border-left-color: #1DB4D0;
   cursor: pointer;
 }
 
+h1,
+h2,
+h3 {
+  font-family: 'Hind', sans-serif;
+  font-weight: 500;
+}
+
 h1 {
-  font-size: 300%;
-  line-height: 1.2;
-  text-align: center;
   margin: 170px 0 0;
+  font-size: 300%;
+  text-align: center;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 100%;
-  line-height: 1.2;
   margin: 5px 0;
-  text-align: center;
+  font-size: 100%;
   font-weight: 200;
+  text-align: center;
+  line-height: 1.2;
 }
 
 h3 {
-  font-size: 140%;
-  line-height: 1.2;
-  border-bottom: 1px solid #aaa;
   margin: 0;
   padding-bottom: 15px;
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px ridge #191919;
 }
 
 ul {
-  padding: 20px 0 0 60px;
   font-weight: 200;
   line-height: 1.375;
+  padding: 20px 0 0 60px;
+}
+
+blockquote {
+  padding-left: 20px;
+  margin-left: 0;
+  background: #efefef;
+  border-left: 5px solid #272822;
+  border-radius: 0 3px 3px 0;
+}
+
+blockquote p {
+  padding: .5em;
+  color: #272822;
+}
+
+.left {
+  float: left;
+  width: 48%;
+}
+
+.right {
+  float: right;
+  width: 48%;
 }
 
 .author h1 {
+  margin-bottom: 30px;
   font-size: 170%;
   font-weight: 200;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .author h3 {
+  font-size: 95%;
   font-weight: 100;
   text-align: center;
-  font-size: 95%;
   border: none;
+}
+
+.author h3.twitter::before {
+  content: 'Twitter: ';
+}
+
+.author h3.github::before {
+  content: 'Github: ';
+}
+
+.author h3.email::before {
+  content: 'Email: ';
+}
+
+.author h3.url::before {
+  content: 'Web: ';
 }
 
 a {
   text-decoration: none;
-  color: #44a4dd;
+  color: #1db4d0;
 }
 
 a:hover {
-  color: #66b5ff;
+  color: #1db4d0;
+  border-bottom: 1px solid #1db4d0;
+}
+
+hr {
+  border: 1px solid #272822;
 }
 
 pre {
-  font-size: 60%;
+  font-size: 75%;
   line-height: 1.3;
+}
+
+table td,
+table th {
+  padding-right: 3em;
+  text-align: left;
 }
 
 .progress {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  right: 0;
+  left: 0;
   height: 3px;
+  z-index: 2;
 }
 
 .progress-bar {
-  width: 0%;
   height: 3px;
-  background-color: #b4b4b4;
-
-  -webkit-transition: width 0.05s ease-out;
-  -moz-transition: width 0.05s ease-out;
-  -o-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
+  width: 0;
+  background-color: #1DB4D0;
+  -webkit-transition: width .15s ease-out;
+     -moz-transition: width .15s ease-out;
+       -o-transition: width .15s ease-out;
+          transition: width .15s ease-out;
 }
 
 .hidden {
   display: none;
 }
 
-@media (max-width: 850px) {
-
-  body {
-    font-size: 70%;
-  }
-
-  .slide-content {
-    width: auto;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  h1 {
-    margin-top: 120px;
-  }
-
-  .prev, .prev:hover {
-    border-right-color: rgba(135, 135, 135, 0.5);
-  }
-
-  .next, .next:hover {
-    border-left-color: rgba(135, 135, 135, 0.5);
-  }
+/* Code Highlighting */
+code {
+  padding: .1em .35em;
+  font-family: 'Inconsolata', ;
+  background-color: #fafafa;
+  border-radius: 3px;
 }
 
-@media (max-width: 480px) {
-  body {
-    font-size: 50%;
-    overflow: hidden;
-  }
-
-  .slide-content {
-    padding: 10px;
-    margin-top: 10px;
-    height: 340px;
-  }
-
-  h1 {
-    margin-top: 50px;
-  }
-
-  ul {
-    padding-left: 25px;
-  }
-}
-
-@media print {
-  * {
-    -webkit-print-color-adjust: exact;
-  }
-
-  @page {
-    size: letter;
-  }
-
-  .hidden {
-    display: inline;
-  }
-
-  html {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-  }
-
-  body {
-    margin: 0 auto !important;
-    border: 0;
-    padding: 0;
-    float: none !important;
-    overflow: visible;
-    background: none !important;
-    font-size: 52%;
-  }
-
-  .progress, .controls {
-    display: none;
-  }
-
-  .slide {
-    position: static;
-  }
-
-  .slide-content {
-    border: 1px solid #222;
-    margin-top: 0;
-    margin-bottom: 40px;
-    height: 3.5in;
-    overflow: visible;
-  }
-
-  .slide:nth-child(even) {
-    /* 2 slides per page */
-    page-break-before: always;
-  }
+pre code {
+  display: block;
+  padding: .5em;
+  font-family: 'Inconsolata', ;
+  font-weight: 400;
+  overflow-y: hidden;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 /*
@@ -355,69 +460,313 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold;
 }
 
+/* Responsiveness */
+@media (max-width: 850px) {
+  body {
+    font-size: 70%;
+  }
+
+  .slide {
+    padding: 50px;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev,
+  .prev:hover {
+    border-right-color: rgba(135, 135, 135, .5);
+  }
+
+  .next,
+  .next:hover {
+    border-left-color: rgba(135, 135, 135, .5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow: hidden;
+    font-size: 50%;
+  }
+
+  .slide {
+    padding: 10px;
+  }
+  .slide-content {
+    height: 340px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+  }
+
+  body {
+    float: none !important;
+    padding: 0;
+    margin: 0 auto !important;
+    overflow: visible;
+    font-size: 52%;
+    background: none !important;
+    border: 0;
+  }
+
+  .progress,
+  .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+    border: 1px solid #222;
+
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
+}
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
     <div class="progress-bar"></div>
   </div>
 
-  <div class="slide" id="slide-1">
-    <section class="slide-content"><h1 id="header-1">Header 1</h1>
+<div class="slides">
+    <div class="slide-wrapper">
+      <div class="slide" id="slide-1">
+        <div data-id="1" class="slide-overlay"></div>
+        <section class="slide-content"><p><style type="text/css" media="screen">
+body {
+    overflow: hidden;
+}
+.editor-wrapper{
+    position: relative;
+}
+.editor-container,
+.preview-container {
+    position: relative;
+    height: 200px;
+    width: 50%;
+    display: inline-block;
+}
+.preview-container {
+    background-color: #FFF;
+    font-size: 1em;
+    position: absolute;
+    top: 0;
+    border-left: 1px solid #666;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.editor,
+.preview-container {
+    font-size: .6em;
+}
+.editor {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+</style></p>
+<p><script src="ace-editor/ace.js" type="text/javascript" charset="utf-8"></script></p>
+<p><script src="ace-editor/ext-language_tools.js"></script></p>
+<h1 id="header-1">Header 1</h1>
 <h2 id="header-2-sublime-text-3-https-www-sublimetext-com-3-">Header 2 <a href="https://www.sublimetext.com/3">Sublime Text 3</a></h2>
 <p>Normal text
 <!-- use dyslexic plugin --></p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-2">
-    <section class="slide-content"><h2 id="source-code-highlighting-html">source code highlighting HTML</h2>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-2">
+        <div data-id="2" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="source-code-highlighting-html">source code highlighting HTML</h2>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">tag</span> <span class="hljs-attr">bla</span>=<span class="hljs-string">"test"</span>&gt;</span></code></pre>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-3">
-    <section class="slide-content"><h2 id="source-code-highlighting-js">source code highlighting JS</h2>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-3">
+        <div data-id="3" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="source-code-highlighting-js">source code highlighting JS</h2>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-string">'test'</span>;
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = things.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
     things[i];
 }</code></pre>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-4">
-    <section class="slide-content"><h2 id="codepen-embed-test">Codepen embed test</h2>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-4">
+        <div data-id="4" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="codepen-embed-test">Codepen embed test</h2>
 <iframe height='268' scrolling='no' src='//codepen.io/select/embed/dMGmOz/?height=268&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/select/pen/dMGmOz/'>dMGmOz</a> by select (<a href='http://codepen.io/select'>@select</a>) on <a href='http://codepen.io'>CodePen</a>.
 </iframe></section>
-  </div>
-  <div class="slide hidden" id="slide-5">
-    <section class="slide-content"><h2 id="js-bin-test">JS bin test</h2>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-5">
+        <div data-id="5" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="js-bin-test">JS bin test</h2>
 <p><a class="jsbin-embed" href="http://jsbin.com/zepica/embed?html,output&height=150px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script></p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h2 id="css-deck-test">CSS Deck test</h2>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-6">
+        <div data-id="6" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="css-deck-test">CSS Deck test</h2>
 <p><pre class="_cssdeck_embed" data-pane="html,output" data-user="" data-href="ulfavgdi" data-version="0"></pre><script async src="http://cssdeck.com/assets/js/embed.js"></script></p>
 </section>
-  </div>
-  <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-7">
+        <div data-id="7" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="ace-editor-test">Ace editor test</h2>
+<p><div class="editor-wrapper"></p>
+<p><div class="editor-container"></p>
+<p><pre class="editor" id="ace-1">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert(&quot;Ace Rocks &quot; + items[i]);
+    }
+}</pre>
+</div>
+</div></p>
+<script>
+    var editor = ace.edit(document.querySelector('#ace-1'));
+    editor.setTheme("ace/theme/sqlserver");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true,
+        tabSize: 2,
+    });
+</script></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="ace-html-test">Ace HTML test</h2>
+<div class="editor-wrapper">
+
+<div class="editor-container">
+<script type="text/plain" style="display: block;" class="editor" id="ace-2"><a href="test.html"> hello world </a>
+<ul>
+    <li>bla</li>
+    <li>bla</li>
+    <li>bla</li>
+</ul></script>
+</div>
+
+<div class="preview-container" id="ace-2-preview"></div>
+
+
+<p></div></p>
+<script>
+    var el = document.querySelector('#ace-2');
+    var pr = document.querySelector('#ace-2-preview');
+    pr.innerHTML = el.innerHTML
+    var editor2 = ace.edit(el);
+    editor2.setTheme("ace/theme/sqlserver");
+    editor2.session.setMode("ace/mode/html");
+    editor2.on("input", function() {
+        pr.innerHTML = editor2.getValue();
+    });
+    editor2.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: false,
+        tabSize: 2,
+    });
+</script>
+
+<p>some text below</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
+        <section class="slide-content"><h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
 <ul>
 <li>copy/cut and paste <kbd>Ctrl</kbd><kbd>C</kbd>, <kbd>Ctrl</kbd><kbd>X</kbd>, <kbd>Ctrl</kbd><kbd>V</kbd>
 must fix the styling here!</li>
 </ul>
 </section>
-  </div>
-  <div class="slide hidden author-slide" id="slide-8">
-    <section class="slide-content"><div class="author">
-  <h1 class="name">select @ github</h1>
-    <h3 class="twitter">
-      <a href="http://twitter.com/@rockdapus">@rockdapus</a>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden author-slide" id="slide-10">
+        <div data-id="10" class="slide-overlay"></div>
+        <section class="slide-content"><div class="author">
+  <h1 class="name">Falko Krause</h1>
+    <h3 class="github">
+      <a href="https://github.com/select">select</a>
     </h3>
     <h3 class="url">
       <a href="https://github.com/select/learn-web-development">https://github.com/select/learn-web-development</a>
     </h3>
 </div>
 </section>
-  </div>
+      </div>
+    </div>
+</div>
 
   <div class="controls">
     <div class="arrow prev"></div>
@@ -433,7 +782,6 @@ function currentPosition() {
   return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
 }
 
-
 /**
  * Navigates forward n pages
  * If n is negative, we will navigate in reverse
@@ -442,32 +790,49 @@ function navigate(n) {
   var position = currentPosition();
   var numSlides = document.getElementsByClassName('slide').length;
 
-  /* Positions are 1-indexed, so we need to add and subtract 1 */
-  var nextPosition = (position - 1 + n) % numSlides + 1;
+  var $fragments = document.querySelectorAll('#slide-' + position + ' .fragment');
+  var fragmentsFinished = false;
+  if ($fragments.length) {
+    if (n > 0) {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment.hidden');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[0].classList.remove('hidden');
+    } else {
+      var $f = document.querySelectorAll('#slide-' + position + ' .fragment:not(.hidden)');
+      if (!$f.length) fragmentsFinished = true;
+      else $f[$f.length - 1].classList.add('hidden');
+    }
+  } else {
+    fragmentsFinished = true;
+  }
 
-  /* Normalize nextPosition in-case of a negative modulo result */
-  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+  if (fragmentsFinished) {
+    /* Positions are 1-indexed, so we need to add and subtract 1 */
+    var nextPosition = (position - 1 + n) % numSlides + 1;
 
-  document.getElementById('slide-' + position).classList.add('hidden');
-  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+    /* Normalize nextPosition in-case of a negative modulo result */
+    nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
 
-  updateProgress();
-  updateURL();
-  updateTabIndex();
+    document.getElementById('slide-' + position).classList.add('hidden');
+    document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+    updateProgress();
+    updateURL();
+    updateTabIndex();
+  }
+
 }
-
 
 /**
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
   try {
-    window.history.replaceState({} , null, '#' + currentPosition());
+    window.history.replaceState({}, null, '#' + currentPosition());
   } catch (e) {
     window.location.hash = currentPosition();
   }
 }
-
 
 /**
  * Sets the progress indicator.
@@ -482,7 +847,6 @@ function updateProgress() {
     progressBar.style.width = percent.toString() + '%';
   }
 }
-
 
 /**
  * Removes tabindex property from all links on the current slide, sets
@@ -509,9 +873,9 @@ function updateTabIndex() {
  */
 function isFullScreen() {
   return document.fullscreenElement ||
-         document.mozFullScreenElement ||
-         document.webkitFullscreenElement ||
-         document.msFullscreenElement;
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement;
 }
 
 /**
@@ -524,21 +888,21 @@ function toggleFullScreen() {
   var doc = document;
 
   docElem.requestFullscreen =
-      docElem.requestFullscreen ||
-      docElem.msRequestFullscreen ||
-      docElem.mozRequestFullScreen ||
-      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+    docElem.requestFullscreen ||
+    docElem.msRequestFullscreen ||
+    docElem.mozRequestFullScreen ||
+    docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
 
   doc.exitFullscreen =
-      doc.exitFullscreen ||
-      doc.msExitFullscreen ||
-      doc.mozCancelFullScreen ||
-      doc.webkitExitFullscreen;
+    doc.exitFullscreen ||
+    doc.msExitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen;
 
   isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Update the tabindex to prevent weird slide transitioning
   updateTabIndex();
 
@@ -548,7 +912,9 @@ document.addEventListener('DOMContentLoaded', function () {
     navigate(parseInt(page) - 1);
   }
 
-  document.onkeydown = function (e) {
+  document.onkeydown = function(e) {
+    console.log('heeere')
+    if(e.target.tagName.toLowerCase() === 'textarea') return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -560,23 +926,61 @@ document.addEventListener('DOMContentLoaded', function () {
       navigate(1);
     } else if (kc === 13) {
       toggleFullScreen();
+    } else if (kc === 27) {
+      toggleOverview();
     }
   };
 
   if (document.querySelector('.next') && document.querySelector('.prev')) {
-    document.querySelector('.next').onclick = function (e) {
+    document.querySelector('.next').onclick = function(e) {
       e.preventDefault();
       navigate(1);
     };
 
-    document.querySelector('.prev').onclick = function (e) {
+    document.querySelector('.prev').onclick = function(e) {
       e.preventDefault();
       navigate(-1);
     };
   }
+  var $overlays = document.querySelectorAll('.slide-overlay');
+  [].forEach.call($overlays, function($overlay) {
+    $overlay.onclick = function(event) {
+      navigate(parseInt(event.target.dataset.id) - currentPosition());
+      toggleOverview();
+    }
+  });
+
+  var $fragments = document.querySelectorAll('.fragment');
+  [].forEach.call($fragments, function($fragment) {
+    $fragment.classList.add('hidden');
+  });
+
 });
 
+function toggleOverview() {
+  if (window.$style !== undefined) {
+    window.$style.remove();
+    delete window.$style;
+    document.querySelector('.slides').classList.remove('active');
+  } else {
 
+    var $slides = document.querySelector('.slides');
+    $slides.classList.add('active');
+    var slidesList = document.querySelectorAll('.slide-wrapper');
+
+    var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+    window.$style = document.createElement('style');
+    window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
+
+    document.getElementsByTagName('head')[0].appendChild(window.$style);
+  }
+}
   </script>
 </body>
 </html>
