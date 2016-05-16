@@ -4,10 +4,11 @@ author:
   github: select
   url: https://github.com/select/learn-web-development
 output: dist/html-lesson-1.html
-theme: ./custom-theme
+theme: ./cleaver-select-theme
 controls: true
 
 --
+<script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script>
 #HTML Lesson 1
 
 ##The basiscs of they **H**yper **T**ext **M**arkup **L**anguage
@@ -156,7 +157,83 @@ We want to organise text and image, but first we need some strucure.
 --
 
 ### Tags in the `body` 1: `h1`, `p`, `i`, `b`, `br`, `hr`
-<a class="jsbin-embed" href="http://jsbin.com/habama/embed?html,output&height=250px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script>
+<div class="editor-wrapper" id="code-example-1">
+
+<div class="editor-container">
+<script type="text/plain" class="editor-html" ><h1>Heading 1</h1>
+
+<p>
+  I am a paragraph. 
+  Here are <i>some</i> text 
+  <b>formatting</b> tags.
+
+  <br>
+  
+  There was a line break and a 
+  horzontal ruler is below.
+  
+  <hr>
+  
+  You can play with the code 
+  yourself now.
+
+</p></script>
+</div>
+<div class="rendered-html"></div>
+<style type="text/css" class="rendered-css"></style>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-1',{height: 400});
+})();
+</script>
 --
 ### Tags in the `body` 2: `table>tr>th,td`, `ul>li`
-<a class="jsbin-embed" href="http://jsbin.com/didepij/embed?html,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script>
+<div class="editor-wrapper" id="code-example-2">
+
+<div class="editor-container">
+<script type="text/plain" class="editor-html" ><h1>Table</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Desciption</th>
+  </tr>
+  <tr>
+    <td>tr</td>
+    <td>a table row</td>
+  </tr>
+  <tr>
+    <td>td</td>
+    <td>a table column</td>
+  </tr>
+</table>
+
+<h1>List</h1>
+<ul>
+  <li>this</li>
+  <li>is</li>
+  <li>a list</li>
+</ul>
+</script>
+</div>
+<div class="rendered-html"></div>
+<style type="text/css" class="rendered-css">
+  .rendered-html table td, .rendered-html table th{
+    border: 1px solid;
+  }
+  </style>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-2',{height: 400});
+})();
+</script>
+--
+### The End
+Continue with the 
+
+<a href="html-lesson-2.html">HTML Lesson 2: image and hyperlink (20 min)</a>
+
+or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.

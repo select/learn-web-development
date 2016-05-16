@@ -3,10 +3,10 @@ author:
   name: Falko Krause
   github: select
   url: https://github.com/select/learn-web-development
+  continue: bla.html
 output: dist/html-lesson-2.html
-theme: ./custom-theme
+theme: ./cleaver-select-theme
 controls: true
-
 
 --
 #HTML Lesson 2
