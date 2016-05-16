@@ -4,16 +4,25 @@ author:
   github: select
   url: https://github.com/select/learn-web-development
 output: dist/text-editing-1.html
-theme: ./custom-theme
+theme: ./cleaver-select-theme
 controls: true
 
 --
 #Text Editing 1
 
-##Using the text editor [Sublime Text 3](https://www.sublimetext.com/3)
+##Using the text editor
 
 <!-- use dyslexic plugin -->
 
+--
+### Text editor for these lessons: <br>Sublime Text 3
+Download and install it from here:
+
+https://www.sublimetext.com/3
+
+**Why?** Fast, plugin ecosystem, I know it.
+
+**Alternatives?** [Atom](https://atom.io/) (beginner), [Vim](http://www.vim.org/) (pro)
 --
 ### Write less, but lots of it
 Write only what you really need, but learn through repetition.
@@ -40,13 +49,13 @@ The keyboard is much faster than the mouse.
     <tr>
         <td>copy/cut and paste</td><td><kbd>Ctrl</kbd><kbd>C</kbd>, <kbd>Ctrl</kbd><kbd>X</kbd>, <kbd>Ctrl</kbd><kbd>V</kbd></td>
     </tr><tr>
-        <td>new tab</td><td><kbd>Ctrl</kbd><kbd>T</kbd></td>
-    </tr><tr>
-        <td>close tab</td><td><kbd>Ctrl</kbd><kbd>F4</kbd></td>
-    </tr><tr>
         <td>close window</td><td><kbd>Alt</kbd><kbd>F4</kbd></td>
     </tr><tr>
         <td>new file</td><td><kbd>Ctrl</kbd><kbd>N</kbd></td>
+    </tr><tr>
+        <td>new tab</td><td><kbd>Ctrl</kbd><kbd>T</kbd></td>
+    </tr><tr>
+        <td>close tab</td><td><kbd>Ctrl</kbd><kbd>F4</kbd> / <kbd>Ctrl</kbd><kbd>W</kbd></td>
     </tr><tr>
         <td>save</td><td><kbd>Ctrl</kbd><kbd>S</kbd></td>
     </tr><tr>
@@ -59,4 +68,13 @@ The keyboard is much faster than the mouse.
 </table>
 
 --
-### Learn keyboard shortcuts: 2 every week
+### Pro-Tip™
+Learn 2 new keyboard shortcuts every week
+
+--
+### The End
+Continue with the 
+
+<a href="html-lesson-1.html">HTML Lesson 1: basics (20 min)</a>
+
+or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.
