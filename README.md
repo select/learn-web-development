@@ -38,17 +38,34 @@
 <!-- /TOC -->
 
 <a name="text-editing-1-using-the-text-editor-sublime-text-3-20-min"></a>
-## Text Editing 1: using the text editor Sublime Text 3 (20 min)
+## Text Editing 1: using a text editor (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-1.html).
+- Text editor for these lessons: Sublime Text 3
 - Write less, but lots of it
 - Learn the 10 finger system
 - Don't use your mouse, use your brain
 - Universal keyboard shortcuts that you must know
 - How to learn keyboard shortcuts: 2 every week
 <!--
-Survey: who knows keyboard shortcut a,b,c ... Introduction game, explain the keyshortcut
+Introduction game, explain the keyshortcut:
+send each participant a keyboard shortcut beforehand that they must learn.
 
-or send each participant a keyboard shortcut beforehand that they must learn.
+1) Ctrl+F | search
+2) Ctrl+Z, Ctrl+Y / Ctrl+Shift+Z | undo, redo
+3) Ctrl+A | select all
+4) End / Home | end of the line/document, start of the line/document
+5) Alt+Tab | cycle between windows
+5) Ctrl+Tab | cycle between tabs
+6) Super+D | hide all windows and show the desktop
+7) F2 | when item ist selected, rename it
+8) Super and start typinig (Linux, Windows)
+9) Ctrl+Alt+V | paste special (e.g. paste in place or )
+10) Ctrl+←, Ctrl+→ | next word previous word
+11) Ctrl+B, Ctrl+I, Ctrl+U | bold, italic, underline
+12) Ctrl+Shift+T | reopen closed tab
+13) click on item; shift+ click on next item | select range
+
+On intro round everybody must say: Name, Native Languge, explain keyshort
  -->
 <a name="html"></a>
 ## HTML
