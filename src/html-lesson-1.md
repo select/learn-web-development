@@ -234,6 +234,6 @@ We want to organise text and image, but first we need some strucure.
 ### The End
 Continue with the 
 
-<a href="html-lesson-2.html">HTML Lesson 2: image and hyperlink (20 min)</a>
+<a href="html-exercise-1.html">HTML Exercise 1: My first HTML page (15 min)</a>
 
 or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.
