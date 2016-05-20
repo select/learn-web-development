@@ -52,7 +52,10 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Universal keyboard shortcuts that you must know 2
 - Universal keyboard shortcuts that you must know 3
 - How to learn keyboard shortcuts: 2 every week
+
+
 ## HTML
+
 ### HTML Lesson 1: basics (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/html-lesson-1.html).
 - HTML stands for Hyper Text Markup Language
