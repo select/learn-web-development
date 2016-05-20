@@ -10,7 +10,7 @@ controls: true
 --
 # HTML Exercise 1
 
-## Hello world
+## Hello world!
 
 --
 ### Create your first website
@@ -21,10 +21,10 @@ Create a website containing the elements: `html`, `head`, `title`, `body`, `h1`,
 
 Should contain the words: `Hello world`
 
-Save the site <kbd>Ctrl</kbd><kbd>S</kbd>. Open it in you browser (Chrome, Firefox, Vivali) <kbd>Ctrl</kbd><kbd>O</kbd>
+Save the page <kbd>Ctrl</kbd><kbd>S</kbd>. Open it in you browser (Chrome, Firefox, Vivali) <kbd>Ctrl</kbd><kbd>O</kbd>
 
 --
-### Element overview
+### Tags overview
 
 - `h1` - `h6` Heading
 - `p` Paragraph

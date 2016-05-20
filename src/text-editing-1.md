@@ -1,8 +1,9 @@
-title: Text Editing 1 - using the text editor Sublime Text 3
+title: Text Editing 2 - Working with many files; better HTML editing
 author:
   name: Falko Krause
   github: select
   url: https://github.com/select/learn-web-development
+  continue: bla.html
 output: dist/text-editing-1.html
 theme: ./cleaver-select-theme
 controls: true
@@ -10,71 +11,62 @@ controls: true
 --
 #Text Editing 1
 
-##Using a text editor
-
-<!-- use dyslexic plugin -->
+##Working with many files; better HTML editing
 
 --
-### Text editor for these lessons: <br>Sublime Text 3
-Download and install it from here:
+### Creating a project in Sublime Text 3
+Open a folder: `File ▸ Open Folder...`
 
-https://www.sublimetext.com/3
+Create the project: `Project ▸ Save Project As..`
 
-**Why?** Fast, plugin ecosystem … I know it.
-
-**Alternatives?** [Atom](https://atom.io/) (beginner), [Vim](http://www.vim.org/) (pro)
---
-### Write less, but lots of it
-Write only what you really need, but learn through repetition.
-<div></div>
---
-### Learn the 10 finger system
-- https://www.typing.com/student/start ★★★
-- http://www.keybr.com/ ★★
-- http://bigbrownbear.co.uk/learntotype/ ★★
+The project file can be saved anywhere (you do not have to save it inside your project). I recommend a base folder like `/home/falko/Coding/*.sublime-project`
 
 --
-### Don't use your mouse, use your brain
-The keyboard is much faster than the mouse.
+### Navigating in the project 
+One of the keyboard shortcuts that made Sublime Text such a huge success is the
 
-<!-- 
-  + Ask audience why the are here, what they want to learn.
-  + What you are learning here is supposed to solve your problems faster.
- -->
+<kbd>Ctrl</kbd><kbd>P</kbd> fuzzy file search.
 
---
-### Universal keyboard shortcuts that you must know
-
-<table>
-    <tr>
-        <td>copy/cut and paste</td><td><kbd>Ctrl</kbd><kbd>C</kbd>, <kbd>Ctrl</kbd><kbd>X</kbd>, <kbd>Ctrl</kbd><kbd>V</kbd></td>
-    </tr><tr>
-        <td>close window</td><td><kbd>Alt</kbd><kbd>F4</kbd></td>
-    </tr><tr>
-        <td>new file</td><td><kbd>Ctrl</kbd><kbd>N</kbd></td>
-    </tr><tr>
-        <td>new tab</td><td><kbd>Ctrl</kbd><kbd>T</kbd></td>
-    </tr><tr>
-        <td>close tab</td><td><kbd>Ctrl</kbd><kbd>F4</kbd> / <kbd>Ctrl</kbd><kbd>W</kbd></td>
-    </tr><tr>
-        <td>save</td><td><kbd>Ctrl</kbd><kbd>S</kbd></td>
-    </tr><tr>
-        <td>save as</td><td><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>S</kbd></td>
-    </tr><tr>
-        <td>multi selection </td><td>keep pushed <kbd>Ctrl</kbd> and click</td>
-    </tr><tr>
-        <td>select range</td><td><kbd>shift</kbd> click, <kbd>shift</kbd> click</td>
-    </tr>
-</table>
+It allows you to quickly skip to any file in your project <br> and even jump to the right section using `@` in the search filed.
 
 --
-### Pro-Tip™
-Learn 2 new keyboard shortcuts every week
+### Installing plugins with Package Control
+Copy the installation code to your cipboard
+
+https://packagecontrol.io/installation <kbd>Ctrl</kbd><kbd>C</kbd>
+
+Open the Sublime console `View ▸ Show Console`
+
+Paste <kbd>Ctrl</kbd><kbd>V</kbd> the code and let the installation run.
+
+After restarting we are able to **install plugins**.
+
+--
+### Finding editor commands with a keyboard shortcut
+While you can find most editor commands in the top menus,
+
+<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> fuzzy command search.
+
+Will give you faster and better access to all commands.
+
+Try seaching for `install` you should find the `Package Control: Install Package` command.
+--
+### Plugins: Emmet, All Autocomplete
+We want to install 2 packages, here is how we do it
+
+Emmet <br>
+<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> `install` <kbd>Enter</kbd> `emmet` <kbd>Enter</kbd>
+
+All Autocomplete <br>
+<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> … <kbd>Enter</kbd> `all auto` <kbd>Enter</kbd>
+
+For the second plugin we did not even have to write `install` since it remembered our last command.
+
 
 --
 ### The End
-Continue with the 
+Continue with
 
-<a href="html-lesson-1.html">HTML Lesson 1: basics (20 min)</a>
+<a href="text-editing-2.html">Text Editing 2: Working with many files; better HTML editing (15 min)</a>
 
 or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.

@@ -11,14 +11,14 @@ controls: true
 <script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script>
 #HTML Lesson 1
 
-##The basiscs of they **H**yper **T**ext **M**arkup **L**anguage
+##The basiscs of the **H**yper **T**ext **M**arkup **L**anguage
 
 --
 ### HTML stands for <br>**H**yper **T**ext **M**arkup **L**anguage
 
 HTML helps to render and layout text and images.
 
-Writing HTML is not programming.
+Writing HTML is not programming since it only creates static files that you can view but not execute under different contexts.
 
 --
 ### HTML is similar to XML
@@ -137,7 +137,7 @@ We want to organise text and image, but first we need some strucure.
 </html>
 ```
 --
-### Tags in `head`: `title`, `favicon`
+### Tags in the `head`: `title`, `favicon`
 ```html
 <head>
   

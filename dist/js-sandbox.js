@@ -33,6 +33,7 @@ function _loadScript(url, callback) {
 }
 
 function _startEditor(selector, options){
+    options = Object.assign({}, options);
     var $wrapper = document.querySelector(selector);
     var $renderedHtml = $wrapper.querySelector('.rendered-html');
     var $renderedCSS = $wrapper.querySelector('.rendered-css');

@@ -220,6 +220,16 @@ JS Bin here
         </div>
     </div>
 </div>
+
+### The box model
+```css
+p {
+    background-color: #fff;
+    background-image: url('img/wood.png');
+    background-position: 50% 20px;
+    background-repeat: no-repeat; /*repeat, repeat-x, repeat-y*/
+}
+```
 JS Bin here
 
 --

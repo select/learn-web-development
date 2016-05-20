@@ -1,4 +1,5 @@
 title: HTML Lesson 2 - Image and hyperlink
+
 author:
   name: Falko Krause
   github: select
@@ -233,3 +234,11 @@ Is not case sensitve. `wWw.gOoGlE.CoM`
 <span style="color:#F26419;">The Path</span> <br>
 Is (almost always) case sensitve, just like the file system<br>
 ... on GUN/Linux.
+
+--
+### The End
+Continue with
+
+<a href="text-editing-1.html">Text Editing 1: Working with many files; better HTML editing (15 min)</a>
+
+or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.
