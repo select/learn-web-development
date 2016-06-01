@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>Text Editing 2 - Working with many files; better HTML editing</title>
+  <title>Text Editing 2 - code types; indentation; find and replace; multiselection (15min)</title>
   <style type="text/css">
     /* Color Palette Based on Monokai
 
@@ -390,7 +390,7 @@ code.lang-bash-blank-small{
 
 kbd {
   display: inline-block;
-  padding: 3px 5px;
+  padding: 3px 10px;
   color: #555;
   vertical-align: middle;
   background-color: #fcfcfc;
@@ -617,60 +617,82 @@ kbd {
       <div class="slide" id="slide-1">
         <div data-id="1" class="slide-overlay"></div>
         <section class="slide-content"><h1 id="text-editing-2">Text Editing 2</h1>
-<h2 id="working-with-many-files-better-html-editing">Working with many files; better HTML editing</h2>
+<h2 id="code-types-indentation-find-and-replace-multiselection">code types; indentation; find and replace; multiselection</h2>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-2">
         <div data-id="2" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="creating-a-project">Creating a project</h3>
-<p>Open a folder: <code>File ▸ Open Folder...</code></p>
-<p>Create the project: <code>Project ▸ Save Project As..</code></p>
-<p>The project file can be saved anywhere (must not be saved inside your project). I reccoment a base Folder</p>
+        <section class="slide-content"><h3 id="switching-the-souce-code-highlighting">Switching the souce code highlighting</h3>
+<p><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> <code>Set Syntax …</code>
+or bottom right</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-3">
         <div data-id="3" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="navigating-in-the-project">Navigating in the project</h3>
-<p>One of the keyboard shortcuts that made Sublime Text such a huge success is the</p>
-<p><kbd>Ctrl</kbd><kbd>P</kbd> fuzzy file search.</p>
-<p>It allows you to quickly skip to any file in your project <br> and even jump to the right section using <code>@</code> in the search filed.</p>
+        <section class="slide-content"><h3 id="indentation-control">Indentation control</h3>
+<p>Bottom right to set the number of spaces</p>
+<p><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> <code>Reindent …</code><br>
+To automatically indet your code</p>
+<p><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> <code>Convert to Space</code><br>
+<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> <code>Convert to Tabs</code></p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-4">
         <div data-id="4" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="installing-plugins-with-package-control">Installing plugins with Package Control</h3>
-<p>Copy the installation code to your cipboard </p>
-<p><a href="https://packagecontrol.io/installation">https://packagecontrol.io/installation</a> <kbd>Ctrl</kbd><kbd>C</kbd></p>
-<p>Open the Sublime console <code>View ▸ Show Console</code></p>
-<p>Paste <kbd>Ctrl</kbd><kbd>V</kbd> the code and let the installation run.</p>
-<p>After restarting we are able to <strong>install Plugins</strong>.</p>
+        <section class="slide-content"><h3 id="configure-indentation-with-editorconfig">Configure indentation with editorconfig</h3>
+<p>Create the file <code>.editorconfig</code> in the root folder</p>
+<pre><code># http://editorconfig.org
+root = true
+
+[*]
+indent_style = tab
+# indent_size = 2 #not used since this should be up to everybody
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false</code></pre>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-5">
         <div data-id="5" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="plugins-emmet-all-autocomplete">Plugins: Emmet, All Autocomplete</h3>
+        <section class="slide-content"><h3 id="find-and-replace-in-all-files">Find and replace in (all) files</h3>
+<p>Find <br>
+<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd></p>
+<p>Find in project <br>
+<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd><br></p>
+<p>Options: case sensitve, regex <br>
+Where: file patterns e.g. <code>*.html</code> <code>src/*.css</code></p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-6">
         <div data-id="6" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="finding-commands-and-using-commands-without-specific-shortcut-kbd-ctrl-kbd-kbd-shift-kbd-kbd-p-kbd-">Finding commands and using commands without specific shortcut <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd></h3>
+        <section class="slide-content"><h3 id="plugins-trailing-spaces">Plugins: Trailing Spaces</h3>
+<p>The Trailing Spaces plugin will delete all spaces at the end of a line.</p>
+<p>Trailing space do not cause problems but we want to keep our code clean.</p>
+<p><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> <code>install …</code></p>
+<p><code>Trailing Spaces</code></p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
         <div data-id="7" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="multi-selection-kbd-ctrl-kbd-kbd-d-kbd-">Multi selection <kbd>Ctrl</kbd><kbd>D</kbd></h3>
+        <section class="slide-content"><h3 id="multi-selection">Multi selection</h3>
+<p>Select a string that you want to change, multiple times press</p>
+<p><kbd>Ctrl</kbd><kbd>D</kbd></p>
+<p>or use the mouse and <kbd>Ctrl</kbd> to create a multi-selection</p>
 </section>
       </div>
     </div>
@@ -678,8 +700,8 @@ kbd {
       <div class="slide hidden" id="slide-8">
         <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-end">The End</h3>
-<p>Continue with the </p>
-<p><a href="text-editing-2.html">Text Editing 2: Working with many files; better HTML editing (15 min)</a></p>
+<p>Continue with the</p>
+<p><a href="css-exercise-1.html">CSS Exercise 1: styling the text adventure</a></p>
 <p>or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.</p>
 </section>
       </div>

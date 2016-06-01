@@ -36,7 +36,7 @@ body {
 /* Custom Slide Styles */
 #slide-1 {
   color: #fafafa;
-  background: #222 url('fade.jpg') center center no-repeat;
+  background: #222;
   background-size: cover;
 }
 #slide-1::after {
@@ -47,7 +47,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background: url('background-image.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -166,6 +166,19 @@ img.badge {
   z-index: 3;
 }
 
+.overview {
+  display: inline-block;
+  float: left;
+  color: #C7C7C7;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.overview:hover {
+  color: #1DB4D0;
+}
 .arrow {
   float: left;
   height: 0;
@@ -346,7 +359,7 @@ table th {
 /* Code Highlighting */
 code {
   padding: .1em .35em;
-  font-family: 'Inconsolata', ;
+  font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
@@ -354,7 +367,7 @@ code {
 pre code {
   display: block;
   padding: .5em;
-  font-family: 'Inconsolata', ;
+  font-family: 'Inconsolata';
   font-weight: 400;
   overflow-y: hidden;
   background: rgba(255, 255, 255, 0.7);
@@ -365,7 +378,27 @@ pre code {
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
+code.lang-bash-blank{
+  background: #000;
+  color: #fff!important;
+}
+code.lang-bash-blank-small{
+  background: #000;
+  color: #fff!important;
+  font-size: 0.45em;
+}
 
+kbd {
+  display: inline-block;
+  padding: 3px 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 #bbb;
+}
 .hljs {
   display: block;
   overflow-x: auto;
@@ -572,6 +605,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -582,7 +616,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <div class="slide-wrapper">
       <div class="slide" id="slide-1">
         <div data-id="1" class="slide-overlay"></div>
-        <section class="slide-content"><h1 id="css-lesson-1">CSS Lesson 1</h1>
+        <section class="slide-content"><p><script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script></p>
+<h1 id="css-lesson-1">CSS Lesson 1</h1>
 <h2 id="-c-ascading-s-tyle-s-heets-basics"><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets basics</h2>
 </section>
       </div>
@@ -669,7 +704,7 @@ Each with different intensity between 0 and 255.</p>
     </tbody>
 </table>
 
-
+<p>Hex: <code>0-9</code> <code>a-f</code> ⇨ <code>16</code>; <code>16² = 256</code></p>
 <p>Do you know <a href="https://en.wikipedia.org/wiki/Additive_color">additative color mixing</a> <a href="https://goo.gl/pvhdpY">?</a></p>
 </section>
       </div>
@@ -687,8 +722,36 @@ Each with different intensity between 0 and 255.</p>
       <div class="slide hidden" id="slide-8">
         <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="text-properties">Text properties</h3>
-<p><a class="jsbin-embed" href="http://jsbin.com/woyabo/embed?css,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script></p>
-</section>
+<div class="editor-wrapper" id="code-example-1">
+
+<div class="editor-css">h1 {
+  color: red;
+  text-align: center;
+  text-decoration: underline;
+}
+p {
+  color: #000000;
+}
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+}</div>
+
+<div class="rendered-html"><h1>Hello</h1>
+<p>
+  Here are some links
+  <a href="http://www.w3schools.com/cssref/pr_text_text-align.asp">text-align</a><br>
+  <a href="http://www.w3schools.com/cssref/pr_text_text-decoration.asp">text-decoration</a><br>
+  <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
+</p>
+</div>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-1',{height: 400, enableLiveAutocompletion: true});
+})();
+</script></section>
       </div>
     </div>
     <div class="slide-wrapper">
@@ -703,7 +766,6 @@ Each with different intensity between 0 and 255.</p>
     <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
     <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">300</span>;
 }</code></pre>
-<p>JS Bin</p>
 </section>
       </div>
     </div>
@@ -763,7 +825,7 @@ use custom fonts.</p>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-12">
         <div data-id="12" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="using-a-custom-font">Using a custom font</h3>
+        <section class="slide-content"><h3 id="using-a-custom-font-from-google">Using a custom font from Google</h3>
 <p><img src="google-font-quick-use.png" alt="Google font quick use">
 Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
 <pre><code class="lang-css">@<span class="hljs-keyword">import</span> url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -780,20 +842,44 @@ Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
         <div data-id="13" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="background-properties-background-color-background-image-">Background properties: <code>background-color</code> <code>background-image</code></h3>
 <pre><code class="lang-css"><span class="hljs-selector-tag">body</span> {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f00</span>;
     <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'img/wood.png'</span>);
     <span class="hljs-attribute">background-position</span>: <span class="hljs-number">50%</span> <span class="hljs-number">20px</span>;
     <span class="hljs-attribute">background-repeat</span>: no-repeat; <span class="hljs-comment">/*repeat, repeat-x, repeat-y*/</span>
 }</code></pre>
-<p>JS Bin here</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-14">
         <div data-id="14" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="the-box-model-margin-border-padding-">The box model <code>margin</code>, <code>border</code>, <code>padding</code></h3>
-<p><div style="background-color: #FFD800; padding: 50px; text-align: center; position: relative; margin-top: 40px">
+        <section class="slide-content"><h3 id="background-properties-sandbox-background-color-background-image-">Background properties sandbox: <code>background-color</code> <code>background-image</code></h3>
+<div class="editor-wrapper" id="code-example-2">
+
+<div class="editor-css">p {
+    color: white;
+    background-image: url(&#39;wood.png&#39;);
+    background-position: 1% 2px;
+    background-repeat: no-repeat;
+    background-color: #f00;
+}</div>
+
+<div class="rendered-html"><p>Hello World</p>
+</div>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-2',{height: 400, enableLiveAutocompletion: true});
+})();
+</script></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-15">
+        <div data-id="15" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="the-box-model-margin-border-padding-">The box model: <code>margin</code>, <code>border</code>, <code>padding</code></h3>
+<div style="background-color: #FFD800; padding: 50px; text-align: center; position: relative; margin-top: 40px">
     <div style="position: absolute; margin: 0 auto; top: 0;  left: 50%; transform: translate(-50%, 0);">Margin</div>
     <div style="background-color: #1DA5D0; padding: 40px; position: relative;">
         <div style="position: absolute; margin: 0 auto; top: 0;  left: 50%; transform: translate(-50%, 0); color: white;">Border</div>
@@ -801,26 +887,54 @@ Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
         <div style="background-color: white; padding: 30px">Your content here</div>
         </div>
     </div>
-</div>
-JS Bin here</p>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-15">
-        <div data-id="15" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="other-porperties-2-float-">Other porperties 2: <code>float</code></h3>
-<p>JS Bin here</p>
-</section>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-16">
         <div data-id="16" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="the-box-model-sandbox-margin-border-padding-">The box model sandbox: <code>margin</code>, <code>border</code>, <code>padding</code></h3>
+<div class="editor-wrapper" id="code-example-3">
+
+<div class="editor-css">p {
+   border: 1px solid #333;
+   margin-top: 10px;
+   margin-left: 20px;
+   padding: 20px;
+   padding-left: 5px;
+   border-radius: 10px
+}</div>
+
+<div class="rendered-html"><p>Hello World</p>
+</div>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-3',{height: 400, enableLiveAutocompletion: true});
+})();
+</script></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-17">
+        <div data-id="17" class="slide-overlay"></div>
+        <section class="slide-content"><p><div style="height: 400px; line-height: 400px">
+<span style="display: inline-block; width: 100%;line-height: 40px; text-align:center;">
+You just learned about the middle &quot;S&quot; in C<strong>S</strong>S: <strong>S</strong>tyle
+<br>
+… lets go to the last &quot;S&quot; in CS<strong>S</strong>: <strong>S</strong>heet</p>
+<p></span></p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-18">
+        <div data-id="18" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="sources-inline-style-attribute-internal-style-tag-external-file">Sources: inline style attribute, internal <code>&lt;style&gt;</code> tag, external file</h3>
 <p>There are 3 ways to add CSS styles to your HTML file.</p>
 <ul>
-<li>inline style attribute</li>
+<li>inline <code>style=&quot;…&quot;</code> attribute</li>
 <li>internal <code>&lt;style&gt;</code> tag</li>
 <li>external <code>.css</code> file</li>
 </ul>
@@ -828,8 +942,8 @@ JS Bin here</p>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-17">
-        <div data-id="17" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-19">
+        <div data-id="19" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="inline-style-attribute">Inline style attribute</h3>
 <p>Write CSS code in a style attribute of a HTML element.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: red; font-weight: normal;"</span>&gt;</span>
@@ -840,8 +954,8 @@ JS Bin here</p>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-18">
-        <div data-id="18" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-20">
+        <div data-id="20" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="reasoning-against-inline-styles">Reasoning against inline styles</h3>
 <p>It is not reccomended to use inline CSS styling.</p>
 <p><span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span><strong>Mixing languages</strong>, HTML and CSS, is confusing.</p>
@@ -851,8 +965,8 @@ JS Bin here</p>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-19">
-        <div data-id="19" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-21">
+        <div data-id="21" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="internal-style-tag">Internal <code>&lt;style&gt;</code> tag</h3>
 <p>Write a style tag into the <code>head</code> of your HTML.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
@@ -870,8 +984,8 @@ JS Bin here</p>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-20">
-        <div data-id="20" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-22">
+        <div data-id="22" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="reasoning-for-and-against-internal-style-tags">Reasoning for and against internal <code>&lt;style&gt;</code> tags</h3>
 <p>It&#39;s is not reccomended but there is a case for internal styles.</p>
 <p><span style="color:white; background: red; display: inline-block; width: 40px; height: 40px; border-radius: 50%; text-align: center; line-height: 40px; margin-right: 20px">⬇</span>Mixing HTML and CSS.<br>
@@ -882,8 +996,8 @@ JS Bin here</p>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-21">
-        <div data-id="21" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-23">
+        <div data-id="23" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="external-css-file">External <code>.css</code> file</h3>
 <p>Link an external CSS file in the <code>head</code> of your HTML.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
@@ -900,36 +1014,34 @@ JS Bin here</p>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-22">
-        <div data-id="22" class="slide-overlay"></div>
-        <section class="slide-content"><p><!-- Css property cheat sheet --></p>
-<table style="font-size: 0.6em;">
-    <tr>
-        <td>
-            <ul style="list-style: none; padding: 0">
-                <li><code>font-family</code> C W M</li>
-                <li><code>font-size</code> C W M</li>
-                <li><code>font-weight</code> C W M</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><code>background-color</code></li>
-                <li><code>background-url</code></li>
-            </ul>
-        </td>
-        <td><code>border</code>, <code>margin</code>, <code>padding</code> <code>float</code></td>
-    </tr>
-</table>
-
-
-<p><a href="https://css-tricks.com/almanac/properties/t/text-transform/">https://css-tricks.com/almanac/properties/t/text-transform/</a></p>
+      <div class="slide hidden" id="slide-24">
+        <div data-id="24" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="documentation-resources">Documentation resources</h3>
+<ul>
+<li><strong>css-tricks</strong>- simple, short, to the point</li>
+<li><strong>w3schools</strong> - simple</li>
+<li><strong>developer.mozilla</strong> - technical</li>
+</ul>
+<p><a href="https://css-tricks.com/almanac/properties/f/font/">https://css-tricks.com/almanac/properties/f/font/</a>
+<a href="http://www.w3schools.com/css/css_font.asp">http://www.w3schools.com/css/css_font.asp</a>
+<a href="https://developer.mozilla.org/en/docs/Web/CSS/font">https://developer.mozilla.org/en/docs/Web/CSS/font</a></p>
+<p>Use the one you like best.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-23">
-        <div data-id="23" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-25">
+        <div data-id="25" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="the-end">The End</h3>
+<p>Continue with</p>
+<p><a href="text-editing-2.html">Text Editing 2: code types; indentation; find and replace; multiselection (15min)</a></p>
+<p>or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden author-slide" id="slide-26">
+        <div data-id="26" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -946,6 +1058,7 @@ JS Bin here</p>
 
   <div class="controls">
     <div class="arrow prev"></div>
+    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -1089,6 +1202,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
+    if(e.target.tagName.toLowerCase() === 'textarea') return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -1116,6 +1230,11 @@ document.addEventListener('DOMContentLoaded', function() {
       navigate(-1);
     };
   }
+  if (document.querySelector('.overview')) {
+    document.querySelector('.overview').onclick = function(e) {
+      toggleOverview();
+    }
+  }
   var $overlays = document.querySelectorAll('.slide-overlay');
   [].forEach.call($overlays, function($overlay) {
     $overlay.onclick = function(event) {
@@ -1137,7 +1256,6 @@ function toggleOverview() {
     delete window.$style;
     document.querySelector('.slides').classList.remove('active');
   } else {
-
     var $slides = document.querySelector('.slides');
     $slides.classList.add('active');
     var slidesList = document.querySelectorAll('.slide-wrapper');
