@@ -4,37 +4,37 @@
 
 - [Getting Started - Opinionated first steps in learning web development \(20 min\)](#getting-started---opinionated-first-steps-in-learning-web-development-20-min)
 - [HTML](#html)
-    - [HTML Lesson 1: basics \(20 min\)](#html-lesson-1-basics-20-min)
-    - [HTML Exercise 1: Hello world! \(15 min\)](#html-exercise-1-hello-world-15-min)
-    - [HTML Lesson 2: image and hyperlink \(20 min\)](#html-lesson-2-image-and-hyperlink-20-min)
-    - [Text Editing 1: Working with many files; better HTML editing \(15 min\)](#text-editing-1-working-with-many-files-better-html-editing-15-min)
-    - [HTML Exercise 2: create a text adventure \(20 min\)](#html-exercise-2-create-a-text-adventure-20-min)
+  - [HTML Lesson 1: basics \(20 min\)](#html-lesson-1-basics-20-min)
+  - [HTML Exercise 1: Hello world! \(15 min\)](#html-exercise-1-hello-world-15-min)
+  - [HTML Lesson 2: image and hyperlink \(20 min\)](#html-lesson-2-image-and-hyperlink-20-min)
+  - [Text Editing 1: Working with many files; better HTML editing \(15 min\)](#text-editing-1-working-with-many-files-better-html-editing-15-min)
+  - [HTML Exercise 2: create a text adventure \(20 min\)](#html-exercise-2-create-a-text-adventure-20-min)
 - [CSS](#css)
-    - [CSS Lesson 1: basics \(20 min\)](#css-lesson-1-basics-20-min)
-    - [Text Editing 2: new source code types \(5 min\)](#text-editing-2-new-source-code-types-5-min)
-    - [CSS Exercise 1: styling the text adventure \(20 min\)](#css-exercise-1-styling-the-text-adventure-20-min)
-    - [CSS Lesson 2: more selectors \(15 min\)](#css-lesson-2-more-selectors-15-min)
-    - [Text Editing 5: type less CSS \(litterally\) \(5 min\)](#text-editing-5-type-less-css-litterally-5-min)
-    - [CSS Exercise 2: building a reusable menu with a button \(15 min\)](#css-exercise-2-building-a-reusable-menu-with-a-button-15-min)
-    - [Reading: HTML CSS](#reading-html-css)
+  - [CSS Lesson 1: basics \(20 min\)](#css-lesson-1-basics-20-min)
+  - [Text Editing 2: code types; indentation; find and replace; multiselection \(15min\)](#text-editing-2-code-types-indentation-find-and-replace-multiselection-15min)
+  - [CSS Exercise 1: styling the text adventure \(15 min\)](#css-exercise-1-styling-the-text-adventure-15-min)
+  - [CSS Lesson 2: more selectors \(15 min\)](#css-lesson-2-more-selectors-15-min)
+  - [Text Editing 3: type less CSS \(litterally\) \(5 min\)](#text-editing-3-type-less-css-litterally-5-min)
+  - [CSS Exercise 2: building a reusable menu with a button \(15 min\)](#css-exercise-2-building-a-reusable-menu-with-a-button-15-min)
+  - [Reading: HTML CSS](#reading-html-css)
 - [JS \(client\)](#js-client)
-    - [JS Lesson 1: programming basics datatypes](#js-lesson-1-programming-basics-datatypes)
-    - [JS Exercise 1: playing with variables](#js-exercise-1-playing-with-variables)
-    - [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
-    - [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
-    - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
-    - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
-    - [JS Lesson 5: ajax](#js-lesson-5-ajax)
-    - [JS Lesson 6: Debugging](#js-lesson-6-debugging)
-    - [CSS Lesson 3: responsive design](#css-lesson-3-responsive-design)
-    - [Build Tools: webpack](#build-tools-webpack)
-    - [CSS Lesson 4: CSS preprocessors](#css-lesson-4-css-preprocessors)
+  - [JS Lesson 1: programming basics datatypes](#js-lesson-1-programming-basics-datatypes)
+  - [JS Exercise 1: playing with variables](#js-exercise-1-playing-with-variables)
+  - [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
+  - [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
+  - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
+  - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
+  - [JS Lesson 5: ajax](#js-lesson-5-ajax)
+  - [JS Lesson 6: Debugging](#js-lesson-6-debugging)
+  - [CSS Lesson 3: responsive design](#css-lesson-3-responsive-design)
+  - [Build Tools: webpack](#build-tools-webpack)
+  - [CSS Lesson 4: CSS preprocessors](#css-lesson-4-css-preprocessors)
 - [RegEx](#regex)
 - [JS \(server\)](#js-server)
 - [JS \(client framewoks/libs\)](#js-client-framewokslibs)
 - [Text Editing: VIM](#text-editing-vim)
 - [Advanced topics](#advanced-topics)
-    - [Securing your SSH login](#securing-your-ssh-login)
+  - [Securing your SSH login](#securing-your-ssh-login)
 - [Resources and inspirations](#resources-and-inspirations)
 
 <!-- /MarkdownTOC -->
@@ -101,7 +101,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Finding editor commands with a keyboard shortcut
 
 ### HTML Exercise 2: create a text adventure (20 min)
-Createing a text adventure with HTML pages
+Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-2.html).
 
 What needs to be done:
 - Micha create structure.
@@ -117,8 +117,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - Color values in r g b (a)
 - Font properties: `font-family`, `font-size`, `font-weight`
 - Background properties: `background` `-color` `-url`
-- Other properties 1: the box model `border`, `margin`, `padding`
-- Other porperties 2: `float`
+- The box model `border`, `margin`, `padding`
 - Sources: inline style attribute, internal `<style>` tag, external file
 - Inline style attribute
 - Reasoning against inline styles
@@ -127,29 +126,28 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - External `.css` file
 - Css property cheat sheet
 
-### Text Editing 2: new source code types (5 min)
-- Switching the souce code highlighting, indentation control
-- Find and replace in (all) files <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd>
+### Text Editing 2: code types; indentation; find and replace; multiselection (15min)
+- Switching the souce code highlighting
+- Indentation control
+- Configure indentation with editorconfig
+- Find and replace in (all) files
 - Plugins: Trailing Spaces
-- Multi selection <kbd>Ctrl</kbd><kbd>D</kbd>
+- Multi selection
 
-### CSS Exercise 1: styling the text adventure (20 min)
-Basic styling of the text adventure
-- External CSS file
-- background black
-- nice font from http://google.com/fonts
-- line-height for better readability
-- margin for `h1`
-
+### CSS Exercise 1: styling the text adventure (15 min)
+- Creat an external CSS file
+- Add styling
+- Custom fonts
 
 ### CSS Lesson 2: more selectors (15 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-2.html).
+- Selectors 2: `tag`
 - Selectors 2: `nested tags`, `nested>tags`
 - Selectors 3: `.class`, `#id`
 - Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`
 - Positioning: `absolute`, `relative`, `fixed`
 
-### Text Editing 5: type less CSS (litterally) (5 min)
+### Text Editing 3: type less CSS (litterally) (5 min)
 - Plugins: Hayaku
 - Plugins: CSScomb
 
@@ -251,6 +249,7 @@ http://juliepagano.com/blog/2014/05/18/javascript-debugging-for-beginners/
 
 ### CSS Lesson 3: responsive design
 - only some elements need changes
+- block and inline-block depending on width
 - font sizes
 
 ### Build Tools: webpack
