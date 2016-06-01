@@ -5,7 +5,7 @@ author:
   twitter: rockdapus
   url: https://github.com/select/learn-web-development
 output: dist/advanced-secure-login.html
-theme: ../cleaver-select-theme
+theme: ./cleaver-select-theme
 <!-- theme: ./custom-theme -->
 controls: true
 
@@ -312,12 +312,15 @@ To add access for additional users
 
 --
 ### When your SSH agent doesn't send the right key
-
+Change your `config file`
+```bash-blank
+local$ nano ~/.ssh/config
+```
 ```
 Host github.com
     IdentityFile ~/.ssh/id_rsa.github
 ```
-You can tell your ssh agent to send the right keyfile
+You can tell your ssh agent to send the right keyfile (use the file without the `.pub` suffix)
 
 --
 ### Advanced topics not coverd, but interesting

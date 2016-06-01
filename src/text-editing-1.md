@@ -1,4 +1,4 @@
-title: Text Editing 2 - Working with many files; better HTML editing
+title: Text Editing 1 - Working with many files; better HTML editing
 author:
   name: Falko Krause
   github: select
@@ -61,12 +61,14 @@ All Autocomplete <br>
 <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> … <kbd>Enter</kbd> `all auto` <kbd>Enter</kbd>
 
 For the second plugin we did not even have to write `install` since it remembered our last command.
-
+--
+### Plugins Demo: Emmet, All Autocomplete
+Watch me demoing the features of the two plugin.
 
 --
 ### The End
-Continue with
+Continue with the
 
-<a href="text-editing-2.html">Text Editing 2: Working with many files; better HTML editing (15 min)</a>
+<a href="html-exercise-2.html">HTML Exercise 2: create a text adventure (20 min)</a>
 
 or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.

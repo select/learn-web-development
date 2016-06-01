@@ -5,10 +5,11 @@ author:
   url: https://github.com/select/learn-web-development
 output: dist/css-lesson-1.html
 <!-- theme: ./revealjs-theme -->
-theme: ./custom-theme
+theme: ./cleaver-select-theme
 controls: true
 
 --
+<script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script>
 # CSS Lesson 1
 ##**C**ascading **S**tyle **S**heets basics
 
@@ -54,26 +55,6 @@ p {
 … one more thing about colors
 
 --
-### The cascade
-```css
-p {
-  background: orange;
-  font-size: 24px;
-}
-p {
-  background: green;
-}
-```
-
-```css
-p {
-  background: orange;
-  background: green;
-}
-```
-
-
---
 ###Color values in r g b (a)
 The three basic colors
 <span style="color: red">red</span> <span style="color: rgb( 0, 255, 0)">green</span> <span style="color: blue">blue</span>
@@ -103,7 +84,7 @@ Each with different intensity between 0 and 255.
     </tbody>
 </table>
 
-Hex: `0-9` `a-f` -> `16`; `2 * 16 = 256`
+Hex: `0-9` `a-f` ⇨ `16`; `16² = 256`
 
 Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_color) [?](https://goo.gl/pvhdpY)
 
@@ -114,7 +95,37 @@ Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_col
 
 --
 ###Text properties
-<a class="jsbin-embed" href="http://jsbin.com/woyabo/embed?css,output&height=400px">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script>
+
+<div class="editor-wrapper" id="code-example-1">
+
+<div class="editor-css">h1 {
+  color: red;
+  text-align: center;
+  text-decoration: underline;
+}
+p {
+  color: #000000;
+}
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+}</div>
+
+<div class="rendered-html"><h1>Hello</h1>
+<p>
+  Here are some links
+  <a href="http://www.w3schools.com/cssref/pr_text_text-align.asp">text-align</a><br>
+  <a href="http://www.w3schools.com/cssref/pr_text_text-decoration.asp">text-decoration</a><br>
+  <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
+</p>
+</div>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-1',{height: 400, enableLiveAutocompletion: true});
+})();
+</script>
 
 --
 ###Font properties: `font-family`, `font-size`, `font-weight`
@@ -128,7 +139,7 @@ p {
     font-weight: 300;
 }
 ```
-JS Bin
+
 --
 ### Web save fonts
 
@@ -182,7 +193,7 @@ http://www.dafont.com/
 But which fonts go well toghether? http://fontpair.co/
 
 --
-### Using a custom font
+### Using a custom font from Google
 <img src="google-font-quick-use.png" alt="Google font quick use">
 Click on **quick use**. Extend your `styles.css`
 
@@ -200,16 +211,38 @@ body {
 
 ```css
 body {
-    background-color: #fff;
+    background-color: #f00;
     background-image: url('img/wood.png');
     background-position: 50% 20px;
     background-repeat: no-repeat; /*repeat, repeat-x, repeat-y*/
 }
 ```
-JS Bin here
 
 --
-### The box model `margin`, `border`, `padding`
+### Background properties sandbox: `background-color` `background-image`
+<div class="editor-wrapper" id="code-example-2">
+
+<div class="editor-css">p {
+    color: white;
+    background-image: url('wood.png');
+    background-position: 1% 2px;
+    background-repeat: no-repeat;
+    background-color: #f00;
+}</div>
+
+<div class="rendered-html"><p>Hello World</p>
+</div>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-2',{height: 400, enableLiveAutocompletion: true});
+})();
+</script>
+
+
+--
+### The box model: `margin`, `border`, `padding`
 
 <div style="background-color: #FFD800; padding: 50px; text-align: center; position: relative; margin-top: 40px">
     <div style="position: absolute; margin: 0 auto; top: 0;  left: 50%; transform: translate(-50%, 0);">Margin</div>
@@ -221,26 +254,44 @@ JS Bin here
     </div>
 </div>
 
-### The box model
-```css
-p {
-    background-color: #fff;
-    background-image: url('img/wood.png');
-    background-position: 50% 20px;
-    background-repeat: no-repeat; /*repeat, repeat-x, repeat-y*/
-}
-```
-JS Bin here
+--
+### The box model sandbox: `margin`, `border`, `padding`
+
+<div class="editor-wrapper" id="code-example-3">
+
+<div class="editor-css">p {
+   border: 1px solid #333;
+   margin-top: 10px;
+   margin-left: 20px;
+   padding: 20px;
+   padding-left: 5px;
+   border-radius: 10px
+}</div>
+
+<div class="rendered-html"><p>Hello World</p>
+</div>
+</div>
+
+<script>
+(function() {
+    sandbox('#code-example-3',{height: 400, enableLiveAutocompletion: true});
+})();
+</script>
 
 --
-### Other porperties 2: `float`
-JS Bin here
+<div style="height: 400px; line-height: 400px">
+<span style="display: inline-block; width: 100%;line-height: 40px; text-align:center;">
+You just learned about the middle "S" in C**S**S: **S**tyle
+<br>
+… lets go to the last "S" in CS**S**: **S**heet
+
+</span>
 
 --
 ### Sources: inline style attribute, internal `<style>` tag, external file
 There are 3 ways to add CSS styles to your HTML file.
 
-- inline style attribute
+- inline `style="…"` attribute
 - internal `<style>` tag
 - external `.css` file
 
@@ -309,27 +360,23 @@ body {
     font-size: 16px;
 }
 ```
+--
+### Documentation resources
+
+- **css-tricks**- simple, short, to the point
+- **w3schools** - simple
+- **developer.mozilla** - technical
+
+https://css-tricks.com/almanac/properties/f/font/
+http://www.w3schools.com/css/css_font.asp
+https://developer.mozilla.org/en/docs/Web/CSS/font
+
+Use the one you like best.
 
 --
-<!-- Css property cheat sheet -->
-<table style="font-size: 0.6em;">
-    <tr>
-        <td>
-            <ul style="list-style: none; padding: 0">
-                <li>`font-family` C W M</li>
-                <li>`font-size` C W M</li>
-                <li>`font-weight` C W M</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>`background-color`</li>
-                <li>`background-url`</li>
-            </ul>
-        </td>
-        <td>`border`, `margin`, `padding` `float`</td>
-    </tr>
-</table>
+### The End
+Continue with
 
+<a href="text-editing-2.html">Text Editing 2: code types; indentation; find and replace; multiselection (15min)</a>
 
-https://css-tricks.com/almanac/properties/t/text-transform/
+or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.

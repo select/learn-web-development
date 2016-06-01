@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "cleaver watch src/css-lesson-1.md",
-    "watchtheme": "cleaver watch src/cleaver-select-theme.md",
-    "watch3": "cleaver watch src/html-lesson-2.md",
+    "watch-theme": "cleaver watch src/cleaver-select-theme.md",
+    "watch-test": "cleaver watch src/test-presentation.md",
+    "watch1": "cleaver watch src/text-editing-1.md",
     "watch2": "cleaver watch src/html-lesson-1.md",
-    "watch1": "cleaver watch src/text-editing-1.md"
+    "watch3": "cleaver watch src/html-exercise-1.md",
+    "watch4": "cleaver watch src/html-lesson-2.md"
   },
   "repository": {
     "type": "git",
