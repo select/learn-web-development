@@ -747,11 +747,11 @@ o <html>
 <div class="right">
   <pre>
     <code>
-/* select bold in heading 1 */
+/* Select bold in heading1 */
 h1 b {
   …
 }
-/* select links in paragraps */
+/* Select links in paragraps*/
 p a {
   …
 }
@@ -764,7 +764,26 @@ p a {
       <div class="slide hidden" id="slide-6">
         <div data-id="6" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="selecting-direct-children-tag-child-">Selecting direct children <code>tag&gt;child</code></h3>
-</section>
+<p>With the <code>&gt;</code> combinator you can select direct children.</p>
+<p><div class="editor-wrapper" id="code-example-4"></p>
+<p><div class="editor-css">span { background-color: yellow; }
+p &gt; span {
+  background-color: lightblue;
+}</div><script type="text/plain" style="display: block;" class="editor-html"><p>
+  <span>Span 1. In the paragraph.
+    <span>Span 2. In the span.</span>
+  </span>
+  Regular text
+  <span>Another child.</span>
+</p>
+<span>Span 3. Not in paragraph.</span></script></p>
+<p><div class="rendered-html"></div>
+</div></p>
+<script>
+(function() {
+    sandbox('#code-example-4',{height: 425, enableLiveAutocompletion: true});
+})();
+</script></section>
       </div>
     </div>
     <div class="slide-wrapper">

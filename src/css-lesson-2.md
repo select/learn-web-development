@@ -128,11 +128,11 @@ o <html>
 <div class="right">
   <pre>
     <code>
-/\* select bold in heading 1 \*/
+/\* Select bold in heading1 \*/
 h1 b {
   …
 }
-/\* select links in paragraps \*/
+/\* Select links in paragraps\*/
 p a {
   …
 }
@@ -141,6 +141,26 @@ p a {
 </div>
 --
 ### Selecting direct children `tag>child`
+With the `>` combinator you can select direct children.
+<div class="editor-wrapper" id="code-example-4">
+<div class="editor-css">span { background-color: yellow; }
+p > span {
+  background-color: lightblue;
+}</div><script type="text/plain" style="display: block;" class="editor-html"><p>
+  <span>Span 1. In the paragraph.
+    <span>Span 2. In the span.</span>
+  </span>
+  Regular text
+  <span>Another child.</span>
+</p>
+<span>Span 3. Not in paragraph.</span></script>
+<div class="rendered-html"></div>
+</div>
+<script>
+(function() {
+    sandbox('#code-example-4',{height: 425, enableLiveAutocompletion: true});
+})();
+</script>
 
 --
 ### Selectors 3: `.class`, `#id`
