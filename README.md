@@ -13,6 +13,7 @@
   - [CSS Lesson 1: basics \(20 min\)](#css-lesson-1-basics-20-min)
   - [Text Editing 2: code types; indentation; find and replace; multiselection \(15min\)](#text-editing-2-code-types-indentation-find-and-replace-multiselection-15min)
   - [CSS Exercise 1: styling the text adventure \(15 min\)](#css-exercise-1-styling-the-text-adventure-15-min)
+  - [HTML & CSS Lesson 1 - Blocks and visibility \(10 min\)](#html--css-lesson-1---blocks-and-visibility-10-min)
   - [CSS Lesson 2: more selectors \(15 min\)](#css-lesson-2-more-selectors-15-min)
   - [Text Editing 3: type less CSS \(litterally\) \(5 min\)](#text-editing-3-type-less-css-litterally-5-min)
   - [CSS Exercise 2: building a reusable menu with a button \(15 min\)](#css-exercise-2-building-a-reusable-menu-with-a-button-15-min)
@@ -127,6 +128,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - Css property cheat sheet
 
 ### Text Editing 2: code types; indentation; find and replace; multiselection (15min)
+Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-2.html).
 - Switching the souce code highlighting
 - Indentation control
 - Configure indentation with editorconfig
@@ -135,9 +137,23 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - Multi selection
 
 ### CSS Exercise 1: styling the text adventure (15 min)
+Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/css-exercise-1.html).
 - Creat an external CSS file
 - Add styling
 - Custom fonts
+
+### HTML & CSS Lesson 1 - Blocks and visibility (10 min)
+Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/html-css-lesson-1.html).
+- Semantic HTML elements
+- Non semantic elements
+- What `div` and `span` tag are used for
+- Why two elements?
+- `block` and `inline` example
+- `block` and `inline` more visual example
+- Which elements are `block` which `inline`
+- Setting `block` and `inline` with CSS
+- Show and hide with `display: none`
+- Beyond `block` and `inline`
 
 ### CSS Lesson 2: more selectors (15 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-2.html).
@@ -316,7 +332,7 @@ Here is a link to a [test presentation](https://rawgit.com/select/learn-web-deve
 ### Securing your SSH login
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/advanced-secure-login.html).
 
-- Command line required - <br>get one for Windows
+- Command line required - get one for Windows
 - Get a cheap V-server
 - Login as root
 - Simiplify the login with an alias

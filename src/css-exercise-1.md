@@ -40,8 +40,8 @@ You could use http://fontpair.co/ too.
 
 --
 ### The End
-Continue with
+Continue with the
 
-<a href="css-lesson-2.html">CSS Lesson 2: more selectors (15 min)</a>
+<a href="html-css-lesson-1.html">HTML & CSS Lesson 1 - Blocks and visibility (10 min)</a>
 
 or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.
