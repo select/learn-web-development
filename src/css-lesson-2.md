@@ -16,9 +16,8 @@ controls: true
 --
 ### The `tag` selector
 We have seen the tag selector before
-<div class="editor-wrapper" id="code-example-1">
-
-<div class="editor-css">h1 {
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
+<style class="editor-css">h1 {
   text-align: center;
   text-decoration: underline;
   margin: 0;
@@ -29,8 +28,7 @@ p {
 a {
   text-transform: uppercase;
   text-decoration: none;
-}</div>
-
+}</style>
 <script type="text/plain" style="display: block;" class="editor-html"><h1>Hello</h1>
 <p>
   Here are some links
@@ -39,21 +37,13 @@ a {
   <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
 </p>
 </script>
-<div class="rendered-html"></div>
 </div>
-
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 400, enableLiveAutocompletion: true});
-})();
-</script>
 
 --
 ### Optimize common styles
 You can write **comma separated** list of selectors `tag1, tag2 { …` that share styles properties.s
-<div class="editor-wrapper" id="code-example-2">
-
-<div class="editor-css">h1, p {
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
+<style class="editor-css">h1, p {
   margin: 0;
 }
 h1 {
@@ -63,7 +53,7 @@ h1 {
 a {
   text-transform: uppercase;
   text-decoration: none;
-}</div>
+}</style>
 <script type="text/plain" style="display: block;" class="editor-html"><h1>Hello</h1>
 <p>
   Here are some links
@@ -72,26 +62,19 @@ a {
   <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
 </p>
 </script>
-<div class="rendered-html"></div>
 </div>
-
-<script>
-(function() {
-    sandbox('#code-example-2',{height: 400, enableLiveAutocompletion: true});
-})();
-</script>
 
 --
 ### Selecting `nested tags`
 Use the HTML tree structure to select nested tags
-<div class="editor-wrapper" id="code-example-3">
-<div class="editor-css">p b {
+<div class="js-sandbox" data-height="425" data-ace-options="enableLiveAutocompletion: true">
+<style class="editor-css">p b {
     color: green;
 }
 h1 b {
     font-weight: bold;
 }
-</div><script type="text/plain" style="display: block;" class="editor-html"><h1>
+</style><script type="text/plain" style="display: block;" class="editor-html"><h1>
 Learning with <b>Select</b>
 </h1>
 <p>
@@ -101,13 +84,7 @@ Learning with <b>Select</b>
   <b>select</b> continued and our
   heads started to meld.
 </p></script>
-<div class="rendered-html"></div>
 </div>
-<script>
-(function() {
-    sandbox('#code-example-3',{height: 425, enableLiveAutocompletion: true});
-})();
-</script>
 
 --
 ### Selecting `nested tags` alternative example
@@ -140,13 +117,13 @@ p a {
   </pre>
 </div>
 --
-### Selecting direct children `tag>child`
+### Selecting direct children `tag > child`
 With the `>` combinator you can select direct children.
-<div class="editor-wrapper" id="code-example-4">
-<div class="editor-css">span { background-color: yellow; }
+<div class="js-sandbox" data-height="425" data-ace-options="enableLiveAutocompletion: true">
+<style type="text/plain" class="editor-css">span { background-color: yellow; }
 p > span {
   background-color: lightblue;
-}</div><script type="text/plain" style="display: block;" class="editor-html"><p>
+}</style><script type="text/plain" style="display: block;" class="editor-html"><p>
   <span>Span 1. In the paragraph.
     <span>Span 2. In the span.</span>
   </span>
@@ -154,16 +131,15 @@ p > span {
   <span>Another child.</span>
 </p>
 <span>Span 3. Not in paragraph.</span></script>
-<div class="rendered-html"></div>
 </div>
-<script>
-(function() {
-    sandbox('#code-example-4',{height: 425, enableLiveAutocompletion: true});
-})();
-</script>
 
 --
 ### Selectors 3: `.class`, `#id`
+With class and id selector you will now experience the full power of CSS.
+
+```
+
+```
 
 --
 ### Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`

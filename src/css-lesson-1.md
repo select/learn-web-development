@@ -96,8 +96,7 @@ Do you know [additative color mixing](https://en.wikipedia.org/wiki/Additive_col
 --
 ###Text properties
 
-<div class="editor-wrapper" id="code-example-1">
-
+<div class="js-sandbox" data-height="400">
 <div class="editor-css">h1 {
   color: red;
   text-align: center;
@@ -121,11 +120,6 @@ a {
 </div>
 </div>
 
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 400, enableLiveAutocompletion: true});
-})();
-</script>
 
 --
 ###Font properties: `font-family`, `font-size`, `font-weight`
@@ -220,7 +214,7 @@ body {
 
 --
 ### Background properties sandbox: `background-color` `background-image`
-<div class="editor-wrapper" id="code-example-2">
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
 
 <div class="editor-css">p {
     color: white;
@@ -230,15 +224,8 @@ body {
     background-color: #f00;
 }</div>
 
-<div class="rendered-html"><p>Hello World</p>
+<div class="rendered-html"><p>Hello World</p></div>
 </div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-2',{height: 400, enableLiveAutocompletion: true});
-})();
-</script>
 
 
 --
@@ -257,7 +244,7 @@ body {
 --
 ### The box model sandbox: `margin`, `border`, `padding`
 
-<div class="editor-wrapper" id="code-example-3">
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
 
 <div class="editor-css">p {
    border: 1px solid #333;
@@ -268,15 +255,8 @@ body {
    border-radius: 10px
 }</div>
 
-<div class="rendered-html"><p>Hello World</p>
+<div class="rendered-html"><p>Hello World</p></div>
 </div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-3',{height: 400, enableLiveAutocompletion: true});
-})();
-</script>
 
 --
 <div style="height: 400px; line-height: 400px">

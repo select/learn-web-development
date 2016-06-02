@@ -157,9 +157,7 @@ We want to organise text and image, but first we need some strucure.
 --
 
 ### Tags in the `body` 1: `h1`, `p`, `i`, `b`, `br`, `hr`
-<div class="editor-wrapper" id="code-example-1">
-
-<div class="editor-container">
+<div class="js-sandbox" data-height="400">
 <script type="text/plain" class="editor-html" ><h1>Heading 1</h1>
 
 <p>
@@ -179,20 +177,10 @@ We want to organise text and image, but first we need some strucure.
 
 </p></script>
 </div>
-<div class="rendered-html"></div>
-<style type="text/css" class="rendered-css"></style>
-</div>
 
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 400});
-})();
-</script>
 --
 ### Tags in the `body` 2: `table>tr>th,td`, `ul>li`
-<div class="editor-wrapper" id="code-example-2">
-
-<div class="editor-container">
+<div class="js-sandbox" data-height="400">
 <script type="text/plain" class="editor-html" ><h1>Table</h1>
 <table>
   <tr>
@@ -217,7 +205,6 @@ We want to organise text and image, but first we need some strucure.
 </ul>
 </script>
 </div>
-<div class="rendered-html"></div>
 <style type="text/css" class="rendered-css">
   .rendered-html table td, .rendered-html table th{
     border: 1px solid;
@@ -225,11 +212,6 @@ We want to organise text and image, but first we need some strucure.
   </style>
 </div>
 
-<script>
-(function() {
-    sandbox('#code-example-2',{height: 400});
-})();
-</script>
 --
 ### The End
 Continue with the 

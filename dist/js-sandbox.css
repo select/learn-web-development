@@ -1,9 +1,9 @@
-.editor-wrapper{
+.js-sandbox{
     position: relative;
     margin-top: 20px;
 }
-.editor-wrapper ul,
-.editor-wrapper h1 {
+.js-sandbox ul,
+.js-sandbox h1 {
     margin: 5px;
     padding-top: 0;
 }
@@ -22,10 +22,17 @@
     position: absolute;
     top: 0;
     right: 0;
-    border-left: 1px solid #666;
+    border-left: 1px solid #AFAFAF;
     padding: 0 10px;
     box-sizing: border-box;
     overflow: auto;
+}
+.editor-html + .editor-css {
+    border-top: 1px solid #AFAFAF;
+}
+.editor-css + .editor-html {
+    border-top: 1px solid #AFAFAF;
+    margin-top: -9px;
 }
 .editor-css.editor-css,
 .editor-html.editor-html,
