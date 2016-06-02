@@ -357,14 +357,14 @@ table th {
 }
 
 /* Code Highlighting */
-code {
+code,  {
   padding: .1em .35em;
   font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
 
-pre code {
+pre code, pre script {
   display: block;
   padding: .5em;
   font-family: 'Inconsolata';
@@ -790,9 +790,7 @@ XML was created to organize any <strong>text-based</strong> information in a <st
       <div class="slide hidden" id="slide-13">
         <div data-id="13" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-in-the-body-1-h1-p-i-b-br-hr-">Tags in the <code>body</code> 1: <code>h1</code>, <code>p</code>, <code>i</code>, <code>b</code>, <code>br</code>, <code>hr</code></h3>
-<div class="editor-wrapper" id="code-example-1">
-
-<div class="editor-container">
+<div class="js-sandbox" data-height="400">
 <script type="text/plain" class="editor-html" ><h1>Heading 1</h1>
 
 <p>
@@ -811,25 +809,14 @@ XML was created to organize any <strong>text-based</strong> information in a <st
   yourself now.
 
 </p></script>
-</div>
-<div class="rendered-html"></div>
-<style type="text/css" class="rendered-css"></style>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 400});
-})();
-</script></section>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-14">
         <div data-id="14" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="tags-in-the-body-2-table-tr-th-td-ul-li-">Tags in the <code>body</code> 2: <code>table&gt;tr&gt;th,td</code>, <code>ul&gt;li</code></h3>
-<div class="editor-wrapper" id="code-example-2">
-
-<div class="editor-container">
+<div class="js-sandbox" data-height="400">
 <script type="text/plain" class="editor-html" ><h1>Table</h1>
 <table>
   <tr>
@@ -854,19 +841,12 @@ XML was created to organize any <strong>text-based</strong> information in a <st
 </ul>
 </script>
 </div>
-<div class="rendered-html"></div>
 <style type="text/css" class="rendered-css">
   .rendered-html table td, .rendered-html table th{
     border: 1px solid;
   }
   </style>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-2',{height: 400});
-})();
-</script></section>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">

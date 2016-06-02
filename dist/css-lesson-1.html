@@ -357,14 +357,14 @@ table th {
 }
 
 /* Code Highlighting */
-code {
+code,  {
   padding: .1em .35em;
   font-family: 'Inconsolata';
   background-color: #fafafa;
   border-radius: 3px;
 }
 
-pre code {
+pre code, pre script {
   display: block;
   padding: .5em;
   font-family: 'Inconsolata';
@@ -722,8 +722,7 @@ Each with different intensity between 0 and 255.</p>
       <div class="slide hidden" id="slide-8">
         <div data-id="8" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="text-properties">Text properties</h3>
-<div class="editor-wrapper" id="code-example-1">
-
+<div class="js-sandbox" data-height="400">
 <div class="editor-css">h1 {
   color: red;
   text-align: center;
@@ -745,13 +744,7 @@ a {
   <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
 </p>
 </div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 400, enableLiveAutocompletion: true});
-})();
-</script></section>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
@@ -854,7 +847,7 @@ Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
       <div class="slide hidden" id="slide-14">
         <div data-id="14" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="background-properties-sandbox-background-color-background-image-">Background properties sandbox: <code>background-color</code> <code>background-image</code></h3>
-<div class="editor-wrapper" id="code-example-2">
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
 
 <div class="editor-css">p {
     color: white;
@@ -864,15 +857,8 @@ Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
     background-color: #f00;
 }</div>
 
-<div class="rendered-html"><p>Hello World</p>
-</div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-2',{height: 400, enableLiveAutocompletion: true});
-})();
-</script></section>
+<div class="rendered-html"><p>Hello World</p></div>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
@@ -894,7 +880,7 @@ Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
       <div class="slide hidden" id="slide-16">
         <div data-id="16" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-box-model-sandbox-margin-border-padding-">The box model sandbox: <code>margin</code>, <code>border</code>, <code>padding</code></h3>
-<div class="editor-wrapper" id="code-example-3">
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
 
 <div class="editor-css">p {
    border: 1px solid #333;
@@ -905,15 +891,8 @@ Click on <strong>quick use</strong>. Extend your <code>styles.css</code></p>
    border-radius: 10px
 }</div>
 
-<div class="rendered-html"><p>Hello World</p>
-</div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-3',{height: 400, enableLiveAutocompletion: true});
-})();
-</script></section>
+<div class="rendered-html"><p>Hello World</p></div>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">

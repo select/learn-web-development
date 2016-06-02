@@ -537,7 +537,7 @@ kbd {
     padding: 10px;
   }
   .slide-content {
-    height: 340px;
+    height: 100%;
     padding: 10px;
     margin-top: 10px;
   }
@@ -626,9 +626,8 @@ kbd {
         <div data-id="2" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-tag-selector">The <code>tag</code> selector</h3>
 <p>We have seen the tag selector before</p>
-<div class="editor-wrapper" id="code-example-1">
-
-<div class="editor-css">h1 {
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
+<style class="editor-css">h1 {
   text-align: center;
   text-decoration: underline;
   margin: 0;
@@ -639,8 +638,7 @@ p {
 a {
   text-transform: uppercase;
   text-decoration: none;
-}</div>
-
+}</style>
 <script type="text/plain" style="display: block;" class="editor-html"><h1>Hello</h1>
 <p>
   Here are some links
@@ -649,14 +647,7 @@ a {
   <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
 </p>
 </script>
-<div class="rendered-html"></div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 400, enableLiveAutocompletion: true});
-})();
-</script></section>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
@@ -664,9 +655,8 @@ a {
         <div data-id="3" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="optimize-common-styles">Optimize common styles</h3>
 <p>You can write <strong>comma separated</strong> list of selectors <code>tag1, tag2 { …</code> that share styles properties.s</p>
-<div class="editor-wrapper" id="code-example-2">
-
-<div class="editor-css">h1, p {
+<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
+<style class="editor-css">h1, p {
   margin: 0;
 }
 h1 {
@@ -676,7 +666,7 @@ h1 {
 a {
   text-transform: uppercase;
   text-decoration: none;
-}</div>
+}</style>
 <script type="text/plain" style="display: block;" class="editor-html"><h1>Hello</h1>
 <p>
   Here are some links
@@ -685,14 +675,7 @@ a {
   <a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a>
 </p>
 </script>
-<div class="rendered-html"></div>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-2',{height: 400, enableLiveAutocompletion: true});
-})();
-</script></section>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
@@ -700,30 +683,24 @@ a {
         <div data-id="4" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="selecting-nested-tags-">Selecting <code>nested tags</code></h3>
 <p>Use the HTML tree structure to select nested tags</p>
-<p><div class="editor-wrapper" id="code-example-3"></p>
-<p><div class="editor-css">p b {
+<div class="js-sandbox" data-height="425" data-ace-options="enableLiveAutocompletion: true">
+<style class="editor-css">p b {
     color: green;
 }
 h1 b {
     font-weight: bold;
 }
-</div><script type="text/plain" style="display: block;" class="editor-html"><h1>
+</style><script type="text/plain" style="display: block;" class="editor-html"><h1>
 Learning with <b>Select</b>
-</h1></p>
-<p><p>
+</h1>
+<p>
   We were sitting here listening 
   to <b>selects</b> talk. So far
   everything was easy peasy but
   <b>select</b> continued and our
   heads started to meld.
-</p></script></p>
-<p><div class="rendered-html"></div>
-</div></p>
-<script>
-(function() {
-    sandbox('#code-example-3',{height: 425, enableLiveAutocompletion: true});
-})();
-</script></section>
+</p></script>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
@@ -763,33 +740,30 @@ p a {
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-6">
         <div data-id="6" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="selecting-direct-children-tag-child-">Selecting direct children <code>tag&gt;child</code></h3>
+        <section class="slide-content"><h3 id="selecting-direct-children-tag-child-">Selecting direct children <code>tag &gt; child</code></h3>
 <p>With the <code>&gt;</code> combinator you can select direct children.</p>
-<p><div class="editor-wrapper" id="code-example-4"></p>
-<p><div class="editor-css">span { background-color: yellow; }
+<div class="js-sandbox" data-height="425" data-ace-options="enableLiveAutocompletion: true">
+<style type="text/plain" class="editor-css">span { background-color: yellow; }
 p &gt; span {
   background-color: lightblue;
-}</div><script type="text/plain" style="display: block;" class="editor-html"><p>
+}</style><script type="text/plain" style="display: block;" class="editor-html"><p>
   <span>Span 1. In the paragraph.
     <span>Span 2. In the span.</span>
   </span>
   Regular text
   <span>Another child.</span>
 </p>
-<span>Span 3. Not in paragraph.</span></script></p>
-<p><div class="rendered-html"></div>
-</div></p>
-<script>
-(function() {
-    sandbox('#code-example-4',{height: 425, enableLiveAutocompletion: true});
-})();
-</script></section>
+<span>Span 3. Not in paragraph.</span></script>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
         <div data-id="7" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="selectors-3-class-id-">Selectors 3: <code>.class</code>, <code>#id</code></h3>
+<p>With class and id selector you will now experience the full power of CSS.</p>
+<pre><code>
+</code></pre>
 </section>
       </div>
     </div>

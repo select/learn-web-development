@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>HTML Lesson 2 - Image and hyperlink</title>
+  <title>HTML &amp; CSS Lesson 1 - Blocks and visibility</title>
   <style type="text/css">
     /* Color Palette Based on Monokai
 
@@ -537,7 +537,7 @@ kbd {
     padding: 10px;
   }
   .slide-content {
-    height: 340px;
+    height: 100%;
     padding: 10px;
     margin-top: 10px;
   }
@@ -616,233 +616,174 @@ kbd {
     <div class="slide-wrapper">
       <div class="slide" id="slide-1">
         <div data-id="1" class="slide-overlay"></div>
-        <section class="slide-content"><h1 id="html-lesson-2">HTML Lesson 2</h1>
-<h2 id="image-and-hyperlink">Image and Hyperlink</h2>
-</section>
+        <section class="slide-content"><h1 id="html-css-br-lesson-1">HTML &amp; CSS <br> Lesson 1</h1>
+<h2 id="blocks-and-visibility">Blocks and visibility</h2>
+<script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-2">
         <div data-id="2" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="the-img-tag">The <code>img</code> tag</h3>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dir/path/hot-chicks.jpg"</span>
-  <span class="hljs-attr">alt</span>=<span class="hljs-string">"Natures beauty captured in an image."</span>&gt;</span></code></pre>
-<p>What? No closing or empty tag.</p>
-<p>Relax HTML is &quot;almost&quot; XML but more relaxed, everybody forgot to close them anyway.</p>
-<p><code>dir/path/image.jpg</code> Is you Windows broken? Paths go like <code>C:\windowse\system32\virus.dll</code></p>
+        <section class="slide-content"><h3 id="semantic-html-elements">Semantic HTML elements</h3>
+<p>All elements we have seen so far have a <strong>semantic meaning</strong> for the content they enclose</p>
+<pre><code>h1, h2, p, table, tr, td, ul, ol, li, head, body</code></pre>
+<p>In a later lesson you will learn more how semantic tags and other metadata can enhance your content to become a programmable data resource.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-3">
         <div data-id="3" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="an-example-folder-structure">An example folder structure</h3>
-<p>All paths in GNU/Linux (and OS X) start from one root</p>
-<pre><code>/</code></pre>
-<p>Lets say we have the following folder structure</p>
-<pre><code>o
-├─o home
-│ ├─o Desktop
-│ └─o Documents
-│
-├─o media
-│ └─o MyUSBstick
-…</code></pre>
+        <section class="slide-content"><h3 id="non-semantic-elements">Non semantic elements</h3>
+<p>Design and user interface logic need containers that <em>should not</em> give a semantic meaning to their content.</p>
+<p>The division <code>div</code> and <code>span</code> tag are semantic free.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-4">
         <div data-id="4" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="moving-down">Moving down</h3>
-<pre><code>o
-├ …
-├─o media
-… └─o MyUSBstick
-    └─o secret-stash
-      └─o rainbow-dash.jpg</code></pre>
-<p>Access all your files by adding <code>/</code> between folders</p>
-<pre><code>/media/MyUSBstick/secret-stash/rainbow-dash.jpg</code></pre>
+        <section class="slide-content"><h3 id="what-div-and-span-tag-are-used-for">What <code>div</code> and <code>span</code> tag are used for</h3>
+<p>The division <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> tags are</p>
+<ul>
+<li>used as generalized containers,</li>
+<li>styled with reusable styles,</li>
+<li>used for animations (show/hide, slide, fade, …),</li>
+<li>dynamically loaded and replaced (JavaScript).</li>
+</ul>
+<p>Note that this is a convetion not a rule.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-5">
         <div data-id="5" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="from-the-current-directory">From the current directory</h3>
-<p><div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-current" hidden></p>
-<pre><code>o
-├─o home
-│ ├─★ Desktop
-│ │ └─o web-dev-course
-│ │   └─o presentation.md
-│ └─o Documents
-│
-├─o media
-│ └─o MyUSBstick
-    …</code></pre>
-<p></div>
-<span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-current').hidden = !document.querySelector('#dirs-current').hidden;"> ? show tree </span>
-if you are in e.g. <code>/home/Desktop</code> you can start with</p>
-<pre><code>.</code></pre>
-<p>from the <strong>current location</strong> and go to a subfolder</p>
-<pre><code>./web-dev-course/presentation.md</code></pre>
-<p>which is the same as writing</p>
-<pre><code>/home/Desktop/web-dev-course/presentation.md</code></pre>
+        <section class="slide-content"><h3 id="why-two-elements-">Why two elements?</h3>
+<p>Because the division <code>&lt;div&gt;</code> is a <code>block</code> element, and it creates line breaks.</p>
+<p>And the <code>&lt;span&gt;</code> element can be used within a text without breaking the line - <code>inline</code>.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-6">
         <div data-id="6" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="from-the-current-directory">From the current directory</h3>
-<p>But since this is so common we can just leave away the</p>
-<pre><code>.</code></pre>
-<p>and write</p>
-<pre><code>web-dev-course/presentation.md</code></pre>
-<p>which is still the same as writing</p>
-<pre><code>/home/Desktop/web-dev-course/presentation.md</code></pre>
-</section>
+        <section class="slide-content"><h3 id="-block-and-inline-example"><code>block</code> and <code>inline</code> example</h3>
+<div class="js-sandbox" data-height="400">
+<script type="text/plain" class="editor-html" ><div>
+    Hello <span>World!</span> I am
+    a <span>sentence</span>.
+</div>
+<div>
+    Oh man these divs <div>alway
+    break the line</div>
+</div></script>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
         <div data-id="7" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="moving-one-level-up">Moving one level up</h3>
-<p><div style="position: absolute; top: 0; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-up" hidden></p>
-<pre><code>o
-├─o home
-│ ├─★ Desktop
-│ └─o Documents
-│   └─o my-love-poem.txt
-│
-├─o media
-│ └─o MyUSBstick
-…</code></pre>
-<p></div>
-<span style="font-size: 0.3em; position: absolute; top: 0; right: 0; cursor: pointer;" onclick="document.querySelector('#dirs-up').hidden = !document.querySelector('#dirs-up').hidden;"> ? show tree </span>
-Go one level up from <code>/home/Desktop</code> with</p>
-<pre><code>..</code></pre>
-<p>to access your documents you could write</p>
-<pre><code>../Documents/my-love-poem.txt</code></pre>
-<p>which is the same as writing</p>
-<pre><code>/home/Documents/my-love-poem.txt</code></pre>
-</section>
+        <section class="slide-content"><h3 id="-block-and-inline-more-visual-example"><code>block</code> and <code>inline</code> more visual example</h3>
+<div class="js-sandbox" data-height="400">
+<script type="text/plain" class="editor-html" ><div>
+    Hello <span>World!</span> I am
+    a <span>sentence</span>.
+</div>
+<div>
+    Oh man these divs <div>alway
+    break the line</div>
+</div></script>
+<style class="editor-css">span, div{
+  border: 1px solid #666;
+  margin: 4px;
+  padding: 4px;
+}</style>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-8">
         <div data-id="8" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="did-you-get-it-already-">Did you get it already?</h3>
-<p>How do I go two levels up?</p>
-<p>Don&#39;t worry we will partice it in the exercise.</p>
-<p>Now lets move to <strong>H</strong> in HTML.</p>
+        <section class="slide-content"><h3 id="which-elements-are-block-which-inline-">Which elements are <code>block</code> which <code>inline</code></h3>
+<p>The semantic elements you have seen are <code>block</code></p>
+<pre><code>p, h1, table, ul</code></pre>
+<p>and <code>inline</code> elements too.</p>
+<pre><code>b, i, u</code></pre>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-9">
         <div data-id="9" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="the-hyperlink-anchor-tag-a-">The hyperlink/anchor tag <code>a</code></h3>
-<p>The hyperlink is one of <em>the</em> inventions of the 20th centry</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"path/to/other-document.html"</span>&gt;</span>
-  I'm a link. Nice to meet you.
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>With a link you can reference another document and <br>
-let your reader access it <strong>INSTANTLY</strong></p>
-<p>Yaay no more going to the library.</p>
+        <section class="slide-content"><h3 id="setting-block-and-inline-with-css">Setting <code>block</code> and <code>inline</code> with CSS</h3>
+<p>CSS allows you to change <code>block</code> and <code>inline</code> rendering</p>
+<div class="js-sandbox" data-height="340">
+<script type="text/plain" class="editor-html" ><span>
+    Hello <div>World!</div> I am
+    a <div>sentence</div>.
+</span>
+<span>
+    Oh man these divs <span>alway
+    break the line</span>
+</span></script>
+<style class="editor-css">
+span { display: block;  }
+
+div  { display: inline; }
+
+
+span, div{
+  border: 1px solid #666;
+  margin: 4px;
+  padding: 4px;
+}
+</style>
+</div>
+
+<p>for any element!</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-10">
         <div data-id="10" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="references-within-local-external">References: within, local, external</h3>
-<p>The <code>href</code> attribute can reference within a file</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapert1"</span>&gt;</span>go to chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>or to another local file</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"with/slash.html"</span>&gt;</span>I'm relative<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>or to an external file.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-</section>
+        <section class="slide-content"><h3 id="show-and-hide-with-display-none-">Show and hide with <code>display: none</code></h3>
+<p>The <code>display</code> property also allows us to show and hide elements</p>
+<div class="js-sandbox" data-height="340">
+<script type="text/plain" class="editor-html" ><div>
+    You can see me
+    <span>but I am hidden</span>.
+</div></script>
+<style class="editor-css">
+span { display: none;  }
+
+div  { display: block; }
+
+</style>
+</div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-11">
         <div data-id="11" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="reference-within-anchor">Reference within: anchor</h3>
-<p>To reference a within a document use an anchor</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chapter4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-comment">&lt;!-- this is invisible --&gt;</span></code></pre>
-<p>then create a link that points to that anchor</p>
-<pre><code class="lang-html">Click <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#chapter4"</span>&gt;</span>here<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> to read chapter 4.</code></pre>
+        <section class="slide-content"><h3 id="beyond-block-which-inline-">beyond <code>block</code> which <code>inline</code></h3>
+<p>inline-block, flex, table-cell</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-12">
         <div data-id="12" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="reference-local-absolute-relative">Reference local: absolute, relative</h3>
-<p>The <code>href</code> attribute can take absolute paths</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/starts/with/slash.html"</span>&gt;</span>absolute root<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>or relative paths, where you <em>can</em> leave away the <code>./</code>.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"with/slash.html"</span>&gt;</span>I'm relative<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>Do you remember moving one level up?</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../its/possible.html"</span>&gt;</span>sacré bleu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-13">
-        <div data-id="13" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="reference-external">Reference external</h3>
-<p>To reference external files use a URL</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://xkcd.com/1144/"</span>&gt;</span>Re: Re: fun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>Yeay computer gibberish, let&#39;s see what it means<a href="https://xkcd.com/1144/">.</a></p>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-14">
-        <div data-id="14" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
-<p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
-<p><span style="color:#F6AE2D;">The Protocol</span> <br>
-Tells how the data will be transported.</p>
-<p><span style="color:#66D9EF;">The Host</span> <br>
-Maps (with some detours) to a computer.</p>
-<p><span style="color:#F26419;">The Path</span> <br>
-Is used to find the requested data on the host computer.</p>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-15">
-        <div data-id="15" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="the-u-niform-r-esource-l-ocator">The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator</h3>
-<p><span style="background-color:#F6AE2D;">http://</span><span style="background-color: #66D9EF;">www.example.com</span><span style="background-color: #F26419;">/patH/index.html</span></p>
-<p><span style="color:#F6AE2D;">The Protocol</span> <br>
-Your browser knows <code>http</code>, <code>https</code>, <code>ftp</code>, <code>file</code>.</p>
-<p><span style="color:#66D9EF;">The Host</span> <br>
-Is not case sensitve. <code>wWw.gOoGlE.CoM</code></p>
-<p><span style="color:#F26419;">The Path</span> <br>
-Is (almost always) case sensitve, just like the file system<br>
-... on GUN/Linux.</p>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-16">
-        <div data-id="16" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-end">The End</h3>
 <p>Continue with</p>
-<p><a href="text-editing-1.html">Text Editing 1: Working with many files; better HTML editing (15 min)</a></p>
+<p><a href="css-lesson-2.html">CSS Lesson 2: more selectors (15 min)</a></p>
 <p>or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-17">
-        <div data-id="17" class="slide-overlay"></div>
+      <div class="slide hidden author-slide" id="slide-13">
+        <div data-id="13" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
