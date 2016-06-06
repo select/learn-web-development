@@ -159,7 +159,7 @@ With these you can set a searchable label on HTML elements that you can easily f
 
 
 --
-### `.class` vs `#id` difference
+### `.class` vs `#id` - the difference
 
 The `id` must only be used **once** on a page.
 ```html
@@ -379,3 +379,11 @@ Here is the first example where the user interaction changes the look and feel o
 ### Exercise
 
 https://flukeout.github.io/
+
+--
+### The End
+Continue with
+
+<a href="text-editing-3.html">Text Editing 3: type less CSS (litterally) (5 min)</a>
+
+or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.
