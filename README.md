@@ -27,7 +27,11 @@
   - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
   - [JS Lesson 5: ajax](#js-lesson-5-ajax)
   - [JS Lesson 6: Debugging](#js-lesson-6-debugging)
-  - [CSS Lesson 3: responsive design](#css-lesson-3-responsive-design)
+- [CSS continued](#css-continued)
+  - [CSS Lesson 3: Cascade and the battle for specificity](#css-lesson-3-cascade-and-the-battle-for-specificity)
+  - [CSS Lesson 4: Position and Z-Index](#css-lesson-4-position-and-z-index)
+  - [CSS Lesson 5: responsive design](#css-lesson-5-responsive-design)
+- [Advanced](#advanced)
   - [Build Tools: webpack](#build-tools-webpack)
   - [CSS Lesson 4: CSS preprocessors](#css-lesson-4-css-preprocessors)
 - [RegEx](#regex)
@@ -263,10 +267,21 @@ Interactive game in the browser in the debugger command line.
 http://juliepagano.com/blog/2014/05/18/javascript-debugging-for-beginners/
  -->
 
-### CSS Lesson 3: responsive design
+## CSS continued
+
+### CSS Lesson 3: Cascade and the battle for specificity 
+
+
+### CSS Lesson 4: Position and Z-Index
+- Positioning: `absolute`, `relative`, `fixed`
+- Layer
+
+### CSS Lesson 5: responsive design
 - only some elements need changes
 - block and inline-block depending on width
 - font sizes
+
+## Advanced
 
 ### Build Tools: webpack
 - Comparision: Make, Grunt, Gulp, Webpack
