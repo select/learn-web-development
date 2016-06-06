@@ -93,6 +93,45 @@
     window.jsSandbox.$style.innerHTML = s;
   }
 
+  /**
+   * _fixLineBreak
+   * Fix line break problem for content editable.
+   * Removed all < IE9 parts, only new browsers are supported.
+   * https://codepen.io/hellokatili/pen/dMzZpz
+   */
+  function _fixLineBreak() {
+    var sel, range;
+    // IE9 and non-IE
+    sel = window.getSelection();
+    if (sel.getRangeAt && sel.rangeCount) {
+      range = sel.getRangeAt(0);
+      range.deleteContents();
+
+      // Range.createContextualFragment() would be useful here but is
+      // only relatively recently standardized and is not supported in
+      // some browsers (IE9, for one)
+      var el = document.createElement("div");
+      el.innerHTML = '<br>';
+      var frag = document.createDocumentFragment(),
+        node, lastNode;
+      while ((node = el.firstChild)) {
+        lastNode = frag.appendChild(node);
+      }
+      var firstNode = frag.firstChild;
+      range.insertNode(frag);
+
+      // Preserve the selection
+      if (lastNode) {
+        range = range.cloneRange();
+        range.setStartAfter(lastNode);
+        range.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    }
+
+  }
+
   function _startEditor($wrapper, id) {
     $wrapper.id = 'js-sandbox-'+id;
     var $renderedHtml = $wrapper.querySelector('.rendered-html');
@@ -117,6 +156,26 @@
       h = h / 2;
     }
 
+    var $editHtmlBtn = document.createElement('div');
+    $editHtmlBtn.className = 'edit-html-btn';
+    $editHtmlBtn.innerHTML = '✎';
+    $editHtmlBtn.addEventListener('click', function(){
+      if($renderedHtml.isContentEditable){
+        $renderedHtml.contentEditable = 'false';
+        $editHtmlBtn.className = 'edit-html-btn';
+      }else {
+        $renderedHtml.contentEditable = 'true';
+        $editHtmlBtn.className = 'edit-html-btn btn--active';
+      }
+    });
+    $wrapper.appendChild($editHtmlBtn);
+    // fix creation of span when deleting items
+    $renderedHtml.addEventListener('DOMNodeInserted', function(event) {
+      if (event.target.tagName == 'SPAN') {
+        event.target.outerHTML = event.target.innerHTML;
+      }
+    });
+
     var options = {}
     if($wrapper.dataset.aceOptions) {
       options = $wrapper.dataset.aceOptions.split(',').reduce(function(op, str){
@@ -139,12 +198,33 @@
       $renderedHtml.innerHTML = $editorHtml.innerHTML;
       var aceEditorHtml = ace.edit($editorHtml);
       aceEditorHtml.$blockScrolling = Infinity; // to supress error messag
+      aceEditorHtml.setValue($renderedHtml.innerHTML.trim(), -1);
       aceEditorHtml.setTheme('ace/theme/sqlserver');
       aceEditorHtml.session.setMode('ace/mode/html');
       aceEditorHtml.setOptions(options);
+      silcentEditorEvents = false
       aceEditorHtml.on('input', function() {
+        if (silcentEditorEvents) return
         $renderedHtml.innerHTML = aceEditorHtml.getValue();
       });
+
+      function setEditorSilent(){
+        silcentEditorEvents = true;
+        aceEditorHtml.setValue($renderedHtml.innerHTML.trim(), -1);
+        setTimeout(function(){
+          silcentEditorEvents = false;
+        },100);
+      }
+      $renderedHtml.addEventListener('keydown', function(event){
+        var key = event.which || event.keyCode;
+        if (key == 13){
+          _fixLineBreak();
+          event.preventDefault();
+          setEditorSilent();
+        }
+      });
+
+      $renderedHtml.addEventListener('input', setEditorSilent);
     }
 
     if ($renderedCSS) {
@@ -154,7 +234,7 @@
     if ($editorCss) {
       $editorCss.style.height = h + 'px';
       _sandboxCssRules($editorCss.innerHTML, $wrapper.id);
-      var decoded = decodeHTMLentities($editorCss.innerHTML);
+      var decoded = decodeHTMLentities($editorCss.innerHTML).trim();
       var aceEditorCss = ace.edit($editorCss);
       aceEditorCss.$blockScrolling = Infinity; // to supress error messag
       aceEditorCss.setValue(decoded, -1);
