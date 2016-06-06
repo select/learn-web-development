@@ -8,11 +8,6 @@ controls: true
 theme: ./cleaver-select-theme
 
 --
-<style type="text/css" media="screen">
-body {
-    overflow: hidden;
-}
-</style>
 <script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script>
 
 #Header 1
