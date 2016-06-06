@@ -63,19 +63,6 @@ And the `<span>` element can be used within a text without breaking the line - `
     Oh man these divs <div>alway
     break the line</div>
 </div></script>
-</div>
-
---
-### `block` and `inline` more visual example
-<div class="js-sandbox" data-height="400">
-<script type="text/plain" class="editor-html" ><div>
-    Hello <span>World!</span> I am
-    a <span>sentence</span>.
-</div>
-<div>
-    Oh man these divs <div>alway
-    break the line</div>
-</div></script>
 <style class="editor-css">span, div{
   border: 1px solid #666;
   margin: 4px;
@@ -83,17 +70,6 @@ And the `<span>` element can be used within a text without breaking the line - `
 }</style>
 </div>
 
---
-### Which elements are `block` which `inline`
-The semantic elements you have seen are `block`
-```
-p, h1, table, ul
-```
-
-and `inline` elements too.
-```
-b, i, u
-```
 --
 ### Setting `block` and `inline` with CSS
 
@@ -123,6 +99,27 @@ span, div{
 </div>
 
 for any element!
+--
+### Which elements are `block` which `inline`
+The semantic elements you have seen are `block`
+```
+p, h1, table, ul
+```
+
+and `inline` elements too.
+```
+b, i, u
+```
+
+--
+### Beyond `block` which `inline`
+There are more `display` types.
+
+```
+table-cell, inline-block, flex, inline-flex
+```
+
+You will learn about them in later lessons.
 
 --
 ### Show and hide with `display: none`
@@ -130,7 +127,7 @@ The `display` property also allows us to show and hide elements
 <div class="js-sandbox" data-height="340">
 <script type="text/plain" class="editor-html" ><div>
     You can see me
-    <span>but I am hidden</span>.
+    <span>, but I am hidden</span>.
 </div></script>
 <style class="editor-css">
 span { display: none;  }
@@ -139,10 +136,6 @@ div  { display: block; }
 
 </style>
 </div>
-
---
-### Beyond `block` and `inline`
-inline-block, flex, table-cell
 
 --
 ### The End
