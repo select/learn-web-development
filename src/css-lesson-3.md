@@ -1,4 +1,4 @@
-title: CSS Lesson 3 - Cascading Style Sheets basics
+title: CSS Lesson 3 - Cascade and the battle for specificity
 author:
   name: Falko Krause
   github: select
