@@ -357,7 +357,7 @@ table th {
 }
 
 /* Code Highlighting */
-code,  {
+code {
   padding: .1em .35em;
   font-family: 'Inconsolata';
   background-color: #fafafa;
@@ -639,7 +639,7 @@ a {
   text-transform: uppercase;
   text-decoration: none;
 }</style>
-<script type="text/plain" style="display: block;" class="editor-html"><h1>Hello</h1>
+<script type="text/plain" class="editor-html"><h1>Hello</h1>
 <p>
   Here are some links
   <a href="http://www.w3schools.com/cssref/pr_text_text-align.asp">text-align</a><br>
@@ -654,8 +654,8 @@ a {
       <div class="slide hidden" id="slide-3">
         <div data-id="3" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="optimize-common-styles">Optimize common styles</h3>
-<p>You can write <strong>comma separated</strong> list of selectors <code>tag1, tag2 { …</code> that share styles properties.s</p>
-<div class="js-sandbox" data-height="400" data-ace-options="enableLiveAutocompletion: true">
+<p>You can write <strong>comma separated</strong> list of selectors <code>tag1, tag2 { …</code> that share styles properties.</p>
+<div class="js-sandbox" data-height="375" data-ace-options="enableLiveAutocompletion: true">
 <style class="editor-css">h1, p {
   margin: 0;
 }
@@ -682,7 +682,7 @@ a {
       <div class="slide hidden" id="slide-4">
         <div data-id="4" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="selecting-nested-tags-">Selecting <code>nested tags</code></h3>
-<p>Use the HTML tree structure to select nested tags</p>
+<p>Use the &#39;<code> </code>&#39; (space) combinator to select nested tags</p>
 <div class="js-sandbox" data-height="425" data-ace-options="enableLiveAutocompletion: true">
 <style class="editor-css">p b {
     color: green;
@@ -743,55 +743,290 @@ p a {
         <section class="slide-content"><h3 id="selecting-direct-children-tag-child-">Selecting direct children <code>tag &gt; child</code></h3>
 <p>With the <code>&gt;</code> combinator you can select direct children.</p>
 <div class="js-sandbox" data-height="425" data-ace-options="enableLiveAutocompletion: true">
-<style type="text/plain" class="editor-css">span { background-color: yellow; }
+<style class="editor-css">
+span { background-color: yellow; }
 p &gt; span {
   background-color: lightblue;
-}</style><script type="text/plain" style="display: block;" class="editor-html"><p>
+}
+</style>
+<script type="text/plain" style="display: block;" class="editor-html">
+<p>
   <span>Span 1. In the paragraph.
     <span>Span 2. In the span.</span>
   </span>
   Regular text
   <span>Another child.</span>
 </p>
-<span>Span 3. Not in paragraph.</span></script>
+<span>Span 3. Not in paragraph.</span>
+</script>
 </div></section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-7">
         <div data-id="7" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="selectors-3-class-id-">Selectors 3: <code>.class</code>, <code>#id</code></h3>
-<p>With class and id selector you will now experience the full power of CSS.</p>
-<pre><code>
-</code></pre>
+        <section class="slide-content"><h3 id="other-combinators">Other combinators</h3>
+<p>There are more combinators that are less commonly used. Here is the full overview:</p>
+<ul>
+<li><code> </code> (space) descendant selector </li>
+<li><code>&gt;</code> child selector </li>
+<li><code>+</code> adjacent sibling selector </li>
+<li><code>~</code>general sibling selector </li>
+</ul>
+<p>You can learn more about them later.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-8">
         <div data-id="8" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="selectors-4-pseudo-selectors-hover-nth-child-odd-">Selectors 4 pseudo selectors: <code>:hover</code> <code>:nth-child(odd)</code></h3>
+        <section class="slide-content"><h3 id="selectors-class-id-">Selectors: <code>.class</code>, <code>#id</code></h3>
+<p>With <code>class</code> and <code>id</code> selector you will now experience the full power of CSS.</p>
+<p>With these you can set a searchable label on HTML elements that you can easily find with CSS selectors.</p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-9">
         <div data-id="9" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="positioning-absolute-relative-fixed-">Positioning: <code>absolute</code>, <code>relative</code>, <code>fixed</code></h3>
+        <section class="slide-content"><h3 id="-class-vs-id-difference"><code>.class</code> vs <code>#id</code> difference</h3>
+<p>The <code>id</code> must only be used <strong>once</strong> on a page.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"header"</span>&gt;</span> Logo | About | Imprint<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-id">#header</span> { <span class="hljs-attribute">background-color</span>: black; }</code></pre>
+<p>A <code>class</code> can be used many times.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"animals"</span>&gt;</span> Pony <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> Raspberry <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"animals"</span>&gt;</span> Duck <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-class">.animals</span> { <span class="hljs-attribute">color</span>: red; }</code></pre>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-10">
         <div data-id="10" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="-class-and-id-example"><code>.class</code> and <code>#id</code> example</h3>
+<div class="js-sandbox" data-height="400">
+<script type="text/plain" class="editor-html">
+<div id="myheader"> Logo | About | Imprint</div>
+<div class="animals"> Pony </div>
+<div> Raspberry </div>
+<div class="animals"> Duck </div>
+</script>
+<style class="editor-css">
+#myheader {
+  background-color: black;
+  color: white;
+  padding: 0 10px;
+}
+.animals {
+  color: red;
+}
+</style>
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-11">
+        <div data-id="11" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="only-use-class-">Only use <code>.class</code></h3>
+<p>As a guideline it is the best if you only use</p>
+<pre><code>.class</code></pre>
+<p>This avoids mistakes and is considered best practice for styling with CSS.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-12">
+        <div data-id="12" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="styling-with-class-example">Styling with <code>.class</code> example</h3>
+<div class="js-sandbox" data-height="400">
+<script type="text/plain" class="editor-html"><div class="header">
+  Logo |
+  <span class="animals">Ponies</span> |
+  Imprint
+</div>
+<div class="animals"> Platapus </div>
+<div> Raspberry </div>
+<div class="animals"> Duck </div>
+</script>
+<style class="editor-css">
+.header {
+  background-color: black;
+  color: white;
+  padding: 0 10px;
+}
+.animals {
+  color: red;
+}
+</style>
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-13">
+        <div data-id="13" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="using-class-multiple-times">Using <code>.class</code> multiple times</h3>
+<p>Use multiple classes to modify a base style <br>
+<code>class=&quot;base modifier&quot;</code> selector <code>.base.modifier { …</code></p>
+<div class="js-sandbox" data-height="300">
+<script type="text/plain" class="editor-html">
+<h4>My favorite things</h4>
+<ul>
+  <li class="animal best">Cat</li>
+  <li class="animal">Horse</li>
+  <li> Banana </li>
+  <li class="animal">Duck</li>
+</ul></script>
+<style class="editor-css">
+.animal {
+  color: green;
+  font-style: italic;
+}
+.animal.best {
+  color: orange;
+}
+</style>
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-14">
+        <div data-id="14" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="attention-operator-confusion">Attention operator confusion</h3>
+<p>Same style for a list of selectors</p>
+<pre><code>element1, element2, element3 { … }</code></pre>
+<p>Selecting children</p>
+<pre><code>element child { … }
+element &gt; direct-child { … }</code></pre>
+<p>Refining classes</p>
+<pre><code>.base-class.modifier-class { … }</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-15">
+        <div data-id="15" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="combining-operators">Combining operators</h3>
+<p>You are able to combine the different operators</p>
+<pre><code>h1,
+div &gt; a,
+p .myclass,
+div .myclass.modifier {
+  … 
+}</code></pre>
+<p>Too abstract? you will see real life examples soon.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-16">
+        <div data-id="16" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="pseudo-selectors">Pseudo selectors</h3>
+<p>There are several pseudo selectors in CSS. They</p>
+<ul>
+<li>start with a <code>:</code> colon,</li>
+<li>need another selector.</li>
+</ul>
+<p>You will now learn about two of them. More will follow later.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-17">
+        <div data-id="17" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="pseudo-selectors-nth-child-odd-">Pseudo selectors <code>:nth-child(odd)</code></h3>
+<p>Select every other element with <code>even</code> and <code>odd</code></p>
+<div class="js-sandbox" data-height="300">
+<script type="text/plain" class="editor-html">
+<h4>My favorite things</h4>
+<ul class="striped">
+  <li>Cat</li>
+  <li>Horse</li>
+  <li>Banana</li>
+  <li>Duck</li>
+  <li>Skateboard</li>
+  <li>Star Trek</li>
+</ul></script>
+<style class="editor-css">
+.striped li:nth-child(odd) {
+  background-color: #eee;
+}
+.striped {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-18">
+        <div data-id="18" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="many-possibilities-with-nth-child-">Many possibilities with <code>:nth-child(…)</code></h3>
+<p>There are many patterns you can use with <code>nth-child</code></p>
+<ul>
+<li><code>even</code> and <code>odd</code></li>
+<li>An number e.g. <code>:nth-child( 2 )</code> to select the second element</li>
+<li><code>:nth-child( 3n + 2 )</code> to select every 3rd element with an offset of 2</li>
+</ul>
+<p>But for now <code>even</code> and <code>odd</code> is what you should remember and use.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-19">
+        <div data-id="19" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="pseudo-selectors-hover-">Pseudo selectors <code>:hover</code></h3>
+<p>The <code>:hover</code> selector is triggerd when the mouse moves over and element.</p>
+<p>The element will gives you the first tool to create dynamic content.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-20">
+        <div data-id="20" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="-hover-example"><code>:hover</code> example</h3>
+<p>Here is the first example where the user interaction changes the look and feel of a page.</p>
+<div class="js-sandbox" data-height="300">
+<script type="text/plain" class="editor-html">
+<h4>My favorite things</h4>
+<ul class="striped">
+  <li>Cat</li>
+  <li>Horse</li>
+  <li>Banana</li>
+  <li>Duck</li>
+  <li>Skateboard</li>
+  <li>Star Trek</li>
+</ul></script>
+<style class="editor-css">
+.striped li:nth-child(odd) {
+  background-color: #eee;
+}
+.striped li:hover {
+  background-color: #999;
+}
+
+.striped {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+</div></section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-21">
+        <div data-id="21" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="exercise">Exercise</h3>
 <p><a href="https://flukeout.github.io/">https://flukeout.github.io/</a></p>
 </section>
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-11">
-        <div data-id="11" class="slide-overlay"></div>
+      <div class="slide hidden author-slide" id="slide-22">
+        <div data-id="22" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -952,7 +1187,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
-    if(e.target.tagName.toLowerCase() === 'textarea') return;
+    if(e.target.tagName.toLowerCase() === 'textarea' || e.target.hasAttribute('contenteditable')) return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK

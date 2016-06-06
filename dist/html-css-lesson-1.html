@@ -357,7 +357,7 @@ table th {
 }
 
 /* Code Highlighting */
-code,  {
+code {
   padding: .1em .35em;
   font-family: 'Inconsolata';
   background-color: #fafafa;
@@ -677,22 +677,6 @@ kbd {
     Oh man these divs <div>alway
     break the line</div>
 </div></script>
-</div></section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-7">
-        <div data-id="7" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="-block-and-inline-more-visual-example"><code>block</code> and <code>inline</code> more visual example</h3>
-<div class="js-sandbox" data-height="400">
-<script type="text/plain" class="editor-html" ><div>
-    Hello <span>World!</span> I am
-    a <span>sentence</span>.
-</div>
-<div>
-    Oh man these divs <div>alway
-    break the line</div>
-</div></script>
 <style class="editor-css">span, div{
   border: 1px solid #666;
   margin: 4px;
@@ -702,19 +686,8 @@ kbd {
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-8">
-        <div data-id="8" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="which-elements-are-block-which-inline-">Which elements are <code>block</code> which <code>inline</code></h3>
-<p>The semantic elements you have seen are <code>block</code></p>
-<pre><code>p, h1, table, ul</code></pre>
-<p>and <code>inline</code> elements too.</p>
-<pre><code>b, i, u</code></pre>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-9">
-        <div data-id="9" class="slide-overlay"></div>
+      <div class="slide hidden" id="slide-7">
+        <div data-id="7" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="setting-block-and-inline-with-css">Setting <code>block</code> and <code>inline</code> with CSS</h3>
 <p>CSS allows you to change <code>block</code> and <code>inline</code> rendering</p>
 <div class="js-sandbox" data-height="340">
@@ -745,6 +718,27 @@ span, div{
       </div>
     </div>
     <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-8">
+        <div data-id="8" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="which-elements-are-block-which-inline-">Which elements are <code>block</code> which <code>inline</code></h3>
+<p>The semantic elements you have seen are <code>block</code></p>
+<pre><code>p, h1, table, ul</code></pre>
+<p>and <code>inline</code> elements too.</p>
+<pre><code>b, i, u</code></pre>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="slide hidden" id="slide-9">
+        <div data-id="9" class="slide-overlay"></div>
+        <section class="slide-content"><h3 id="beyond-block-which-inline-">Beyond <code>block</code> which <code>inline</code></h3>
+<p>There are more <code>display</code> types.</p>
+<pre><code>table-cell, inline-block, flex, inline-flex</code></pre>
+<p>You will learn about them in later lessons.</p>
+</section>
+      </div>
+    </div>
+    <div class="slide-wrapper">
       <div class="slide hidden" id="slide-10">
         <div data-id="10" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="show-and-hide-with-display-none-">Show and hide with <code>display: none</code></h3>
@@ -752,7 +746,7 @@ span, div{
 <div class="js-sandbox" data-height="340">
 <script type="text/plain" class="editor-html" ><div>
     You can see me
-    <span>but I am hidden</span>.
+    <span>, but I am hidden</span>.
 </div></script>
 <style class="editor-css">
 span { display: none;  }
@@ -766,14 +760,6 @@ div  { display: block; }
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-11">
         <div data-id="11" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="beyond-block-which-inline-">beyond <code>block</code> which <code>inline</code></h3>
-<p>inline-block, flex, table-cell</p>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-12">
-        <div data-id="12" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="the-end">The End</h3>
 <p>Continue with</p>
 <p><a href="css-lesson-2.html">CSS Lesson 2: more selectors (15 min)</a></p>
@@ -782,8 +768,8 @@ div  { display: block; }
       </div>
     </div>
     <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-13">
-        <div data-id="13" class="slide-overlay"></div>
+      <div class="slide hidden author-slide" id="slide-12">
+        <div data-id="12" class="slide-overlay"></div>
         <section class="slide-content"><div class="author">
   <h1 class="name">Falko Krause</h1>
     <h3 class="github">
@@ -944,7 +930,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
-    if(e.target.tagName.toLowerCase() === 'textarea') return;
+    if(e.target.tagName.toLowerCase() === 'textarea' || e.target.hasAttribute('contenteditable')) return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
