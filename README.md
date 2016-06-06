@@ -161,11 +161,25 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 
 ### CSS Lesson 2: more selectors (15 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-2.html).
-- Selectors 2: `tag`
-- Selectors 2: `nested tags`, `nested>tags`
-- Selectors 3: `.class`, `#id`
-- Selectors 4 pseudo selectors: `:hover` `:nth-child(odd)`
-- Positioning: `absolute`, `relative`, `fixed`
+- The `tag` selector
+- Optimize common styles
+- Selecting `nested tags`
+- Selecting `nested tags` alternative example
+- Selecting direct children `tag > child`
+- Other combinators
+- Selectors: `.class`, `#id`
+- `.class` vs `#id` - the difference
+- `.class` and `#id` example
+- Only use `.class`
+- Styling with `.class` example
+- Using `.class` multiple times
+- Attention operator confusion
+- Combining operators
+- Pseudo selectors
+- Pseudo selectors `:nth-child(odd)`
+- Many possibilities with `:nth-child(…)`
+- Pseudo selectors `:hover`
+- `:hover` example
 
 ### Text Editing 3: type less CSS (litterally) (5 min)
 - Plugins: Hayaku
