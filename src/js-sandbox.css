@@ -8,7 +8,8 @@
     padding-top: 0;
 }
 
-.edit-html-btn {
+
+.edit-html-btn, .inspect-html-btn {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -17,13 +18,17 @@
     line-height: 40px;
     text-align: center;
     background: #EFEFEF;
-    border-radius: 0 4px 0 0;
     transform: scaleX(-1);
     color: #D6D6D6;
     cursor: pointer;
     transition: all 250ms
 }
-.edit-html-btn.btn--active {
+.inspect-html-btn {
+    border-radius: 0 4px 0 0;
+    right: 45px;
+
+}
+.edit-html-btn.btn--active, .inspect-html-btn.btn--active {
     background: #C0C0C0;
     color: #000;
 }
@@ -69,4 +74,41 @@
     bottom: 0;
     left: 0;
     right: 0;
+}
+.bounding-box {
+    position: fixed;
+    z-index: 9;
+}
+.bounding-box div {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    box-sizing: border-box;
+    transition: all 250ms;
+}
+.bounding-box div:nth-child(odd){
+    border-top: 1px solid red;
+}
+.bounding-box div:nth-child(even){
+    border-left: 1px solid red;
+}
+.bounding-box .bounding-box-meta.bounding-box-meta {
+    top: -17px;
+    left: 0;
+    height: 17px;
+    border: none;
+    text-align: right;
+}
+.bounding-box .bounding-box-meta span {
+    background: purple;
+    color: #FFF;
+    font-size: 10px;
+    padding: 0 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.bounding-box .bounding-box-meta span span:hover{
+    background: #FFF;
+    color: #000;
+    border-radius: 2px;
 }
