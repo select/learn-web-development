@@ -1,54 +1,140 @@
-
-class BoundingBox {
-  constructor() {
-    this.borders = Array.apply(null, Array(4)).reduce((list, div) => list.concat([document.createElement('div')]), []);
-    this.node = document.createElement('div');
-    this.node.className = 'bounding-box';
-    this.node.hidden = true;
-    this.borders.map((el) => this.node.appendChild(el));
-    document.querySelector('body').appendChild(this.node);
-    this.metaInfo = document.createElement('div');
-    this.metaInfo.className = 'bounding-box-meta';
-    this.metaInfoSpan = document.createElement('span');
-    this.metaInfo.appendChild(this.metaInfoSpan);
-    this.node.appendChild(this.metaInfo);
+/**
+ * jQuery like DOM class
+ * @class
+ */
+class DOM {
+  /**
+   * create a new array like object of elements
+   * @constructor
+   */
+  constructor(mixed, parentNode) {
+    if (mixed instanceof HTMLElement) this.elements = [mixed];
+    else if (parentNode !== undefined) this.elements = parentNode.querySelectorAll(selector);
+    else this.elements = document.querySelectorAll(mixed);
+    this.length = this.elements.length;
   }
-  setPos(pos) {
-    this.node.style.top = pos.top + 'px';
-    this.node.style.left = pos.left + 'px';
-
-    this.metaInfo.style.width = pos.width + 'px';
-    // top
-    this.borders[0].style.width = pos.width + 'px';
-    // left
-    this.borders[3].style.height = pos.height + 'px';
-    // right
-    this.borders[1].style.left = pos.width + 'px';
-    this.borders[1].style.height = pos.height + 'px';
-    // bottom
-    this.borders[2].style.top = pos.height + 'px';
-    this.borders[2].style.width = pos.width + 'px';
-  }
-  showClasses(node) {
-    let rules = window.jsSandbox.allRules.filter((rule)=> node.matches(rule.selector)).map((rule) => `<span>${rule.selector}</span>`);
-    this.metaInfoSpan.innerHTML = node.tagName.toLowerCase();
-    if ( node.className ) this.metaInfoSpan.innerHTML += node.className.split(' ').reduce((cssString, c) => '.' + c, '');
-    if ( rules.length ) {
-      this.metaInfoSpan.innerHTML += ' | '+rules.join(', ');
+  /**
+   * ### append
+   * @param {String} html String with HTML content
+   */
+  append(html){
+    let $tmp = document.createElement('div');
+    $tmp.innerHTML = html;
+    while ($tmp.firstChild) {
+      this.elements[0].appendChild($tmp.firstChild);
     }
-    // console.log('I:', event.target.tagName, event.target.getAttribute('class'));
-    // rules.map((rule)=> console.log(rule.selector))
-
+    return this.elements[0].lastChild;
   }
-  showMatchingRules(node) {
-    let rules = window.jsSandbox.allRules.filter((rule)=> node.matches(rule.selector))
-    rules.map((rule)=> console.log(rule.selector))
+  /**
+   * @param {Function} callback A callback to call on each element
+   */
+  each(callback) {
+    // convert this to Array to use for...of
+    for (let el of Array.from(this.elements)) {
+      callback.call(el);
+    }
+
+    // return this for chaining
+    return this;
+  }
+
+  /**
+   * Add a class to selected elements
+   * @param {String} className The class name to add
+   */
+  addClass(className) {
+    return this.each(function() {
+      this.classList.add(className);
+    });
+  }
+
+  /**
+   * Remove a class from selected elements
+   * @param {String} className The class name to remove
+   */
+  removeClass(className) {
+    return this.each(function() {
+      this.classList.remove(className);
+    });
+  }
+
+  /**
+   * Check to see if the element has a class
+   * (Note: Only checks the first elements if more than one is selected)
+   * @param {String} className The class name to check
+   */
+  hasClass(className) {
+    return this[0].classList.contains(className);
+  }
+
+  /**
+   * Attach an event listener with a callback to the selected elements
+   * @param {String} event Name of event, eg. "click", "mouseover", etc...
+   * @param {Function} callback The function to call when the event is triggered
+   */
+  on(event, callback, capture) {
+    return this.each(function() {
+      this.addEventListener(event, callback, capture);
+    });
+  }
+
+  off(event, callback, capture) {
+    return this.each(function() {
+      this.removeEventListener(event, callback, capture);
+    });
+  }
+
+  val(value) {
+    if (value !== undefined) {
+      this.each(function() {
+        this.value = value;
+      });
+    } else {
+      var list = [];
+      this.each(function() {
+        list.push(this.value);
+      });
+      if (list.length === 1) {
+        return list[0];
+      } else {
+        return list;
+      }
+    }
   }
 }
+window.$ = (selector) => new DOM(selector);
 
 
 (function() {
 
+  class BoundingBox {
+    constructor() {
+      this.node = $('body').append('<div class="bounding-box" hidden></div>');
+
+      this.metaInfo = $(this.node).append('<div class="bounding-box-meta"></div>');
+      this.metaInfo.addEventListener('click', (event) => {
+        if(event.target.nodeName === 'SPAN'){
+          let selector = event.target.innerHTML;
+          window.jsSandbox.aceEditorCss.find(selector);
+        }
+      }, true);
+    }
+
+    setPos(pos) {
+      Object.keys(pos).map( (key) => pos[key] = pos[key]+ 'px');
+      Object.assign(this.node.style, pos);
+    }
+    showClasses(node) {
+      this.metaInfo.innerHTML = node.tagName.toLowerCase();
+      if ( node.className ) this.metaInfo.innerHTML += node.className.split(' ').reduce((cssString, c) => '.' + c, '');
+      let rules = window.jsSandbox.allRules.filter((rule)=> node.matches(rule.selector)).map((rule) => `<span>${rule.selector}</span>`);
+      if ( rules.length )  this.metaInfo.innerHTML += ' | '+rules.join(', ');
+    }
+    showMatchingRules(node) {
+      let rules = window.jsSandbox.allRules.filter((rule)=> node.matches(rule.selector))
+      rules.map((rule)=> console.log(rule.selector))
+    }
+  }
    /**
    * ##customDebounce
    * Debounce Immediatly (custom made) - Fire once immediately and then when
@@ -130,28 +216,23 @@ class BoundingBox {
     var s
     if (/.css$/.test(url)) {
       s = document.createElement('link');
-    } else if (/.js$/.test(url)) {
-      s = document.createElement('script');
-    }
-    if (s.readyState) { //IE
-      s.onreadystatechange = function() {
-        if (s.readyState == 'loaded' || s.readyState == 'complete') {
-          s.onreadystatechange = null;
-          if (callback) callback();
-        }
-      };
-    } else { //Others
-      s.onload = function() {
-        if (callback) callback();
-      };
-    }
-    if (/.css$/.test(url)) {
+      if (callback) s.onload = () => { callback() };
       s.setAttribute('href', url);
       s.setAttribute('rel', 'stylesheet');
     } else if (/.js$/.test(url)) {
+      s = document.createElement('script');
+      if (callback) s.onload = () => { callback() };
       s.setAttribute('src', url);
+    } else if (/.html$/.test(url)){
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = function() {
+          if (this.readyState!==4 || this.status!==200) console.warn(`_loadScript failed for ${url}`);
+          else callback(this.responseText);
+      };
+      return xhr.send();
     }
-    document.getElementsByTagName('head')[0].appendChild(s)
+    document.querySelector('head').appendChild(s)
   }
 
   /**
@@ -231,17 +312,13 @@ class BoundingBox {
    */
   function _sandboxCssRules(cssRuleString, id) {
     cssRuleString = decodeHTMLentities(cssRuleString);
-
     let rules = _getRules(cssRuleString);
     window.jsSandbox.allRules = rules;
-
     window.jsSandbox.cssStrings[id] = rules.map(
       (rule) =>
         rule.selector.map((selector) => `#js-sandbox-${id} .rendered-html ${selector}`).join(',') + ` { ${rule.properties}}`
       ).join(' ');
-
     var s = window.jsSandbox.cssStrings.join(' ');
-
     window.jsSandbox.$style.innerHTML = s;
   }
 
@@ -303,16 +380,16 @@ class BoundingBox {
   }
 
   function _mouseenterBoundingBox(event){
-    window.boundingBox.node.hidden = false;
-    window.boundingBox.setPos(findPos(event.target));
-    window.boundingBox.showClasses(event.target);
+    window.jsSandbox.boundingBox.node.hidden = false;
+    window.jsSandbox.boundingBox.setPos(findPos(event.target));
+    window.jsSandbox.boundingBox.showClasses(event.target);
   }
   function _bindHover(node, undbind){
     if( undbind ){
-      window.boundingBox.node.hidden = true;
-      return node.removeEventListener('mouseenter', _mouseenterBoundingBox, true);
+      window.jsSandbox.boundingBox.node.hidden = true;
+      return $(node).off('mouseenter', _mouseenterBoundingBox, true);
     }
-    node.addEventListener('mouseenter', _mouseenterBoundingBox, true); // Use Capturing
+    $(node).on('mouseenter', _mouseenterBoundingBox, true); // Use Capturing
     // node.addEventListener('mouseleave', _throttle((event) => {
     //   window.boundingBox.node.hidden = true;
     //   console.log('O:', event.target.tagName, event.target.getAttribute('class'));
@@ -323,6 +400,7 @@ class BoundingBox {
   function _startEditor($wrapper, id) {
     $wrapper.id = 'js-sandbox-'+id;
     $wrapper.dataset.id = id;
+
     var $renderedHtml = $wrapper.querySelector('.rendered-html');
     var $renderedCSS = $wrapper.querySelector('.rendered-css');
     var $editorCss = $wrapper.querySelector('.editor-css');
@@ -336,50 +414,14 @@ class BoundingBox {
     }
     $wrapper.style.height = h + 'px';
 
-    if(!$renderedHtml){
-      $renderedHtml = document.createElement('div');
-      $renderedHtml.className = 'rendered-html';
-      $wrapper.appendChild($renderedHtml);
-    }
+    if(!$renderedHtml) $renderedHtml = $($wrapper).append('<div class="rendered-html"></div>');
     $renderedHtml.style.height = h + 'px';
     if ($editorHtml && $editorCss) {
       h = h / 2;
     }
-
-    var $editHtmlBtn = document.createElement('div');
-    $editHtmlBtn.className = 'edit-html-btn';
-    $editHtmlBtn.innerHTML = '✎';
-    $editHtmlBtn.addEventListener('click', function(){
-      if($renderedHtml.isContentEditable){
-        $renderedHtml.contentEditable = 'false';
-        $editHtmlBtn.className = 'edit-html-btn';
-      }else {
-        $renderedHtml.contentEditable = 'true';
-        $editHtmlBtn.className = 'edit-html-btn btn--active';
-      }
-    });
-    $wrapper.appendChild($editHtmlBtn);
-
-    var $inspectHtmlBtn = document.createElement('div');
-    $inspectHtmlBtn.className = 'inspect-html-btn';
-    $inspectHtmlBtn.innerHTML = '🔍';
-    $inspectHtmlBtn.addEventListener('click', function(){
-      if(/btn--active/.test($inspectHtmlBtn.className)){
-        $inspectHtmlBtn.className = 'inspect-html-btn';
-        _bindHover($renderedHtml, true);
-      }else {
-        $inspectHtmlBtn.className = 'inspect-html-btn btn--active';
-        _bindHover($renderedHtml);
-      }
-    });
-    $wrapper.appendChild($inspectHtmlBtn);
-
-
     // fix creation of span when deleting items
-    $renderedHtml.addEventListener('DOMNodeInserted', (event) => {
-      if (event.target.tagName == 'SPAN') {
-        event.target.outerHTML = event.target.innerHTML;
-      }
+    $($renderedHtml).on('DOMNodeInserted', (event) => {
+      if (event.target.tagName == 'SPAN') event.target.outerHTML = event.target.innerHTML;
     });
 
     var options = {}
@@ -457,23 +499,41 @@ class BoundingBox {
       aceEditorCss.on('input', function() {
         _sandboxCssRules(aceEditorCss.getValue(), $wrapper.dataset.id);
       });
+      this.jsSandbox.aceEditorCss = aceEditorCss;
     }
+
+    // Inspect and contenteditable buttons bottom right
+    $($wrapper).append(`
+      <div class="js-sandbox__inspect-html-btn">🔍</div>
+      <div class="js-sandbox__contentedit-html-btn">✎</div>`)
+    $wrapper.querySelector('.js-sandbox__inspect-html-btn').addEventListener('click', (event) => {
+      let state = /btn--active/.test(event.target.className)
+      event.target.classList.toggle('btn--active', !state);
+      _bindHover($renderedHtml, state);
+    });
+    $wrapper.querySelector('.js-sandbox__contentedit-html-btn').addEventListener('click', function(event){
+      let state = $renderedHtml.isContentEditable;
+      event.target.classList.toggle('btn--active', !state);
+      $renderedHtml.contentEditable = ''+!state;
+    });
+
+    $($wrapper).append(`
+      <div class="js-sandbox__editors-btns">
+        <span class="js-sandbox__editor-btn-html">HTML</span>
+        <span class="js-sandbox__editor-btn-css">CSS</span>
+      </div>`);
+
   }
 
   window.jsSandbox = {};
 
-  _loadScript('js-sandbox.css');
-  _loadScript('ace-editor/ace.js', function() {
-    _loadScript('ace-editor/ext-language_tools.js', function() {
-      window.jsSandbox.cssStrings = [];
-      window.jsSandbox.$style = document.createElement('style');
-      window.jsSandbox.$style.type = 'text/css';
-      window.jsSandbox.$style.title = 'sandbox';
-      document.getElementsByTagName('head')[0].appendChild(window.jsSandbox.$style);
-
-      window.boundingBox = new BoundingBox();
-
-      document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    _loadScript('js-sandbox.css');
+    _loadScript('ace-editor/ace.js', function() {
+      _loadScript('ace-editor/ext-language_tools.js', function() {
+        window.jsSandbox.cssStrings = [];
+        window.jsSandbox.$style = $('head').append('<style type="text/css" title="sandbox"></style>');
+        window.jsSandbox.boundingBox = new BoundingBox();
         var id = 0;
         [].forEach.call(document.querySelectorAll('.js-sandbox'), function($el) {
           _startEditor($el, id++);
