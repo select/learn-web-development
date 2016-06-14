@@ -376,11 +376,6 @@ Here is the first example where the user interaction changes the look and feel o
 </div>
 
 --
-### Exercise
-
-https://flukeout.github.io/
-
---
 ### The End
 Continue with
 
