@@ -46,6 +46,26 @@ if you now type `0` it will complete the short hex code for black:
 background: #000
 ```
 
+
+--
+### Comment your code
+It's a good practice to write comments into your code to remember and share your thoughts. Just a quick reminder, this is what comments look like.
+
+```css
+/* I'm a CSS comment */
+```
+
+```html
+<!-- I'm a HTML comment -->
+```
+… too tedious to write them by hand.
+--
+### Comment shorcut
+Since comments in most languages start with `/` the shortcut is.
+
+<kbd>Ctrl</kbd><kbd>/</kbd>
+
+Sucks to have a German keyboard layout now o_O
 --
 ### The End
 Continue with the
