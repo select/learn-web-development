@@ -4,19 +4,19 @@
 
 - [Getting Started - Opinionated first steps in learning web development \(20 min\)](#getting-started---opinionated-first-steps-in-learning-web-development-20-min)
 - [HTML](#html)
-  - [HTML Lesson 1: basics \(20 min\)](#html-lesson-1-basics-20-min)
+  - [HTML Lesson 1: Basics \(20 min\)](#html-lesson-1-basics-20-min)
   - [HTML Exercise 1: Hello world! \(15 min\)](#html-exercise-1-hello-world-15-min)
-  - [HTML Lesson 2: image and hyperlink \(20 min\)](#html-lesson-2-image-and-hyperlink-20-min)
+  - [HTML Lesson 2: Image and hyperlink \(20 min\)](#html-lesson-2-image-and-hyperlink-20-min)
   - [Text Editing 1: Working with many files; better HTML editing \(15 min\)](#text-editing-1-working-with-many-files-better-html-editing-15-min)
-  - [HTML Exercise 2: create a text adventure \(20 min\)](#html-exercise-2-create-a-text-adventure-20-min)
+  - [HTML Exercise 2: Create a text adventure \(20 min\)](#html-exercise-2-create-a-text-adventure-20-min)
 - [CSS](#css)
-  - [CSS Lesson 1: basics \(20 min\)](#css-lesson-1-basics-20-min)
-  - [Text Editing 2: code types; indentation; find and replace; multiselection \(15min\)](#text-editing-2-code-types-indentation-find-and-replace-multiselection-15min)
-  - [CSS Exercise 1: styling the text adventure \(15 min\)](#css-exercise-1-styling-the-text-adventure-15-min)
+  - [CSS Lesson 1: Basics \(20 min\)](#css-lesson-1-basics-20-min)
+  - [Text Editing 2: Code types; indentation; find and replace; multiselection \(15min\)](#text-editing-2-code-types-indentation-find-and-replace-multiselection-15min)
+  - [CSS Exercise 1: Styling the text adventure \(15 min\)](#css-exercise-1-styling-the-text-adventure-15-min)
   - [HTML & CSS Lesson 1 - Blocks and visibility \(10 min\)](#html--css-lesson-1---blocks-and-visibility-10-min)
-  - [CSS Lesson 2: more selectors \(15 min\)](#css-lesson-2-more-selectors-15-min)
-  - [Text Editing 3: type less CSS \(litterally\) \(5 min\)](#text-editing-3-type-less-css-litterally-5-min)
-  - [CSS Exercise 2: building a reusable menu with a button \(15 min\)](#css-exercise-2-building-a-reusable-menu-with-a-button-15-min)
+  - [CSS Lesson 2: More selectors \(15 min\)](#css-lesson-2-more-selectors-15-min)
+  - [Text Editing 3: Type less CSS \(litterally\) \(5 min\)](#text-editing-3-type-less-css-litterally-5-min)
+  - [CSS Exercise 2: Building a reusable menu with a button \(10 + 20 min\)](#css-exercise-2-building-a-reusable-menu-with-a-button-10--20-min)
   - [Reading: HTML CSS](#reading-html-css)
 - [JS \(client\)](#js-client)
   - [JS Lesson 1: programming basics datatypes](#js-lesson-1-programming-basics-datatypes)
@@ -61,7 +61,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 
 ## HTML
 
-### HTML Lesson 1: basics (20 min)
+### HTML Lesson 1: Basics (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/html-lesson-1.html).
 - HTML stands for Hyper Text Markup Language
 - HTML is similar to XML
@@ -82,7 +82,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Create your first website
 - Tags overview
 
-### HTML Lesson 2: image and hyperlink (20 min)
+### HTML Lesson 2: Image and hyperlink (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/html-lesson-2.html).
 - The `img` tag
 - Moving down
@@ -105,7 +105,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Plugins: Emmet, All Autocomplete
 - Finding editor commands with a keyboard shortcut
 
-### HTML Exercise 2: create a text adventure (20 min)
+### HTML Exercise 2: Create a text adventure (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-2.html).
 
 What needs to be done:
@@ -113,7 +113,7 @@ What needs to be done:
 - Artist create some character images.
 
 ## CSS
-### CSS Lesson 1: basics (20 min)
+### CSS Lesson 1: Basics (20 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-1.html).
 - Cascading Style Sheets: CSS is a stylesheet language that describes the presentation of an HTML (or XML)
 - Syntax: Selector - Declaration (property: value)
@@ -131,7 +131,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - External `.css` file
 - Css property cheat sheet
 
-### Text Editing 2: code types; indentation; find and replace; multiselection (15min)
+### Text Editing 2: Code types; indentation; find and replace; multiselection (15min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/text-editing-2.html).
 - Switching the souce code highlighting
 - Indentation control
@@ -140,7 +140,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Plugins: Trailing Spaces
 - Multi selection
 
-### CSS Exercise 1: styling the text adventure (15 min)
+### CSS Exercise 1: Styling the text adventure (15 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/master/dist/css-exercise-1.html).
 - Creat an external CSS file
 - Add styling
@@ -159,7 +159,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/master/
 - Show and hide with `display: none`
 - Beyond `block` and `inline`
 
-### CSS Lesson 2: more selectors (15 min)
+### CSS Lesson 2: More selectors (15 min)
 Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/css-lesson-2.html).
 - The `tag` selector
 - Optimize common styles
@@ -181,11 +181,10 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - Pseudo selectors `:hover`
 - `:hover` example
 
-### Text Editing 3: type less CSS (litterally) (5 min)
+### Text Editing 3: Type less CSS (litterally) (5 min)
 - Plugins: Hayaku
-- Plugins: CSScomb
 
-### CSS Exercise 2: building a reusable menu with a button (15 min)
+### CSS Exercise 2: Building a reusable menu with a button (10 + 20 min)
 - CSS selector game: https://flukeout.github.io/
 - `background-color`
 - `text-shadow`
@@ -195,7 +194,6 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 
 ### Reading: HTML CSS
 - Coding style: https://mdo.github.io/code-guide/
-- Semantic HTML: http://www.w3schools.com/html/html5_semantic_elements.asp
 
 ---
 
