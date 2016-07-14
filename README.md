@@ -1,5 +1,9 @@
 # Web(/App) Dev Course
 
+
+This course does not require any prior knowledge, if you got some - even better. The materials for this course are created so I can present them and might need some extra information that you will not find on the slides (especially in later lessons).
+
+
 <!-- MarkdownTOC -->
 
 - [Getting Started - Opinionated first steps in learning web development \(20 min\)](#getting-started---opinionated-first-steps-in-learning-web-development-20-min)
@@ -19,11 +23,11 @@
   - [CSS Exercise 2: Building a reusable menu with a button \(10 + 20 min\)](#css-exercise-2-building-a-reusable-menu-with-a-button-10--20-min)
   - [Reading: HTML CSS](#reading-html-css)
 - [JS \(client\)](#js-client)
-  - [JS Lesson 1: programming basics datatypes](#js-lesson-1-programming-basics-datatypes)
-  - [JS Exercise 1: playing with variables](#js-exercise-1-playing-with-variables)
-  - [JS Lesson 2: programming basics control flow](#js-lesson-2-programming-basics-control-flow)
-  - [JS Exercise 2: solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
-  - [JS Lesson 3: programming basics functions](#js-lesson-3-programming-basics-functions)
+  - [JS Lesson 1: Programming-basics datatypes \(20 min\)](#js-lesson-1-programming-basics-datatypes-20-min)
+  - [JS Exercise 1: Playing with variables](#js-exercise-1-playing-with-variables)
+  - [JS Lesson 2: Programming-basics control flow](#js-lesson-2-programming-basics-control-flow)
+  - [JS Exercise 2: Solve large problems with control flow](#js-exercise-2-solve-large-problems-with-control-flow)
+  - [JS Lesson 3: Programming-basics functions](#js-lesson-3-programming-basics-functions)
   - [JS Lesson 4: DOM manipulation basics](#js-lesson-4-dom-manipulation-basics)
   - [JS Lesson 5: ajax](#js-lesson-5-ajax)
   - [JS Lesson 6: Debugging](#js-lesson-6-debugging)
@@ -202,7 +206,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 ---
 
 ## JS (client)
-### JS Lesson 1: programming basics datatypes
+### JS Lesson 1: Programming-basics datatypes (20 min)
 - Dynamic typing (duck typing)
 - Interactive Shell, REPL, nesh, browser console
 - Assigning a value to a variable
@@ -221,7 +225,7 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - Variable names
 - Comments
 
-### JS Exercise 1: playing with variables
+### JS Exercise 1: Playing with variables
 Interactive game in the browser in the debugger command line.
 - create a string store in var `a`
 - create another string `b` and concat them
@@ -233,17 +237,17 @@ Interactive game in the browser in the debugger command line.
 - create a phonebook (object)
 - concat a string and a number
 
-### JS Lesson 2: programming basics control flow
+### JS Lesson 2: Programming-basics control flow
 - `if`, `else`
 - `for`
 - `while`
 - `continue`, `break`
 
-### JS Exercise 2: solve large problems with control flow
+### JS Exercise 2: Solve large problems with control flow
 Interactive game in the browser in the debugger command line.
 - add array of numbers
 
-### JS Lesson 3: programming basics functions
+### JS Lesson 3: Programming-basics functions
 - definition
 - arguments
 - return value
