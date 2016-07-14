@@ -22,25 +22,13 @@ Sometimes there is an additional <br>hint hidden here.</div>
 <span style="font-size: 0.5em; position: absolute; top: 0; right: 0; cursor: pointer; color: red; font-weight: bold;" onclick="document.querySelector('#dirs-current').hidden = !document.querySelector('#dirs-current').hidden;"> click me </span>
 
 Code Sandbox
-<div class="editor-wrapper" id="code-example-1">
-
-<div class="editor-container">
-<script type="text/plain" class="editor-html" >Hello World!
-Try changing this.</script>
-</div>
-<div class="rendered-html"></div>
-<style type="text/css" class="rendered-css">
-  .rendered-html table td, .rendered-html table th{
-    border: 1px solid;
-  }
-  </style>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 60});
-})();
+<div class="js-sandbox" data-height="60">
+<script type="text/plain" class="editor-html" >
+Hello World!
+Try changing this.
 </script>
+</div>
+
 
 Source Code
 ```css
@@ -77,8 +65,8 @@ In the *text editing lessons* you will learn many tricks how type less while avo
 You can learn blind typing in less than 2 month with 5 minutes of practice a day!
 
 --
-### Don't use your mouse, use your brain
-The keyboard is much faster than the mouse.
+### Don't use your mouse, use your brain <br> through your keyboard
+ The keyboard is much faster than the mouse.
 
 <!-- 
   + Ask audience why the are here, what they want to learn.
