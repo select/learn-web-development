@@ -135,7 +135,7 @@ img.badge {
   width: 100%;
   height: 100%;
   opacity: 0.4;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
+  background: url('background-image.jpg') center center no-repeat;
   background-size: cover;
   z-index: 1;
 }
@@ -364,7 +364,7 @@ code {
   border-radius: 3px;
 }
 
-pre code {
+pre code, pre script {
   display: block;
   padding: .5em;
   font-family: 'Inconsolata';
@@ -537,7 +537,7 @@ kbd {
     padding: 10px;
   }
   .slide-content {
-    height: 340px;
+    height: 100%;
     padding: 10px;
     margin-top: 10px;
   }
@@ -625,31 +625,19 @@ kbd {
       <div class="slide hidden" id="slide-2">
         <div data-id="2" class="slide-overlay"></div>
         <section class="slide-content"><h3 id="elements-on-the-slides">Elements on the slides</h3>
-<script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script>
+<p><script src="js-sandbox.js" type="text/javascript" charset="utf-8"></script></p>
 <div style="position: absolute; top: 19px; right: 0; font-size: 0.6em; background-color: white; border: 2px dashed #eee;" id="dirs-current" hidden>
 Sometimes there is an additional <br>hint hidden here.</div>
 <span style="font-size: 0.5em; position: absolute; top: 0; right: 0; cursor: pointer; color: red; font-weight: bold;" onclick="document.querySelector('#dirs-current').hidden = !document.querySelector('#dirs-current').hidden;"> click me </span>
 
 Code Sandbox
-<div class="editor-wrapper" id="code-example-1">
-
-<div class="editor-container">
-<script type="text/plain" class="editor-html" >Hello World!
-Try changing this.</script>
-</div>
-<div class="rendered-html"></div>
-<style type="text/css" class="rendered-css">
-  .rendered-html table td, .rendered-html table th{
-    border: 1px solid;
-  }
-  </style>
-</div>
-
-<script>
-(function() {
-    sandbox('#code-example-1',{height: 60});
-})();
+<div class="js-sandbox" data-height="60">
+<script type="text/plain" class="editor-html" >
+Hello World!
+Try changing this.
 </script>
+</div>
+
 
 <p>Source Code</p>
 <pre><code class="lang-css"><span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> { <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> }</code></pre>
@@ -696,8 +684,8 @@ Try changing this.</script>
     <div class="slide-wrapper">
       <div class="slide hidden" id="slide-6">
         <div data-id="6" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="don-t-use-your-mouse-use-your-brain">Don&#39;t use your mouse, use your brain</h3>
-<p>The keyboard is much faster than the mouse.</p>
+        <section class="slide-content"><h3 id="don-t-use-your-mouse-use-your-brain-br-through-your-keyboard">Don&#39;t use your mouse, use your brain <br> through your keyboard</h3>
+<p> The keyboard is much faster than the mouse.</p>
 <!-- 
   + Ask audience why the are here, what they want to learn.
   + What you are learning here is supposed to solve your problems faster.
@@ -998,7 +986,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = function(e) {
-    if(e.target.tagName.toLowerCase() === 'textarea') return;
+    if(e.target.tagName.toLowerCase() === 'textarea' || e.target.hasAttribute('contenteditable')) return;
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
