@@ -11,7 +11,9 @@ class DOM {
     if (mixed instanceof HTMLElement) this.elements = [mixed];
     else if (parentNode !== undefined) this.elements = parentNode.querySelectorAll(selector);
     else this.elements = document.querySelectorAll(mixed);
-    this.length = this.elements.length;
+  }
+  get length() {
+    return this.elements.length;
   }
   /**
    * ### append
@@ -21,21 +23,21 @@ class DOM {
     let $tmp = document.createElement('div');
     $tmp.innerHTML = html;
     while ($tmp.firstChild) {
-      this.elements[0].appendChild($tmp.firstChild);
+      this.map(el => el.appendChild($tmp.firstChild));
     }
     return this.elements[0].lastChild;
   }
   /**
    * @param {Function} callback A callback to call on each element
    */
-  each(callback) {
+  map(callback) {
     // convert this to Array to use for...of
-    for (let el of Array.from(this.elements)) {
-      callback.call(el);
-    }
-
+    Array.from(this.elements).map(callback);
     // return this for chaining
     return this;
+  }
+  reduce(callback, initialValue) {
+    return Array.from(this.elements).reduce(callback, initialValue);
   }
 
   /**
@@ -43,9 +45,8 @@ class DOM {
    * @param {String} className The class name to add
    */
   addClass(className) {
-    return this.each(function() {
-      this.classList.add(className);
-    });
+    this.map( el => el.classList.add(className));
+    return this;
   }
 
   /**
@@ -53,55 +54,40 @@ class DOM {
    * @param {String} className The class name to remove
    */
   removeClass(className) {
-    return this.each(function() {
-      this.classList.remove(className);
-    });
+    this.map( el =>  el.classList.remove(className) );
+    return this;
   }
 
   /**
-   * Check to see if the element has a class
-   * (Note: Only checks the first elements if more than one is selected)
+   * Check to see if the element(s) has a class
    * @param {String} className The class name to check
    */
   hasClass(className) {
-    return this[0].classList.contains(className);
+    return this.reduce( previousValue, el => previousValue || el.classList.contains(className), false)
   }
 
   /**
    * Attach an event listener with a callback to the selected elements
    * @param {String} event Name of event, eg. "click", "mouseover", etc...
    * @param {Function} callback The function to call when the event is triggered
+   * @param {Boolean} capture execute on capture phase
    */
   on(event, callback, capture) {
-    return this.each(function() {
-      this.addEventListener(event, callback, capture);
-    });
+    this.map((el) => el.addEventListener(event, callback, capture));
   }
-
   off(event, callback, capture) {
-    return this.each(function() {
-      this.removeEventListener(event, callback, capture);
-    });
+    this.map((el) => el.removeEventListener(event, callback, capture));
   }
 
-  val(value) {
-    if (value !== undefined) {
-      this.each(function() {
-        this.value = value;
-      });
-    } else {
-      var list = [];
-      this.each(function() {
-        list.push(this.value);
-      });
-      if (list.length === 1) {
-        return list[0];
-      } else {
-        return list;
-      }
-    }
+  // get set the value of the element(s)
+  set val(value) {
+    this.map( el => el.value = value );
+  }
+  get val() {
+    return this.length === 1 ? this.elements[0].value : this.map( el => el.value);
   }
 }
+
 window.$ = (selector) => new DOM(selector);
 
 
