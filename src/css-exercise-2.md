@@ -42,6 +42,6 @@ You can do more levels but it will teach you new things.
 ### The End
 Continue with the
 
-<a href="html-css-lesson-1.html">HTML & CSS Lesson 1 - Blocks and visibility (10 min)</a>
+<a href="js-lesson-1.html">JS Lesson 1 - Programming-basics datatypes (20 min)</a>
 
 or go back to the <a href="https://github.com/select/learn-web-development">overview</a>.

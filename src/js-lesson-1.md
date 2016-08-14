@@ -1,5 +1,4 @@
 title: JS Lesson 1 - Programming-basics datatypes
-
 author:
   name: Falko Krause
   github: select
@@ -126,13 +125,102 @@ Right on! Lets store some numbers
 
 --
 ### `Number`: Integer, Float, `+`,`-`,`*`,`/`
-
+So far we have seen full numbers (Integers) only, <br>
+but there are floating point numbers too
+```
+› 3 * 3.75 / 1.5
+7.5
+```
+<div class="fragment">
+    We mixed ints and floats and we got floats.
+</div>
 
 --
-### String
+### `String`
+Strings are **lists** of characters
+```
+› 'Hello World!'
+"Hello World!"
+```
+
+--
+### `String`: single quotes, double quotes
+In JS it does not matter what you use.
+
+... TODO is that true?????
+```
+› 'Hello World!'
+"Hello World!"
+› "Hello World!"
+"Hello World!"
+```
+
+--
+### `String`: special charcters
+There are some special caracters <br>
+<table>
+    <tr>
+        <td>\n</td>
+        <td>new line</td>
+    </tr>
+    <tr>
+        <td>\t</td>
+        <td>tab</td>
+    </tr>
+</table>
+We need them because e.g. a `String` **can not span several lines**.
+```
+› 'Hello 
+World'
+```
+[]This will generate an Error
+
+--
+### `String`: special charcters
+Special characters start with a `\` backslash followed by a letter. <br>
+These special chacters get **interpreted**
+or you could also say converted to their actual character.
+```
+› 'Hello \nWorld'
+Hello
+World
+```
+
+--
+### `String`: special charcters
+But how do you write a backslash then?
+... you must **escape it**.
+```
+› 'Hello \\nWorld'
+Hello \nWorld
+```
+<div class="fragment">
+    This is the same priciple that we saw in the HTML lesson. <br>
+    `&lt;` -> `<` where the escape charcter was `&`
+</div>
 
 --
 ### String Concatenation
+Strings can be glued together, this is called string concatenation
+```
+'hello '+'world'
+```
+
+--
+### Type Casting
+Numbers and Strings can be converted into each other
+```
+› String(42)
+"42"
+› Number("13")
+13
+```
+But of course this can fail
+```
+› Number("Ham and eggs")
+NaN
+```
+
 
 --
 ### Array (List)
