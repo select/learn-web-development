@@ -42,8 +42,23 @@ This course does not require any prior knowledge, if you got some - even better.
 - [JS \(server\)](#js-server)
 - [JS \(client framewoks/libs\)](#js-client-framewokslibs)
 - [Text Editing: VIM](#text-editing-vim)
+- [Test presentation](#test-presentation)
 - [Advanced topics](#advanced-topics)
   - [Securing your SSH login](#securing-your-ssh-login)
+  - [JavaScript fatigue - why is there something new every other month](#idea)
+  - [Async: callbacks, promises, generators, async/await](#async-callbacks-promises-generators-asyncawait)
+  - [Death to the for loop!](#death-to-the-for-loop)
+  - [Semantic HTML: tags, formats, ontologies](#idea)
+  - [Web Components - an introduction](#idea)
+  - [Client side storage - how to speed up and offline](#idea)
+  - [JS dialects and other languages- an overview](#idea)
+  - [New CSS porperties and old tricks](#idea)
+  - [The real time web](#idea)
+  - [How to use your dev shell](#idea)
+  - [State management](#state-management)
+  - [Event stream programming with ReactiveX](#event-stream-programming-with-reactivex)
+  - [JavaScript tooling and opinionated overview](#idea)
+  - [How I wrote my own jQuery, and why](#how-i-wrote-my-own-jquery-and-why)
 - [Resources and inspirations](#resources-and-inspirations)
 
 <!-- /MarkdownTOC -->
@@ -355,7 +370,7 @@ http://juliepagano.com/blog/2014/05/18/javascript-debugging-for-beginners/
 ## Text Editing: VIM
 - Exercise: http://www.openvim.com/
 
-
+## Test presentation
 Here is a link to a [test presentation](https://rawgit.com/select/learn-web-development/224e104e4a29438472965b94efd920d130dd8106/dist/test-presentation.html)
 
 ## Advanced topics
@@ -387,6 +402,161 @@ Visit [the presentation](https://rawgit.com/select/learn-web-development/224e104
 - All commands
 - Literature
 
+### JavaScript fatigue - why is there something new every other month [idea]
+- The HTML syntax grows
+- The CSS syntax grows
+- The JavaScript syntax grows
+- Other standards that interact
+- Output devices: from PC desktop to smart watch
+- Input methods
+- Connection speeds: from fiberoptics to rural cellphone
+- Laymen, designers, scientists - the largest community in the world
+- "Optimizing" for the search engine
+
+### Async: callbacks, promises, generators, async/await
+- Callbacks introduction
+- Callback hell
+- Clean up callbacks with promises
+- much cleaner code with co and generator functions
+- the future is neigh: async/await for the rescue
+
+### Death to the for loop!
+- Problem: nesting loops
+- Problem testing: side effects, pure is better
+- Problem readablity
+- ES6 Arrays got it all
+- forEach
+- map
+- reduce, reduceRight
+- find elements
+  + includes
+  + filter
+  + indexOf
+  + find
+- from (document.querySelectorAll)
+- Object.keys
+- slice good, splice bad
+- Examples of cleaner code
+
+### Semantic HTML: tags, formats, ontologies [idea]
+- Old semantic tags
+- Non semantic tags
+- New semantic elements - better automatic information retrieval
+- Semantic usecase: Information retrieval
+- Meta Tags
+- HTML Microdata
+- vCard and hCard
+- Facebooks ontology: Open Graph protocol
+- Schema.org ontology
+- Inlining other languages
+
+### Web Components - an introduction [idea]
+- The web like lego bricks
+- custom tags
+- shadow DOM
+- but CSS is always global :(
+- Full stack components: meteor packages
+
+### Client side storage - how to speed up and offline [idea]
+- Cookies
+- Local Storage
+- Session Storage
+- WebSQL
+- IndexDB
+- Service Wokers
+
+### JS dialects and other languages- an overview [idea]
+- ES5 - ES6
+- Templating languages
+- Coffee script
+- JSX
+- TypeScript
+- Mixing Languages - `.vue`
+- Accessible Rich Internet Applications (ARIA)
+- (Inlining) other languages: SVG, MathML, RSS
+
+### New CSS porperties and old tricks [idea]
+-object-fit/object-position
+- Make images fit into a box
+- wrap
+  + Overflow-wrap
+  + word-wrap
+  + break-word
+  + hyphens
+- display: flex
+- em for border radius
+- `&:not(:last-child)`
+- `.alert:empty { display: none }`
+- Custom design for inputs: `file`
+- Custom design for inputs: `checkbox`
+  + checkbox
+  + switch
+- Pure CSS responsive + touch tabs & dropdown menu
+- Flex grid
+- Minimum font size that always works
+- Horizontal rhythm
+- Views
+- Filetype icons for links
+- Animation length
+- From ASCII to UTF8
+- SVG image as icons
+- Your own icon font
+
+### The real time web [idea]
+- Polling, long polling
+- WebSockets
+- SocketIO
+- FeathersJS
+- DeepStream
+- Meteor
+
+### How to use your dev shell [idea]
+- Setting breakpoints
+- Conditional breakpoints
+- Black boxing external libs
+- copying objects to clipboard
+
+### State management
+- Local states
+- Angular singleton services
+- Redux
+- Redux DevTool
+- Vuex
+
+### Event stream programming with ReactiveX
+- Lists: forEach, map, reduce, includes, find, `[]`, concat
+- Events are lists over time
+
+### JavaScript tooling and opinionated overview [idea]
+- Code style
+  + Lint
+  + Code style
+- Documentation
+  + Source Code
+  + README.md
+  + CSS
+- Package management
+- Commit messages
+- Unit testing on `git push`
+
+### How I wrote my own jQuery, and why
+- What I really use of jQuery
+- ES6 has most of these features already
+- ES6 support is growing strong
+- ES6 can be transpiled to ES5
+- Cash is small, but we can go even smaller
+- Setup and replacing `$('selector')`
+- `forEach`
+- `on` and `off`
+- `val` get and set
+- `hasClass`, `addClass`, `removeClass`
+- `html`
+- `append`
+- Utils
+- `ajax`, `loadScript`
+- `uid`
+- `debounce`
+- `throttle`
 
 ## Resources and inspirations
 
